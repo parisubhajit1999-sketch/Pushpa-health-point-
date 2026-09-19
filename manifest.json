@@ -1,0 +1,24 @@
+{
+  "name": "Pushpa Health Point",
+  "short_name": "Pushpa Health",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f8f7",
+  "theme_color": "#087f73",
+  "description": "Pushpa Health Point appointment, consultation and home visit app.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
