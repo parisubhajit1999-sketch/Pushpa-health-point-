@@ -52,6 +52,23 @@ footer{text-align:center;padding:22px;color:#718381;font-size:12px}
 .table{width:100%;border-collapse:collapse;margin-top:8px}
 .table th,.table td{border:1px solid #dfe9e7;padding:7px;font-size:12px;text-align:left}
 .table th{background:#eef7f5}
+
+/* ONLY FOR PRESCRIPTION */
+.pres-label{
+display:block;
+font-size:12px;
+font-weight:700;
+margin-top:9px;
+margin-bottom:2px;
+color:var(--text);
+}
+.medicine-wrap{
+overflow-x:auto;
+width:100%;
+}
+.medicine-table{
+min-width:650px;
+}
 </style>
 </head>
 
@@ -358,35 +375,61 @@ Rental price and availability depend on equipment and current stock.
 The system does not independently diagnose or prescribe medicines.
 </div>
 
+<label class="pres-label">Patient Name</label>
 <input id="pn" placeholder="Patient Name">
+
+<label class="pres-label">Age</label>
 <input id="pa" type="number" placeholder="Age">
 
+<label class="pres-label">Gender</label>
 <select id="pg">
-<option>Male</option><option>Female</option><option>Other</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
 </select>
 
+<label class="pres-label">Date</label>
 <input id="pd" type="date">
 
+<label class="pres-label">Doctor Name</label>
 <input id="docname" placeholder="Doctor Name">
+
+<label class="pres-label">Qualification</label>
 <input id="docqual" placeholder="Qualification">
+
+<label class="pres-label">Registration Number</label>
 <input id="regno" placeholder="Registration Number">
+
+<label class="pres-label">Diagnosis / Clinical Notes</label>
 <input id="diagnosis" placeholder="Diagnosis / Clinical Notes">
 
 <h3 id="medicineTitle" style="font-size:15px">Medicine</h3>
 
-<table class="table">
+<div class="medicine-wrap">
+<table class="table medicine-table" id="medicineTable">
 <tr>
-<th id="th1">Medicine</th><th id="th2">Strength</th><th id="th3">Dose</th><th id="th4">Frequency</th><th id="th5">Duration</th>
+<th>Medicine</th>
+<th>Dose</th>
+<th>Strength</th>
+<th>Frequency</th>
+<th>Duration</th>
 </tr>
-<tr>
-<td><input id="m1" placeholder="Name"></td>
-<td><input id="m2" placeholder="e.g. 500 mg"></td>
-<td><input id="m3" placeholder="Dose"></td>
-<td><input id="m4" placeholder="e.g. BD"></td>
-<td><input id="m5" placeholder="Days"></td>
+
+<tr class="medicineRow">
+<td><input class="mName" placeholder="Name"></td>
+<td><input class="mDose" placeholder="e.g. 1 tablet"></td>
+<td><input class="mStrength" placeholder="e.g. 500 mg"></td>
+<td><input class="mFrequency" placeholder="e.g. BD"></td>
+<td><input class="mDuration" placeholder="e.g. 5 days"></td>
 </tr>
 </table>
+</div>
 
+<button type="button" class="secondary" id="addMedicineBtn">
+➕ Add Medicine
+</button>
+
+<label class="pres-label">Special Instructions / Follow-up</label>
 <textarea id="pinstruction" placeholder="Special instructions / Follow-up"></textarea>
 
 <button class="primary" id="previewBtn">Preview Prescription</button>
@@ -402,10 +445,17 @@ The system does not independently diagnose or prescribe medicines.
 <p><b id="rDateLabel">Date:</b> <span id="rpd"></span></p>
 <p><b id="rDiagnosisLabel">Diagnosis / Notes:</b> <span id="rdiag"></span></p>
 
-<table class="table">
-<tr><th>Medicine</th><th>Strength</th><th>Dose</th><th>Frequency</th><th>Duration</th></tr>
-<tr><td id="rm1"></td><td id="rm2"></td><td id="rm3"></td><td id="rm4"></td><td id="rm5"></td></tr>
+<div class="medicine-wrap">
+<table class="table medicine-table" id="previewMedicineTable">
+<tr>
+<th>Medicine</th>
+<th>Dose</th>
+<th>Strength</th>
+<th>Frequency</th>
+<th>Duration</th>
+</tr>
 </table>
+</div>
 
 <p><b id="rInstructionLabel">Instructions:</b> <span id="rinst"></span></p>
 <br><br>
@@ -554,6 +604,42 @@ if(answer) answer.classList.toggle("hidden");
 
 /* PRESCRIPTION */
 
+function escapeHtml(text){
+return String(text).replace(/[&<>"']/g,function(char){
+return {
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[char];
+});
+}
+
+
+/* ADD MEDICINE */
+
+document.getElementById("addMedicineBtn").addEventListener("click",function(){
+
+const table=document.getElementById("medicineTable");
+
+const row=table.insertRow(-1);
+
+row.className="medicineRow";
+
+row.innerHTML=`
+<td><input class="mName" placeholder="Name"></td>
+<td><input class="mDose" placeholder="e.g. 1 tablet"></td>
+<td><input class="mStrength" placeholder="e.g. 500 mg"></td>
+<td><input class="mFrequency" placeholder="e.g. BD"></td>
+<td><input class="mDuration" placeholder="e.g. 5 days"></td>
+`;
+
+});
+
+
+/* PRESCRIPTION PREVIEW */
+
 document.getElementById("previewBtn").addEventListener("click",function(){
 
 document.getElementById("rpn").innerText=value("pn");
@@ -561,18 +647,52 @@ document.getElementById("rpa").innerText=value("pa");
 document.getElementById("rpg").innerText=value("pg");
 document.getElementById("rpd").innerText=value("pd");
 document.getElementById("rdiag").innerText=value("diagnosis");
-document.getElementById("rm1").innerText=value("m1");
-document.getElementById("rm2").innerText=value("m2");
-document.getElementById("rm3").innerText=value("m3");
-document.getElementById("rm4").innerText=value("m4");
-document.getElementById("rm5").innerText=value("m5");
 document.getElementById("rinst").innerText=value("pinstruction");
 document.getElementById("rdoc").innerText=value("docname");
 document.getElementById("rqual").innerText=value("docqual");
 document.getElementById("rreg").innerText=value("regno");
 
-document.getElementById("presPreview").classList.remove("hidden");
+
+const previewTable=document.getElementById("previewMedicineTable");
+
+previewTable.innerHTML=`
+<tr>
+<th>Medicine</th>
+<th>Dose</th>
+<th>Strength</th>
+<th>Frequency</th>
+<th>Duration</th>
+</tr>
+`;
+
+document.querySelectorAll("#medicineTable .medicineRow").forEach(function(row){
+
+const name=row.querySelector(".mName").value;
+const dose=row.querySelector(".mDose").value;
+const strength=row.querySelector(".mStrength").value;
+const frequency=row.querySelector(".mFrequency").value;
+const duration=row.querySelector(".mDuration").value;
+
+if(name || dose || strength || frequency || duration){
+
+const newRow=previewTable.insertRow(-1);
+
+newRow.innerHTML=`
+<td>${escapeHtml(name)}</td>
+<td>${escapeHtml(dose)}</td>
+<td>${escapeHtml(strength)}</td>
+<td>${escapeHtml(frequency)}</td>
+<td>${escapeHtml(duration)}</td>
+`;
+
+}
+
 });
+
+document.getElementById("presPreview").classList.remove("hidden");
+
+});
+
 
 document.getElementById("printBtn").addEventListener("click",function(){
 window.print();
@@ -835,26 +955,21 @@ setText("equipmentSubmit",T.requestRental);
 setText("faqTitle",T.faqTitle);
 setText("prescriptionTitle",T.prescriptionTitle);
 setText("prescriptionNotice",T.prescriptionNotice);
-setText("medicineTitle",T.medicine);
-setText("th1",T.medicine);
-setText("th2",T.strength);
-setText("th3",T.dose);
-setText("th4",T.frequency);
-setText("th5",T.duration2);
-setPlaceholder("pn",T.patient);
-setPlaceholder("pa",T.age);
-setPlaceholder("docname",currentLanguage==="bn"?"ডাক্তারের নাম":"Doctor Name");
-setPlaceholder("docqual",currentLanguage==="bn"?"যোগ্যতা":"Qualification");
-setPlaceholder("regno",currentLanguage==="bn"?"রেজিস্ট্রেশন নম্বর":"Registration Number");
-setPlaceholder("diagnosis",currentLanguage==="bn"?"রোগ নির্ণয় / ক্লিনিক্যাল নোট":"Diagnosis / Clinical Notes");
-setPlaceholder("m1",currentLanguage==="bn"?"নাম":"Name");
-setPlaceholder("m2",currentLanguage==="bn"?"যেমন ৫০০ mg":"e.g. 500 mg");
-setPlaceholder("m3",T.dose);
-setPlaceholder("m4",currentLanguage==="bn"?"যেমন BD":"e.g. BD");
-setPlaceholder("m5",currentLanguage==="bn"?"দিন":"Days");
-setPlaceholder("pinstruction",T.instruction);
-setText("previewBtn",T.preview);
-setText("printBtn",T.print);
+setText("medicineTitle","Medicine");
+
+/* Prescription medicine section intentionally stays English */
+
+setPlaceholder("pn","Patient Name");
+setPlaceholder("pa","Age");
+setPlaceholder("docname","Doctor Name");
+setPlaceholder("docqual","Qualification");
+setPlaceholder("regno","Registration Number");
+setPlaceholder("diagnosis","Diagnosis / Clinical Notes");
+setPlaceholder("pinstruction","Special Instructions / Follow-up");
+
+setText("previewBtn","Preview Prescription");
+setText("printBtn","🖨️ Print / Save as PDF");
+setText("addMedicineBtn","➕ Add Medicine");
 
 setText("contactTitle",T.contactTitle);
 setText("contactCall",T.call);
