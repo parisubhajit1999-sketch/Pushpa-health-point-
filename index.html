@@ -165,8 +165,10 @@ Services are provided according to clinical assessment, professional scope and a
 <input id="cn" placeholder="Patient name" required>
 <input id="ca" type="number" placeholder="Age" required>
 <input id="cm" inputmode="tel" placeholder="Mobile number" required>
-<input type="date" aria-label="Select Date">
-<input type="time" aria-label="Select Time">
+<label><b id="dateLabel">Appointment Date</b></label>
+<input id="ad" type="date" required>
+<label><b id="timeLabel">Appointment Time</b></label>
+<input id="at" type="time" required>
 <textarea id="cp" placeholder="Briefly describe the problem"></textarea>
 <button class="primary" id="consultSubmit">Request Consultation</button>
 </form>
