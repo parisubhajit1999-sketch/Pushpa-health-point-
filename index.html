@@ -4,242 +4,127 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#087f73">
-<meta name="description" content="Pushpa Health Point - Community healthcare, nursing, home visit, physiotherapy, diagnostics and medical equipment rental.">
+<meta name="description" content="Pushpa Health Point - Community healthcare and nursing support.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <title>Pushpa Health Point</title>
 
 <style>
 :root{
-  --g:#087f73;
-  --g2:#075c55;
-  --pink:#ef4f8a;
-  --orange:#f39b26;
-  --purple:#7660c9;
-  --blue:#1688c9;
-  --green:#42a85d;
-  --bg:#f4f8f7;
-  --text:#173b3a;
+--g:#087f73;
+--g2:#075c55;
+--pink:#ef4f8a;
+--orange:#f39b26;
+--purple:#7660c9;
+--blue:#1688c9;
+--green:#42a85d;
+--bg:#f4f8f7;
+--text:#173b3a
 }
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text)
+margin:0;
+font-family:Arial,sans-serif;
+background:var(--bg);
+color:var(--text)
 }
 header{
-  background:linear-gradient(135deg,var(--g),var(--g2));
-  color:#fff;
-  padding:20px 16px;
-  border-radius:0 0 24px 24px;
+background:linear-gradient(135deg,var(--g),var(--g2));
+color:#fff;
+padding:20px 16px;
+border-radius:0 0 24px 24px
 }
 .logo{
-  width:62px;
-  height:62px;
-  border-radius:18px;
-  background:#fff;
-  display:grid;
-  place-items:center;
-  color:var(--g);
-  font-size:30px;
-  float:left;
-  margin-right:12px;
-  box-shadow:0 3px 10px #0002;
+width:62px;height:62px;border-radius:18px;background:#fff;
+display:grid;place-items:center;color:var(--g);
+font-size:30px;float:left;margin-right:12px;
+box-shadow:0 3px 10px #0002
 }
 h1{font-size:24px;margin:5px 0}
 .tag{font-size:13px;opacity:.9}
+.lang{
+float:right;background:#fff;color:var(--g);border:0;
+border-radius:20px;padding:8px 12px;font-weight:700
+}
 main{padding:16px;max-width:600px;margin:auto}
 .address,.card{
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 3px 12px #0000000d
+background:#fff;border-radius:16px;
+box-shadow:0 3px 12px #0000000d
 }
-.address{
-  padding:12px 14px;
-  margin:14px 0;
-  font-size:13px;
-  line-height:1.5
-}
+.address{padding:12px 14px;margin:14px 0;font-size:13px;line-height:1.5}
 .info{
-  background:#eaf7f4;
-  border-radius:14px;
-  padding:12px;
-  margin:12px 0;
-  font-size:13px;
-  line-height:1.5
+background:#eaf7f4;border-radius:14px;padding:12px;
+margin:12px 0;font-size:13px;line-height:1.5
 }
 .notice{
-  background:#fff4e5;
-  border-left:4px solid var(--orange);
-  padding:12px;
-  border-radius:12px;
-  font-size:13px;
-  line-height:1.5;
-  margin:14px 0;
-}
-.lang{
-  float:right;
-  background:#fff;
-  color:var(--g);
-  border:0;
-  border-radius:20px;
-  padding:8px 12px;
-  font-weight:700;
+background:#fff4e5;border-left:4px solid var(--orange);
+padding:12px;border-radius:12px;font-size:13px;
+line-height:1.5;margin:14px 0
 }
 .grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px
+display:grid;grid-template-columns:1fr 1fr;gap:10px
 }
 .btn{
-  border:0;
-  border-radius:16px;
-  padding:15px 8px;
-  color:#fff;
-  font-weight:700;
-  font-size:13px;
-  min-height:88px;
-  box-shadow:0 2px 7px #0001;
+border:0;border-radius:16px;padding:15px 8px;color:#fff;
+font-weight:700;font-size:13px;min-height:88px;
+box-shadow:0 2px 7px #0001;cursor:pointer
 }
-.a{background:#008f83}
-.b{background:#ef4f8a}
-.c{background:#f39b26}
-.d{background:#7660c9}
-.e{background:#1688c9}
-.f{background:#42a85d}
-.g{background:#a45cc7}
-.h{background:#3b82b8}
-.i{background:#d16b35}
-.j{background:#087f73}
-.card{
-  padding:16px;
-  margin-top:14px
-}
-.card h2{
-  font-size:18px;
-  margin:0 0 12px
-}
+.a{background:#008f83}.b{background:#ef4f8a}
+.c{background:#f39b26}.d{background:#7660c9}
+.e{background:#1688c9}.f{background:#42a85d}
+.g{background:#a45cc7}.h{background:#3b82b8}
+.i{background:#d16b35}.j{background:#087f73}
+.card{padding:16px;margin-top:14px}
+.card h2{font-size:18px;margin:0 0 12px}
 input,select,textarea{
-  width:100%;
-  padding:12px;
-  margin:6px 0;
-  border:1px solid #d6e1df;
-  border-radius:11px;
-  font-size:14px;
-  background:#fff;
+width:100%;padding:12px;margin:6px 0;
+border:1px solid #d6e1df;border-radius:11px;
+font-size:14px;background:#fff
 }
 textarea{min-height:80px}
 .primary{
-  background:var(--g);
-  color:#fff;
-  border:0;
-  border-radius:12px;
-  padding:13px 16px;
-  width:100%;
-  font-weight:700;
-  margin-top:8px
+background:var(--g);color:#fff;border:0;border-radius:12px;
+padding:13px 16px;width:100%;font-weight:700;margin-top:8px;
+cursor:pointer
 }
 .secondary{
-  background:#eef7f5;
-  color:var(--g);
-  border:0;
-  border-radius:12px;
-  padding:13px 16px;
-  width:100%;
-  font-weight:700;
-  margin-top:8px
+background:#eef7f5;color:var(--g);border:0;border-radius:12px;
+padding:13px 16px;width:100%;font-weight:700;margin-top:8px
 }
-.linkrow{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px
-}
+.linkrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .linkbtn{
-  padding:13px;
-  border-radius:12px;
-  text-align:center;
-  text-decoration:none;
-  font-weight:700;
-  background:#eef7f5;
-  color:var(--g)
+padding:13px;border-radius:12px;text-align:center;
+text-decoration:none;font-weight:700;
+background:#eef7f5;color:var(--g);display:block
 }
 .install{
-  display:none;
-  background:#173b3a;
-  color:#fff;
-  border:0;
-  border-radius:12px;
-  padding:12px 14px;
-  width:100%;
-  font-weight:700;
-  margin:12px 0
+display:block;background:#173b3a;color:#fff;border:0;
+border-radius:12px;padding:12px 14px;width:100%;
+font-weight:700;margin:12px 0;cursor:pointer
 }
-.small{
-  font-size:12px;
-  color:#607371;
-  line-height:1.5
-}
+.small{font-size:12px;color:#607371;line-height:1.5}
 .service{
-  padding:11px 0;
-  border-bottom:1px solid #edf1f0;
-  line-height:1.4
+padding:11px 0;border-bottom:1px solid #edf1f0;line-height:1.4
 }
 .service:last-child{border:0}
-.hidden{display:none}
+.hidden{display:none!important}
 .back{
-  background:none;
-  border:0;
-  color:var(--g);
-  font-weight:700;
-  padding:0;
-  margin-bottom:12px
+background:none;border:0;color:var(--g);font-weight:700;
+padding:0;margin-bottom:12px;cursor:pointer
 }
-footer{
-  text-align:center;
-  padding:22px;
-  color:#718381;
-  font-size:12px
-}
-.faq{
-  border-bottom:1px solid #e8eeee;
-  padding:11px 0
-}
+footer{text-align:center;padding:22px;color:#718381;font-size:12px}
+.faq{border-bottom:1px solid #e8eeee;padding:11px 0}
 .faq button{
-  width:100%;
-  text-align:left;
-  border:0;
-  background:none;
-  font-weight:700;
-  color:var(--text);
-  padding:0;
-  font-size:14px
+width:100%;text-align:left;border:0;background:none;
+font-weight:700;color:var(--text);padding:0;font-size:14px;
+cursor:pointer
 }
 .answer{
-  padding:8px 0 0;
-  font-size:13px;
-  line-height:1.5;
-  color:#607371
+padding:8px 0 0;font-size:13px;line-height:1.5;color:#607371
 }
-.badge{
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:10px;
-  background:#eaf7f4;
-  color:var(--g);
-  font-size:11px;
-  font-weight:700;
-}
-.table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:8px
-}
+.table{width:100%;border-collapse:collapse;margin-top:8px}
 .table th,.table td{
-  border:1px solid #dfe9e7;
-  padding:7px;
-  font-size:12px;
-  text-align:left
+border:1px solid #dfe9e7;padding:7px;font-size:12px;text-align:left
 }
 .table th{background:#eef7f5}
 </style>
@@ -248,7 +133,7 @@ footer{
 <body>
 
 <header>
-<button class="lang" onclick="toggleLang()" id="langBtn">বাংলা</button>
+<button class="lang" id="langBtn">বাংলা</button>
 <div class="logo">✚</div>
 <h1>Pushpa Health Point</h1>
 <div class="tag" id="tag">Your Health Is Our Priority</div>
@@ -257,6 +142,7 @@ footer{
 
 <main>
 
+<!-- HOME -->
 <section id="home">
 
 <div class="address">
@@ -274,63 +160,66 @@ footer{
 Services are provided according to clinical assessment, professional scope and applicable rules.
 </div>
 
-<button id="installBtn" class="install">📲 Install Pushpa Health Point App</button>
+<button class="install" id="installBtn">
+📲 Install Pushpa Health Point App
+</button>
 
 <div class="grid">
 
-<button class="btn a" onclick="show('appointment')">
-📅<br><span data-en="Book Appointment" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">Book Appointment</span>
+<button class="btn a" data-page="appointment">
+📅<br>Book Appointment
 </button>
 
-<button class="btn b" onclick="show('consult')">
-👨‍⚕️<br><span data-en="Online Doctor Consultation" data-bn="অনলাইন ডাক্তার পরামর্শ">Online Doctor Consultation</span>
+<button class="btn b" data-page="consult">
+👨‍⚕️<br>Online Doctor Consultation
 </button>
 
-<button class="btn c" onclick="show('homevisit')">
-🏠<br><span data-en="Home Visit" data-bn="হোম ভিজিট">Home Visit</span>
+<button class="btn c" data-page="homevisit">
+🏠<br>Home Visit
 </button>
 
-<button class="btn d" onclick="show('nursing')">
-🩺<br><span data-en="Nursing Services" data-bn="নার্সিং পরিষেবা">Nursing Services</span>
+<button class="btn d" data-page="nursing">
+🩺<br>Nursing Services
 </button>
 
-<button class="btn e" onclick="show('physio')">
-🧑‍🦽<br><span data-en="Physiotherapy" data-bn="ফিজিওথেরাপি">Physiotherapy</span>
+<button class="btn e" data-page="physio">
+🧑‍🦽<br>Physiotherapy
 </button>
 
-<button class="btn f" onclick="show('blood')">
-🩸<br><span data-en="Blood Test & Report" data-bn="ব্লাড টেস্ট ও রিপোর্ট">Blood Test & Report</span>
+<button class="btn f" data-page="blood">
+🩸<br>Blood Test & Report
 </button>
 
-<button class="btn g" onclick="show('equipment')">
-🏥<br><span data-en="Equipment Rental" data-bn="মেডিক্যাল ইকুইপমেন্ট ভাড়া">Equipment Rental</span>
+<button class="btn g" data-page="equipment">
+🏥<br>Equipment Rental
 </button>
 
-<button class="btn h" onclick="show('faq')">
-❓<br><span data-en="FAQ / Common Questions" data-bn="সাধারণ প্রশ্ন">FAQ / Common Questions</span>
+<button class="btn h" data-page="faq">
+❓<br>FAQ / Common Questions
 </button>
 
-<button class="btn i" onclick="show('prescription')">
-📝<br><span data-en="Doctor Prescription" data-bn="ডাক্তারের প্রেসক্রিপশন">Doctor Prescription</span>
+<button class="btn i" data-page="prescription">
+📝<br>Doctor Prescription
 </button>
 
-<button class="btn j" onclick="show('contact')">
-📞<br><span data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</span>
+<button class="btn j" data-page="contact">
+📞<br>Contact Us
 </button>
 
 </div>
 
 <div class="card">
-<h2 data-en="Quick Contact" data-bn="দ্রুত যোগাযোগ">Quick Contact</h2>
+<h2>Quick Contact</h2>
+
 <div class="linkrow">
 <a class="linkbtn" href="tel:+916294172197">📞 Call</a>
 <a class="linkbtn" href="https://wa.me/916294172197" target="_blank">💬 WhatsApp</a>
 </div>
 
-<a class="linkbtn" style="display:block;margin-top:10px"
+<a class="linkbtn" style="margin-top:10px"
 href="https://maps.app.goo.gl/3LQ2pFVnWyg827b99?g_st=aw"
 target="_blank">
-📍 <span data-en="Open Google Maps Location" data-bn="Google Maps-এ লোকেশন দেখুন">Open Google Maps Location</span>
+📍 Open Google Maps Location
 </a>
 </div>
 
@@ -338,17 +227,16 @@ target="_blank">
 
 
 <!-- APPOINTMENT -->
-
 <section id="appointment" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
-<h2 data-en="Book Appointment" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">Book Appointment</h2>
+<button class="back" data-page="home">← Home</button>
+<h2>📅 Book Appointment</h2>
 
-<form onsubmit="send('Appointment');return false">
+<form id="appointmentForm">
 
 <input id="an" placeholder="Patient name" required>
 <input id="aa" type="number" placeholder="Age" required>
 
-<select id="ag">
+<select id="ag" required>
 <option value="">Gender</option>
 <option>Male</option>
 <option>Female</option>
@@ -368,10 +256,10 @@ target="_blank">
 <option>Other</option>
 </select>
 
-<div style="font-weight:700;margin-top:12px">Appointment Date</div>
+<label><b>Appointment Date</b></label>
 <input id="ad" type="date" required>
 
-<div style="font-weight:700;margin-top:12px">Appointment Time</div>
+<label><b>Appointment Time</b></label>
 <input id="at" type="time" required>
 
 <button class="primary">Send Appointment Request</button>
@@ -383,13 +271,12 @@ The request opens WhatsApp. Appointment must be confirmed before visiting.
 </section>
 
 
-<!-- CONSULTATION -->
-
+<!-- CONSULT -->
 <section id="consult" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
-<h2>Online Doctor Consultation</h2>
+<button class="back" data-page="home">← Home</button>
+<h2>👨‍⚕️ Online Doctor Consultation</h2>
 
-<form onsubmit="send('Online Doctor Consultation');return false">
+<form id="consultForm">
 
 <input id="cn" placeholder="Patient name" required>
 <input id="ca" type="number" placeholder="Age" required>
@@ -405,12 +292,11 @@ The request opens WhatsApp. Appointment must be confirmed before visiting.
 
 
 <!-- HOME VISIT -->
-
 <section id="homevisit" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
-<h2>Request Home Visit</h2>
+<button class="back" data-page="home">← Home</button>
+<h2>🏠 Request Home Visit</h2>
 
-<form onsubmit="send('Home Visit');return false">
+<form id="homevisitForm">
 
 <input id="hn" placeholder="Patient name" required>
 <input id="hm" inputmode="tel" placeholder="Mobile number" required>
@@ -436,9 +322,8 @@ The request opens WhatsApp. Appointment must be confirmed before visiting.
 
 
 <!-- NURSING -->
-
 <section id="nursing" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
+<button class="back" data-page="home">← Home</button>
 <h2>🩺 Nursing Services</h2>
 
 <div class="service">❤️ Vital signs monitoring — BP, Pulse, SpO₂, Temperature</div>
@@ -453,14 +338,15 @@ The request opens WhatsApp. Appointment must be confirmed before visiting.
 Services are subject to clinical assessment, professional scope, applicable law and referral requirements.
 </p>
 
-<button class="primary" onclick="show('homevisit')">🏠 Request Home Visit</button>
+<button class="primary" data-page="homevisit">
+🏠 Request Home Visit
+</button>
 </section>
 
 
-<!-- PHYSIOTHERAPY -->
-
+<!-- PHYSIO -->
 <section id="physio" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
+<button class="back" data-page="home">← Home</button>
 <h2>🧑‍🦽 Physiotherapy</h2>
 
 <div class="service">🏠 Home Physiotherapy</div>
@@ -474,16 +360,15 @@ Physiotherapy services should be provided by a qualified physiotherapist.
 Availability and service area may vary.
 </p>
 
-<button class="primary" onclick="sendSimple('Physiotherapy Request')">
+<button class="primary" id="physioBtn">
 Request Physiotherapy
 </button>
 </section>
 
 
 <!-- BLOOD -->
-
 <section id="blood" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
+<button class="back" data-page="home">← Home</button>
 <h2>🩸 Blood Sample Collection & Report</h2>
 
 <div class="info">
@@ -491,19 +376,17 @@ Home sample collection and laboratory report delivery can be requested through o
 Testing is performed through the associated/reputed laboratory as applicable.
 </div>
 
-<form onsubmit="sendBlood();return false">
+<form id="bloodForm">
 
 <input id="bn" placeholder="Patient name" required>
 <input id="bm" inputmode="tel" placeholder="Mobile number" required>
-
 <textarea id="ba" placeholder="Full address for sample collection" required></textarea>
-
 <input id="bt" placeholder="Required blood test / tests" required>
 
-<div style="font-weight:700;margin-top:10px">Preferred Date</div>
+<label><b>Preferred Date</b></label>
 <input id="bd" type="date" required>
 
-<div style="font-weight:700;margin-top:10px">Preferred Time</div>
+<label><b>Preferred Time</b></label>
 <input id="btime" type="time" required>
 
 <select id="br">
@@ -514,17 +397,12 @@ Testing is performed through the associated/reputed laboratory as applicable.
 
 <button class="primary">🩸 Request Sample Collection</button>
 </form>
-
-<p class="small">
-After the laboratory report is available, the patient can receive it through the selected delivery method.
-</p>
 </section>
 
 
 <!-- EQUIPMENT -->
-
 <section id="equipment" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
+<button class="back" data-page="home">← Home</button>
 <h2>🏥 Medical Equipment Rental</h2>
 
 <div class="service">🫁 BiPAP Machine</div>
@@ -542,7 +420,7 @@ After the laboratory report is available, the patient can receive it through the
 Rental price and availability depend on equipment and current stock.
 </p>
 
-<form onsubmit="sendEquipment();return false">
+<form id="equipmentForm">
 
 <input id="en" placeholder="Patient / Customer name" required>
 <input id="em" inputmode="tel" placeholder="Mobile number" required>
@@ -568,53 +446,52 @@ Rental price and availability depend on equipment and current stock.
 
 
 <!-- FAQ -->
-
 <section id="faq" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
+<button class="back" data-page="home">← Home</button>
 <h2>❓ FAQ / Common Questions</h2>
 
 <div class="faq">
-<button onclick="faq(this)">What are the clinic timings? ＋</button>
+<button>What are the clinic timings? ＋</button>
 <div class="answer hidden">Clinic timing is 8:00 AM to 8:00 PM. Sunday is weekly off. Emergency first aid is available any time as applicable.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">How can I book an appointment? ＋</button>
+<button>How can I book an appointment? ＋</button>
 <div class="answer hidden">Open Book Appointment, enter the patient details, select date and time, and send the request through WhatsApp.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">Is online doctor consultation available? ＋</button>
+<button>Is online doctor consultation available? ＋</button>
 <div class="answer hidden">Yes. You can submit an online consultation request through the app. Doctor availability should be confirmed before consultation.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">Do you provide home visits? ＋</button>
+<button>Do you provide home visits? ＋</button>
 <div class="answer hidden">Home visit requests can be submitted through the app. Availability depends on service area, timing and clinical requirements.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">Can I request blood sample collection? ＋</button>
+<button>Can I request blood sample collection? ＋</button>
 <div class="answer hidden">Yes. You can request sample collection and choose a preferred report delivery method.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">Can I rent medical equipment? ＋</button>
-<div class="answer hidden">Equipment such as BiPAP, CPAP, O₂ concentrator, nebulizer, wheelchair and other equipment can be requested subject to availability.</div>
+<button>Can I rent medical equipment? ＋</button>
+<div class="answer hidden">Equipment can be requested subject to availability.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">Do you provide physiotherapy? ＋</button>
+<button>Do you provide physiotherapy? ＋</button>
 <div class="answer hidden">Physiotherapy can be requested separately and should be provided by a qualified physiotherapist.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">How can I contact Pushpa Health Point? ＋</button>
+<button>How can I contact Pushpa Health Point? ＋</button>
 <div class="answer hidden">You can call or WhatsApp 6294172197, or open the Google Maps location from the app.</div>
 </div>
 
 <div class="faq">
-<button onclick="faq(this)">What should I do in an emergency? ＋</button>
+<button>What should I do in an emergency? ＋</button>
 <div class="answer hidden">For serious emergencies, immediately contact the nearest hospital or emergency department. Do not delay emergency medical care.</div>
 </div>
 
@@ -622,9 +499,9 @@ Rental price and availability depend on equipment and current stock.
 
 
 <!-- PRESCRIPTION -->
-
 <section id="prescription" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
+<button class="back" data-page="home">← Home</button>
+
 <h2>📝 Doctor Prescription</h2>
 
 <div class="notice">
@@ -634,6 +511,7 @@ The system does not independently diagnose or prescribe medicines.
 
 <input id="pn" placeholder="Patient Name">
 <input id="pa" type="number" placeholder="Age">
+
 <select id="pg">
 <option>Male</option>
 <option>Female</option>
@@ -658,6 +536,7 @@ The system does not independently diagnose or prescribe medicines.
 <th>Frequency</th>
 <th>Duration</th>
 </tr>
+
 <tr>
 <td><input id="m1" placeholder="Name"></td>
 <td><input id="m2" placeholder="e.g. 500 mg"></td>
@@ -669,14 +548,20 @@ The system does not independently diagnose or prescribe medicines.
 
 <textarea id="pinstruction" placeholder="Special instructions / Follow-up"></textarea>
 
-<button class="primary" onclick="previewPrescription()">Preview Prescription</button>
+<button class="primary" id="previewBtn">
+Preview Prescription
+</button>
 
-<div id="presPreview" class="hidden" style="margin-top:15px">
+<div id="presPreview" class="hidden">
+
 <hr>
+
 <h2 style="text-align:center">PUSHPA HEALTH POINT</h2>
+
 <p style="text-align:center;font-size:12px">
 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
 </p>
+
 <hr>
 
 <p><b>Patient:</b> <span id="rpn"></span></p>
@@ -692,6 +577,7 @@ Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
 <th>Frequency</th>
 <th>Duration</th>
 </tr>
+
 <tr>
 <td id="rm1"></td>
 <td id="rm2"></td>
@@ -704,23 +590,24 @@ Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
 <p><b>Instructions:</b> <span id="rinst"></span></p>
 
 <br><br>
+
 <p><b>Doctor:</b> <span id="rdoc"></span></p>
 <p><b>Qualification:</b> <span id="rqual"></span></p>
 <p><b>Registration No.:</b> <span id="rreg"></span></p>
 
-<button class="primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
-</div>
+<button class="primary" id="printBtn">
+🖨️ Print / Save as PDF
+</button>
 
-<p class="small">
-Prescription generation is provided as a digital form/printing facility for authorized prescribers.
-</p>
+</div>
 </section>
 
 
 <!-- CONTACT -->
-
 <section id="contact" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
+
+<button class="back" data-page="home">← Home</button>
+
 <h2>📞 Contact Us</h2>
 
 <p><b>📞 6294172197</b></p>
@@ -736,20 +623,414 @@ West Bengal – 721437
 <a class="linkbtn" href="https://wa.me/916294172197" target="_blank">WhatsApp</a>
 </div>
 
-<a class="linkbtn" style="display:block;margin-top:10px"
+<a class="linkbtn" style="margin-top:10px"
 href="https://maps.app.goo.gl/3LQ2pFVnWyg827b99?g_st=aw"
 target="_blank">
 📍 Open Google Maps
 </a>
+
 </section>
 
 
-<!-- ABOUT -->
+<footer>
+Pushpa Health Point • Your Health Is Our Priority
+</footer>
 
-<section id="about" class="hidden card">
-<button class="back" onclick="show('home')">← Home</button>
-<h2>ℹ️ About Pushpa Health Point</h2>
+</main>
 
-<p>
-Pushpa Health Point provides basic community healthcare and nursing support
-with appointment, home visit, online consultation, physiothera
+
+<script>
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+const pages = [
+"home",
+"appointment",
+"consult",
+"homevisit",
+"nursing",
+"physio",
+"blood",
+"equipment",
+"faq",
+"prescription",
+"contact"
+];
+
+function showPage(id){
+
+  pages.forEach(function(page){
+
+    const el = document.getElementById(page);
+
+    if(el){
+      if(page === id){
+        el.classList.remove("hidden");
+      }else{
+        el.classList.add("hidden");
+      }
+    }
+
+  });
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+/* ALL NAVIGATION BUTTONS */
+
+document.querySelectorAll("[data-page]").forEach(function(button){
+
+  button.addEventListener("click",function(){
+
+    const page = this.getAttribute("data-page");
+
+    if(page){
+      showPage(page);
+    }
+
+  });
+
+});
+
+
+/* VALUE */
+
+function value(id){
+
+  const el = document.getElementById(id);
+
+  return el ? el.value : "";
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function openWhatsApp(message){
+
+  const url =
+    "https://wa.me/916294172197?text=" +
+    encodeURIComponent(message);
+
+  window.open(url,"_blank");
+
+}
+
+
+/* APPOINTMENT */
+
+document.getElementById("appointmentForm").addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  const message =
+`Pushpa Health Point - Appointment Request
+
+Patient: ${value("an")}
+Age: ${value("aa")}
+Gender: ${value("ag")}
+Mobile: ${value("am")}
+Service: ${value("as")}
+Date: ${value("ad")}
+Time: ${value("at")}`;
+
+  openWhatsApp(message);
+
+});
+
+
+/* CONSULTATION */
+
+document.getElementById("consultForm").addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  const message =
+`Pushpa Health Point - Online Doctor Consultation Request
+
+Patient: ${value("cn")}
+Age: ${value("ca")}
+Mobile: ${value("cm")}
+Date: ${value("cd")}
+Time: ${value("ct")}
+Problem: ${value("cp")}`;
+
+  openWhatsApp(message);
+
+});
+
+
+/* HOME VISIT */
+
+document.getElementById("homevisitForm").addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  const message =
+`Pushpa Health Point - Home Visit Request
+
+Patient: ${value("hn")}
+Mobile: ${value("hm")}
+Address: ${value("ha")}
+Service: ${value("hs")}
+Date: ${value("hd")}
+Time: ${value("ht")}`;
+
+  openWhatsApp(message);
+
+});
+
+
+/* PHYSIOTHERAPY */
+
+document.getElementById("physioBtn").addEventListener("click",function(){
+
+  openWhatsApp(
+`Pushpa Health Point - Physiotherapy Request
+
+Please contact me regarding physiotherapy service.`
+  );
+
+});
+
+
+/* BLOOD */
+
+document.getElementById("bloodForm").addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  const message =
+`Pushpa Health Point - Blood Sample Collection Request
+
+Patient: ${value("bn")}
+Mobile: ${value("bm")}
+Address: ${value("ba")}
+Test: ${value("bt")}
+Date: ${value("bd")}
+Time: ${value("btime")}
+Report Delivery: ${value("br")}`;
+
+  openWhatsApp(message);
+
+});
+
+
+/* EQUIPMENT */
+
+document.getElementById("equipmentForm").addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+  const message =
+`Pushpa Health Point - Medical Equipment Rental Request
+
+Customer/Patient: ${value("en")}
+Mobile: ${value("em")}
+Equipment: ${value("eq")}
+Required Duration: ${value("ed")} days`;
+
+  openWhatsApp(message);
+
+});
+
+
+/* =========================
+   FAQ
+========================= */
+
+document.querySelectorAll(".faq button").forEach(function(button){
+
+  button.addEventListener("click",function(){
+
+    const answer = this.nextElementSibling;
+
+    if(answer){
+      answer.classList.toggle("hidden");
+    }
+
+  });
+
+});
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+let currentLanguage = "en";
+
+document.getElementById("langBtn").addEventListener("click",function(){
+
+  currentLanguage =
+    currentLanguage === "en" ? "bn" : "en";
+
+  this.innerText =
+    currentLanguage === "en" ? "বাংলা" : "English";
+
+  if(currentLanguage === "bn"){
+
+    document.getElementById("tag").innerText =
+      "আপনার স্বাস্থ্যই আমাদের অগ্রাধিকার";
+
+    document.getElementById("timingTitle").innerText =
+      "ক্লিনিকের সময়:";
+
+    document.getElementById("offTitle").innerText =
+      "সাপ্তাহিক ছুটি:";
+
+    document.getElementById("emergencyTitle").innerText =
+      "জরুরি প্রাথমিক চিকিৎসা:";
+
+    document.getElementById("notice").innerText =
+      "⚠️ জরুরি অবস্থায় দ্রুত নিকটস্থ হাসপাতাল বা ইমার্জেন্সি বিভাগে যোগাযোগ করুন। পরিষেবা রোগীর অবস্থা, পেশাগত সীমারেখা ও প্রযোজ্য নিয়ম অনুযায়ী প্রদান করা হয়।";
+
+  }else{
+
+    document.getElementById("tag").innerText =
+      "Your Health Is Our Priority";
+
+    document.getElementById("timingTitle").innerText =
+      "Clinic Timing:";
+
+    document.getElementById("offTitle").innerText =
+      "Weekly Off:";
+
+    document.getElementById("emergencyTitle").innerText =
+      "Emergency First Aid:";
+
+    document.getElementById("notice").innerText =
+      "⚠️ For emergencies, please visit the nearest hospital or emergency department immediately. Services are provided according to clinical assessment, professional scope and applicable rules.";
+
+  }
+
+});
+
+
+/* =========================
+   PRESCRIPTION
+========================= */
+
+document.getElementById("previewBtn").addEventListener("click",function(){
+
+  document.getElementById("rpn").innerText = value("pn");
+  document.getElementById("rpa").innerText = value("pa");
+  document.getElementById("rpg").innerText = value("pg");
+  document.getElementById("rpd").innerText = value("pd");
+
+  document.getElementById("rdiag").innerText =
+    value("diagnosis");
+
+  document.getElementById("rm1").innerText = value("m1");
+  document.getElementById("rm2").innerText = value("m2");
+  document.getElementById("rm3").innerText = value("m3");
+  document.getElementById("rm4").innerText = value("m4");
+  document.getElementById("rm5").innerText = value("m5");
+
+  document.getElementById("rinst").innerText =
+    value("pinstruction");
+
+  document.getElementById("rdoc").innerText =
+    value("docname");
+
+  document.getElementById("rqual").innerText =
+    value("docqual");
+
+  document.getElementById("rreg").innerText =
+    value("regno");
+
+  document.getElementById("presPreview")
+    .classList.remove("hidden");
+
+});
+
+
+/* PRINT */
+
+document.getElementById("printBtn").addEventListener("click",function(){
+
+  window.print();
+
+});
+
+
+/* =========================
+   PWA INSTALL
+========================= */
+
+let deferredPrompt = null;
+
+const installButton =
+  document.getElementById("installBtn");
+
+
+window.addEventListener(
+"beforeinstallprompt",
+function(event){
+
+  event.preventDefault();
+
+  deferredPrompt = event;
+
+  installButton.style.display = "block";
+
+});
+
+
+installButton.addEventListener(
+"click",
+async function(){
+
+  if(deferredPrompt){
+
+    deferredPrompt.prompt();
+
+    try{
+      await deferredPrompt.userChoice;
+    }catch(error){}
+
+    deferredPrompt = null;
+
+  }else{
+
+    alert(
+      'If the install window does not appear, open the browser menu (⋮) and choose "Install app" or "Add to Home screen".'
+    );
+
+  }
+
+});
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if("serviceWorker" in navigator){
+
+  window.addEventListener("load",function(){
+
+    navigator.serviceWorker.register("./sw.js")
+      .then(function(){
+        console.log("Service Worker registered");
+      })
+      .catch(function(error){
+        console.log("Service Worker error:",error);
+      });
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
