@@ -16,7 +16,16 @@
 --purple:#7660c9;--blue:#1688c9;--green:#42a85d;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:
+linear-gradient(rgba(244,248,247,.94),rgba(244,248,247,.97)),
+radial-gradient(circle at 15% 20%,#d9f2ed 0,transparent 28%),
+radial-gradient(circle at 85% 75%,#e4f1f8 0,transparent 30%);
+background-attachment:fixed;
+color:var(--text);
+}
 header{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:20px 16px;border-radius:0 0 24px 24px}
 .logo{width:62px;height:62px;border-radius:18px;background:#fff;display:grid;place-items:center;color:var(--g);font-size:30px;float:left;margin-right:12px}
 h1{font-size:24px;margin:5px 0}.tag{font-size:13px;opacity:.9}
