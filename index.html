@@ -7,100 +7,552 @@
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <title>Pushpa Health Point</title>
+
 <style>
-:root{--g:#087f73;--pink:#ef4f8a;--bg:#f4f8f7;--text:#173b3a}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
-header{background:linear-gradient(135deg,#087f73,#075c55);color:#fff;padding:24px 18px 20px;border-radius:0 0 24px 24px}
-.logo{width:58px;height:58px;border-radius:18px;background:#fff;display:grid;place-items:center;color:var(--g);font-size:30px;float:left;margin-right:12px}
-h1{font-size:25px;margin:4px 0}.tag{font-size:13px;opacity:.9}main{padding:16px;max-width:560px;margin:auto}
-.address,.card{background:#fff;border-radius:16px;box-shadow:0 3px 12px #0000000d}.address{padding:12px 14px;margin:14px 0;font-size:13px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:16px;padding:18px 10px;color:#fff;font-weight:700;font-size:14px;min-height:88px}
-.a{background:#008f83}.b{background:#ef4f8a}.c{background:#f39b26}.d{background:#7660c9}.e{background:#1688c9}.f{background:#42a85d}
-.card{padding:16px;margin-top:16px}.card h2{font-size:18px;margin:0 0 12px}
-input,select,textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #d6e1df;border-radius:11px;font-size:14px}textarea{min-height:80px}
-.primary{background:var(--g);color:#fff;border:0;border-radius:12px;padding:13px 16px;width:100%;font-weight:700;margin-top:8px}
-.linkrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.linkbtn{padding:13px;border-radius:12px;text-align:center;text-decoration:none;font-weight:700;background:#eef7f5;color:var(--g)}
-.install{display:none;background:#173b3a;color:#fff;border:0;border-radius:12px;padding:12px 14px;width:100%;font-weight:700;margin-top:12px}
-.small{font-size:12px;color:#607371;line-height:1.5}.service{padding:10px 0;border-bottom:1px solid #edf1f0}.service:last-child{border:0}
-.hidden{display:none}.back{background:none;border:0;color:var(--g);font-weight:700;padding:0;margin-bottom:12px}
-footer{text-align:center;padding:22px;color:#718381;font-size:12px}
+:root{
+  --g:#087f73;
+  --pink:#ef4f8a;
+  --bg:#f4f8f7;
+  --text:#173b3a
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text)
+}
+
+header{
+  background:linear-gradient(135deg,#087f73,#075c55);
+  color:#fff;
+  padding:24px 18px 20px;
+  border-radius:0 0 24px 24px
+}
+
+.logo{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  color:var(--g);
+  font-size:30px;
+  float:left;
+  margin-right:12px
+}
+
+h1{font-size:25px;margin:4px 0}
+
+.tag{
+  font-size:13px;
+  opacity:.9
+}
+
+main{
+  padding:16px;
+  max-width:560px;
+  margin:auto
+}
+
+.address,.card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 3px 12px #0000000d
+}
+
+.address{
+  padding:12px 14px;
+  margin:14px 0;
+  font-size:13px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+
+.btn{
+  border:0;
+  border-radius:16px;
+  padding:18px 10px;
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+  min-height:88px
+}
+
+.a{background:#008f83}
+.b{background:#ef4f8a}
+.c{background:#f39b26}
+.d{background:#7660c9}
+.e{background:#1688c9}
+.f{background:#42a85d}
+
+.card{
+  padding:16px;
+  margin-top:16px
+}
+
+.card h2{
+  font-size:18px;
+  margin:0 0 12px
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin:6px 0;
+  border:1px solid #d6e1df;
+  border-radius:11px;
+  font-size:14px
+}
+
+textarea{min-height:80px}
+
+.appointment-label{
+  display:block;
+  font-size:16px;
+  font-weight:700;
+  color:#173b3a;
+  margin:14px 0 4px
+}
+
+.primary{
+  background:var(--g);
+  color:#fff;
+  border:0;
+  border-radius:12px;
+  padding:13px 16px;
+  width:100%;
+  font-weight:700;
+  margin-top:8px
+}
+
+.linkrow{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px
+}
+
+.linkbtn{
+  padding:13px;
+  border-radius:12px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:700;
+  background:#eef7f5;
+  color:var(--g)
+}
+
+.install{
+  display:none;
+  background:#173b3a;
+  color:#fff;
+  border:0;
+  border-radius:12px;
+  padding:12px 14px;
+  width:100%;
+  font-weight:700;
+  margin-top:12px
+}
+
+.small{
+  font-size:12px;
+  color:#607371;
+  line-height:1.5
+}
+
+.service{
+  padding:10px 0;
+  border-bottom:1px solid #edf1f0
+}
+
+.service:last-child{border:0}
+
+.hidden{display:none}
+
+.back{
+  background:none;
+  border:0;
+  color:var(--g);
+  font-weight:700;
+  padding:0;
+  margin-bottom:12px
+}
+
+footer{
+  text-align:center;
+  padding:22px;
+  color:#718381;
+  font-size:12px
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">✚</div><h1>Pushpa Health Point</h1><div class="tag">Your Health Is Our Priority</div><div style="clear:both"></div></header>
+
+<header>
+<div class="logo">✚</div>
+<h1>Pushpa Health Point</h1>
+<div class="tag">Your Health Is Our Priority</div>
+<div style="clear:both"></div>
+</header>
+
 <main>
+
 <section id="home">
-<div class="address">📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437</div>
-<button id="installBtn" class="install">📲 Install Pushpa Health Point App</button>
-<div class="grid" style="margin-top:14px">
-<button class="btn a" onclick="show('appointment')">📅<br>Book Appointment</button>
-<button class="btn b" onclick="show('consult')">👨‍⚕️<br>Online Doctor Consultation</button>
-<button class="btn c" onclick="show('homevisit')">🏠<br>Home Visit</button>
-<button class="btn d" onclick="show('nursing')">🩺<br>Nursing Services</button>
-<button class="btn e" onclick="show('contact')">📞<br>Contact Us</button>
-<button class="btn f" onclick="show('about')">ℹ️<br>About Us</button>
+
+<div class="address">
+📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
 </div>
-<div class="card"><h2>Quick Contact</h2><div class="linkrow">
+
+<button id="installBtn" class="install">
+📲 Install Pushpa Health Point App
+</button>
+
+<div class="grid" style="margin-top:14px">
+
+<button class="btn a" onclick="show('appointment')">
+📅<br>Book Appointment
+</button>
+
+<button class="btn b" onclick="show('consult')">
+👨‍⚕️<br>Online Doctor Consultation
+</button>
+
+<button class="btn c" onclick="show('homevisit')">
+🏠<br>Home Visit
+</button>
+
+<button class="btn d" onclick="show('nursing')">
+🩺<br>Nursing Services
+</button>
+
+<button class="btn e" onclick="show('contact')">
+📞<br>Contact Us
+</button>
+
+<button class="btn f" onclick="show('about')">
+ℹ️<br>About Us
+</button>
+
+</div>
+
+<div class="card">
+<h2>Quick Contact</h2>
+
+<div class="linkrow">
 <a class="linkbtn" href="tel:+916294172197">📞 Call</a>
 <a class="linkbtn" href="https://wa.me/916294172197" target="_blank">💬 WhatsApp</a>
-</div></div>
+</div>
+
+</div>
 </section>
 
-<section id="appointment" class="hidden card"><button class="back" onclick="show('home')">← Home</button><h2>Book Appointment</h2>
+
+<section id="appointment" class="hidden card">
+
+<button class="back" onclick="show('home')">← Home</button>
+
+<h2>Book Appointment</h2>
+
 <form onsubmit="send('Appointment');return false">
-<input id="an" placeholder="Patient name" required><input id="aa" type="number" placeholder="Age" required>
-<select id="ag"><option value="">Gender</option><option>Male</option><option>Female</option><option>Other</option></select>
+
+<input id="an" placeholder="Patient name" required>
+
+<input id="aa" type="number" placeholder="Age" required>
+
+<select id="ag">
+<option value="">Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
 <input id="am" inputmode="tel" placeholder="Mobile number" required>
-<select id="as"><option>General Check-up</option><option>Nursing Care</option><option>Home Visit</option><option>Online Doctor Consultation</option><option>Other</option></select>
-<div style="font-weight:700;margin-top:12px">Appointment Date</div>
+
+<select id="as">
+<option>General Check-up</option>
+<option>Nursing Care</option>
+<option>Home Visit</option>
+<option>Online Doctor Consultation</option>
+<option>Other</option>
+</select>
+
+<div class="appointment-label">
+Appointment Date
+</div>
+
 <input id="ad" type="date" required>
 
-<div style="font-weight:700;margin-top:12px">Appointment Time</div>
-<input id="at" type="time" required><button class="primary">Send Appointment Request</button>
-</form><p class="small">The request opens WhatsApp. Please confirm the appointment before visiting.</p></section>
+<div class="appointment-label">
+Appointment Time
+</div>
 
-<section id="consult" class="hidden card"><button class="back" onclick="show('home')">← Home</button><h2>Online Doctor Consultation</h2>
+<input id="at" type="time" required>
+
+<button class="primary">
+Send Appointment Request
+</button>
+
+</form>
+
+<p class="small">
+The request opens WhatsApp. Please confirm the appointment before visiting.
+</p>
+
+</section>
+
+
+<section id="consult" class="hidden card">
+
+<button class="back" onclick="show('home')">← Home</button>
+
+<h2>Online Doctor Consultation</h2>
+
 <form onsubmit="send('Online Doctor Consultation');return false">
-<input id="cn" placeholder="Patient name" required><input id="ca" type="number" placeholder="Age" required><input id="cm" inputmode="tel" placeholder="Mobile number" required>
-<input id="cd" type="date" required><input id="ct" type="time" required><textarea id="cp" placeholder="Briefly describe the problem (optional)"></textarea>
-<button class="primary">Request Consultation</button></form></section>
 
-<section id="homevisit" class="hidden card"><button class="back" onclick="show('home')">← Home</button><h2>Request Home Visit</h2>
+<input id="cn" placeholder="Patient name" required>
+
+<input id="ca" type="number" placeholder="Age" required>
+
+<input id="cm" inputmode="tel" placeholder="Mobile number" required>
+
+<div class="appointment-label">Consultation Date</div>
+<input id="cd" type="date" required>
+
+<div class="appointment-label">Consultation Time</div>
+<input id="ct" type="time" required>
+
+<textarea id="cp" placeholder="Briefly describe the problem (optional)"></textarea>
+
+<button class="primary">
+Request Consultation
+</button>
+
+</form>
+
+</section>
+
+
+<section id="homevisit" class="hidden card">
+
+<button class="back" onclick="show('home')">← Home</button>
+
+<h2>Request Home Visit</h2>
+
 <form onsubmit="send('Home Visit');return false">
-<input id="hn" placeholder="Patient name" required><input id="hm" inputmode="tel" placeholder="Mobile number" required><textarea id="ha" placeholder="Full address" required></textarea>
-<select id="hs"><option>Vital signs monitoring</option><option>Nursing care</option><option>Catheterization</option><option>NG tube procedure</option><option>Dressing</option><option>Other permitted service</option></select>
-<input id="hd" type="date" required><input id="ht" type="time" required><button class="primary">Request Home Visit</button>
-</form></section>
 
-<section id="nursing" class="hidden card"><button class="back" onclick="show('home')">← Home</button><h2>Nursing Services</h2>
-<div class="service">❤️ Vital signs monitoring — BP, Pulse, SpO₂, Temperature</div>
-<div class="service">👩‍⚕️ Nursing care and support</div><div class="service">🟢 Catheterization — as appropriate and permitted</div>
-<div class="service">🟢 NG tube procedure — as appropriate and permitted</div><div class="service">🩹 Dressing / wound care</div><div class="service">➕ First aid</div>
-<p class="small">Services are subject to clinical assessment, professional scope, applicable law and referral requirements.</p></section>
+<input id="hn" placeholder="Patient name" required>
 
-<section id="contact" class="hidden card"><button class="back" onclick="show('home')">← Home</button><h2>Contact Us</h2>
-<p><b>📞 6294172197</b></p><p>✉️ parisubhajit@gmail.com</p><p>📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437</p>
-<div class="linkrow"><a class="linkbtn" href="tel:+916294172197">Call</a><a class="linkbtn" href="https://wa.me/916294172197" target="_blank">WhatsApp</a></div></section>
+<input id="hm" inputmode="tel" placeholder="Mobile number" required>
 
-<section id="about" class="hidden card"><button class="back" onclick="show('home')">← Home</button><h2>About Pushpa Health Point</h2>
-<p>Basic-level community healthcare and nursing support with convenient appointment, home-visit and online-consultation request options.</p>
-<p class="small">This app is an enquiry and booking tool and is not a substitute for emergency medical care.</p></section>
-<footer>Pushpa Health Point • Your Health Is Our Priority</footer>
+<textarea id="ha" placeholder="Full address" required></textarea>
+
+<select id="hs">
+<option>Vital signs monitoring</option>
+<option>Nursing care</option>
+<option>Catheterization</option>
+<option>NG tube procedure</option>
+<option>Dressing</option>
+<option>Other permitted service</option>
+</select>
+
+<div class="appointment-label">Visit Date</div>
+<input id="hd" type="date" required>
+
+<div class="appointment-label">Visit Time</div>
+<input id="ht" type="time" required>
+
+<button class="primary">
+Request Home Visit
+</button>
+
+</form>
+
+</section>
+
+
+<section id="nursing" class="hidden card">
+
+<button class="back" onclick="show('home')">← Home</button>
+
+<h2>Nursing Services</h2>
+
+<div class="service">
+❤️ Vital signs monitoring — BP, Pulse, SpO₂, Temperature
+</div>
+
+<div class="service">
+👩‍⚕️ Nursing care and support
+</div>
+
+<div class="service">
+🟢 Catheterization — as appropriate and permitted
+</div>
+
+<div class="service">
+🟢 NG tube procedure — as appropriate and permitted
+</div>
+
+<div class="service">
+🩹 Dressing / wound care
+</div>
+
+<div class="service">
+➕ First aid
+</div>
+
+<p class="small">
+Services are subject to clinical assessment, professional scope, applicable law and referral requirements.
+</p>
+
+</section>
+
+
+<section id="contact" class="hidden card">
+
+<button class="back" onclick="show('home')">← Home</button>
+
+<h2>Contact Us</h2>
+
+<p><b>📞 6294172197</b></p>
+
+<p>✉️ parisubhajit@gmail.com</p>
+
+<p>
+📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
+</p>
+
+<div class="linkrow">
+
+<a class="linkbtn" href="tel:+916294172197">
+Call
+</a>
+
+<a class="linkbtn" href="https://wa.me/916294172197" target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+</section>
+
+
+<section id="about" class="hidden card">
+
+<button class="back" onclick="show('home')">← Home</button>
+
+<h2>About Pushpa Health Point</h2>
+
+<p>
+Basic-level community healthcare and nursing support with convenient appointment, home-visit and online-consultation request options.
+</p>
+
+<p class="small">
+This app is an enquiry and booking tool and is not a substitute for emergency medical care.
+</p>
+
+</section>
+
+
+<footer>
+Pushpa Health Point • Your Health Is Our Priority
+</footer>
+
 </main>
+
+
 <script>
-const sections=['home','appointment','consult','homevisit','nursing','contact','about'];
-function show(id){sections.forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));scrollTo(0,0)}
-function v(id){return document.getElementById(id)?.value||''}
-function send(type){
- let msg='Pushpa Health Point - '+type+' Request\\n\\n';
- if(type==='Appointment') msg+=`Patient: ${v('an')}\\nAge: ${v('aa')}\\nGender: ${v('ag')}\\nMobile: ${v('am')}\\nService: ${v('as')}\\nDate: ${v('ad')}\\nTime: ${v('at')}`;
- if(type==='Online Doctor Consultation') msg+=`Patient: ${v('cn')}\\nAge: ${v('ca')}\\nMobile: ${v('cm')}\\nDate: ${v('cd')}\\nTime: ${v('ct')}\\nProblem: ${v('cp')}`;
- if(type==='Home Visit') msg+=`Patient: ${v('hn')}\\nMobile: ${v('hm')}\\nAddress: ${v('ha')}\\nService: ${v('hs')}\\nDate: ${v('hd')}\\nTime: ${v('ht')}`;
- window.open('https://wa.me/916294172197?text='+encodeURIComponent(msg),'_blank');
+
+const sections=[
+'home',
+'appointment',
+'consult',
+'homevisit',
+'nursing',
+'contact',
+'about'
+];
+
+function show(id){
+sections.forEach(x=>{
+document.getElementById(x).classList.toggle('hidden',x!==id)
+});
+scrollTo(0,0)
 }
+
+function v(id){
+return document.getElementById(id)?.value||''
+}
+
+function send(type){
+
+let msg='Pushpa Health Point - '+type+' Request\n\n';
+
+if(type==='Appointment'){
+msg+=`Patient: ${v('an')}
+Age: ${v('aa')}
+Gender: ${v('ag')}
+Mobile: ${v('am')}
+Service: ${v('as')}
+Date: ${v('ad')}
+Time: ${v('at')}`;
+}
+
+if(type==='Online Doctor Consultation'){
+msg+=`Patient: ${v('cn')}
+Age: ${v('ca')}
+Mobile: ${v('cm')}
+Date: ${v('cd')}
+Time: ${v('ct')}
+Problem: ${v('cp')}`;
+}
+
+if(type==='Home Visit'){
+msg+=`Patient: ${v('hn')}
+Mobile: ${v('hm')}
+Address: ${v('ha')}
+Service: ${v('hs')}
+Date: ${v('hd')}
+Time: ${v('ht')}`;
+}
+
+window.open(
+'https://wa.me/916294172197?text='+encodeURIComponent(msg),
+'_blank'
+);
+}
+
 let deferredPrompt;
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn').style.display='block'});
-document.getElementById('installBtn').onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;document.getElementById('installBtn').style.display='none'}};
-if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
+
+window.addEventListener('beforeinstallprompt',e=>{
+e.preventDefault();
+deferredPrompt=e;
+document.getElementById('installBtn').style.display='block'
+});
+
+document.getElementById('installBtn').onclick=async()=>{
+if(deferredPrompt){
+deferredPrompt.prompt();
+await deferredPrompt.userChoice;
+deferredPrompt=null;
+document.getElementById('installBtn').style.display='none'
+}
+};
+
+if('serviceWorker' in navigator){
+window.addEventListener('load',()=>{
+navigator.serviceWorker.register('./sw.js')
+});
+}
+
 </script>
-</body></html>
+
+</body>
+</html>
