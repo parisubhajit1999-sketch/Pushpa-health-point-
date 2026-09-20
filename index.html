@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#087f73">
+<meta name="description" content="Pushpa Health Point - Community healthcare, nursing, home visit, physiotherapy, diagnostics and medical equipment rental.">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon-192.png">
 <title>Pushpa Health Point</title>
@@ -11,30 +12,31 @@
 <style>
 :root{
   --g:#087f73;
+  --g2:#075c55;
   --pink:#ef4f8a;
+  --orange:#f39b26;
+  --purple:#7660c9;
+  --blue:#1688c9;
+  --green:#42a85d;
   --bg:#f4f8f7;
-  --text:#173b3a
+  --text:#173b3a;
 }
-
 *{box-sizing:border-box}
-
 body{
   margin:0;
   font-family:Arial,sans-serif;
   background:var(--bg);
   color:var(--text)
 }
-
 header{
-  background:linear-gradient(135deg,#087f73,#075c55);
+  background:linear-gradient(135deg,var(--g),var(--g2));
   color:#fff;
-  padding:24px 18px 20px;
-  border-radius:0 0 24px 24px
+  padding:20px 16px;
+  border-radius:0 0 24px 24px;
 }
-
 .logo{
-  width:58px;
-  height:58px;
+  width:62px;
+  height:62px;
   border-radius:18px;
   background:#fff;
   display:grid;
@@ -42,86 +44,92 @@ header{
   color:var(--g);
   font-size:30px;
   float:left;
-  margin-right:12px
+  margin-right:12px;
+  box-shadow:0 3px 10px #0002;
 }
-
-h1{font-size:25px;margin:4px 0}
-
-.tag{
-  font-size:13px;
-  opacity:.9
-}
-
-main{
-  padding:16px;
-  max-width:560px;
-  margin:auto
-}
-
+h1{font-size:24px;margin:5px 0}
+.tag{font-size:13px;opacity:.9}
+main{padding:16px;max-width:600px;margin:auto}
 .address,.card{
   background:#fff;
   border-radius:16px;
   box-shadow:0 3px 12px #0000000d
 }
-
 .address{
   padding:12px 14px;
   margin:14px 0;
-  font-size:13px
+  font-size:13px;
+  line-height:1.5
 }
-
+.info{
+  background:#eaf7f4;
+  border-radius:14px;
+  padding:12px;
+  margin:12px 0;
+  font-size:13px;
+  line-height:1.5
+}
+.notice{
+  background:#fff4e5;
+  border-left:4px solid var(--orange);
+  padding:12px;
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.5;
+  margin:14px 0;
+}
+.lang{
+  float:right;
+  background:#fff;
+  color:var(--g);
+  border:0;
+  border-radius:20px;
+  padding:8px 12px;
+  font-weight:700;
+}
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px
+  gap:10px
 }
-
 .btn{
   border:0;
   border-radius:16px;
-  padding:18px 10px;
+  padding:15px 8px;
   color:#fff;
   font-weight:700;
-  font-size:14px;
-  min-height:88px
+  font-size:13px;
+  min-height:88px;
+  box-shadow:0 2px 7px #0001;
 }
-
 .a{background:#008f83}
 .b{background:#ef4f8a}
 .c{background:#f39b26}
 .d{background:#7660c9}
 .e{background:#1688c9}
 .f{background:#42a85d}
-
+.g{background:#a45cc7}
+.h{background:#3b82b8}
+.i{background:#d16b35}
+.j{background:#087f73}
 .card{
   padding:16px;
-  margin-top:16px
+  margin-top:14px
 }
-
 .card h2{
   font-size:18px;
   margin:0 0 12px
 }
-
 input,select,textarea{
   width:100%;
   padding:12px;
   margin:6px 0;
   border:1px solid #d6e1df;
   border-radius:11px;
-  font-size:14px
+  font-size:14px;
+  background:#fff;
 }
-
 textarea{min-height:80px}
-
-.appointment-label{
-  display:block;
-  font-size:16px;
-  font-weight:700;
-  color:#173b3a;
-  margin:14px 0 4px
-}
-
 .primary{
   background:var(--g);
   color:#fff;
@@ -132,13 +140,21 @@ textarea{min-height:80px}
   font-weight:700;
   margin-top:8px
 }
-
+.secondary{
+  background:#eef7f5;
+  color:var(--g);
+  border:0;
+  border-radius:12px;
+  padding:13px 16px;
+  width:100%;
+  font-weight:700;
+  margin-top:8px
+}
 .linkrow{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px
 }
-
 .linkbtn{
   padding:13px;
   border-radius:12px;
@@ -148,7 +164,6 @@ textarea{min-height:80px}
   background:#eef7f5;
   color:var(--g)
 }
-
 .install{
   display:none;
   background:#173b3a;
@@ -158,24 +173,20 @@ textarea{min-height:80px}
   padding:12px 14px;
   width:100%;
   font-weight:700;
-  margin-top:12px
+  margin:12px 0
 }
-
 .small{
   font-size:12px;
   color:#607371;
   line-height:1.5
 }
-
 .service{
-  padding:10px 0;
-  border-bottom:1px solid #edf1f0
+  padding:11px 0;
+  border-bottom:1px solid #edf1f0;
+  line-height:1.4
 }
-
 .service:last-child{border:0}
-
 .hidden{display:none}
-
 .back{
   background:none;
   border:0;
@@ -184,22 +195,63 @@ textarea{min-height:80px}
   padding:0;
   margin-bottom:12px
 }
-
 footer{
   text-align:center;
   padding:22px;
   color:#718381;
   font-size:12px
 }
+.faq{
+  border-bottom:1px solid #e8eeee;
+  padding:11px 0
+}
+.faq button{
+  width:100%;
+  text-align:left;
+  border:0;
+  background:none;
+  font-weight:700;
+  color:var(--text);
+  padding:0;
+  font-size:14px
+}
+.answer{
+  padding:8px 0 0;
+  font-size:13px;
+  line-height:1.5;
+  color:#607371
+}
+.badge{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:10px;
+  background:#eaf7f4;
+  color:var(--g);
+  font-size:11px;
+  font-weight:700;
+}
+.table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:8px
+}
+.table th,.table td{
+  border:1px solid #dfe9e7;
+  padding:7px;
+  font-size:12px;
+  text-align:left
+}
+.table th{background:#eef7f5}
 </style>
 </head>
 
 <body>
 
 <header>
+<button class="lang" onclick="toggleLang()" id="langBtn">বাংলা</button>
 <div class="logo">✚</div>
 <h1>Pushpa Health Point</h1>
-<div class="tag">Your Health Is Our Priority</div>
+<div class="tag" id="tag">Your Health Is Our Priority</div>
 <div style="clear:both"></div>
 </header>
 
@@ -211,60 +263,89 @@ footer{
 📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
 </div>
 
-<button id="installBtn" class="install">
-📲 Install Pushpa Health Point App
-</button>
+<div class="info">
+🕐 <b id="timingTitle">Clinic Timing:</b> 8:00 AM – 8:00 PM<br>
+📅 <b id="offTitle">Weekly Off:</b> Sunday<br>
+🚨 <b id="emergencyTitle">Emergency First Aid:</b> Available any time
+</div>
 
-<div class="grid" style="margin-top:14px">
+<div class="notice" id="notice">
+⚠️ For emergencies, please visit the nearest hospital or emergency department immediately.
+Services are provided according to clinical assessment, professional scope and applicable rules.
+</div>
+
+<button id="installBtn" class="install">📲 Install Pushpa Health Point App</button>
+
+<div class="grid">
 
 <button class="btn a" onclick="show('appointment')">
-📅<br>Book Appointment
+📅<br><span data-en="Book Appointment" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">Book Appointment</span>
 </button>
 
 <button class="btn b" onclick="show('consult')">
-👨‍⚕️<br>Online Doctor Consultation
+👨‍⚕️<br><span data-en="Online Doctor Consultation" data-bn="অনলাইন ডাক্তার পরামর্শ">Online Doctor Consultation</span>
 </button>
 
 <button class="btn c" onclick="show('homevisit')">
-🏠<br>Home Visit
+🏠<br><span data-en="Home Visit" data-bn="হোম ভিজিট">Home Visit</span>
 </button>
 
 <button class="btn d" onclick="show('nursing')">
-🩺<br>Nursing Services
+🩺<br><span data-en="Nursing Services" data-bn="নার্সিং পরিষেবা">Nursing Services</span>
 </button>
 
-<button class="btn e" onclick="show('contact')">
-📞<br>Contact Us
+<button class="btn e" onclick="show('physio')">
+🧑‍🦽<br><span data-en="Physiotherapy" data-bn="ফিজিওথেরাপি">Physiotherapy</span>
 </button>
 
-<button class="btn f" onclick="show('about')">
-ℹ️<br>About Us
+<button class="btn f" onclick="show('blood')">
+🩸<br><span data-en="Blood Test & Report" data-bn="ব্লাড টেস্ট ও রিপোর্ট">Blood Test & Report</span>
+</button>
+
+<button class="btn g" onclick="show('equipment')">
+🏥<br><span data-en="Equipment Rental" data-bn="মেডিক্যাল ইকুইপমেন্ট ভাড়া">Equipment Rental</span>
+</button>
+
+<button class="btn h" onclick="show('faq')">
+❓<br><span data-en="FAQ / Common Questions" data-bn="সাধারণ প্রশ্ন">FAQ / Common Questions</span>
+</button>
+
+<button class="btn i" onclick="show('prescription')">
+📝<br><span data-en="Doctor Prescription" data-bn="ডাক্তারের প্রেসক্রিপশন">Doctor Prescription</span>
+</button>
+
+<button class="btn j" onclick="show('contact')">
+📞<br><span data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</span>
 </button>
 
 </div>
 
 <div class="card">
-<h2>Quick Contact</h2>
-
+<h2 data-en="Quick Contact" data-bn="দ্রুত যোগাযোগ">Quick Contact</h2>
 <div class="linkrow">
 <a class="linkbtn" href="tel:+916294172197">📞 Call</a>
 <a class="linkbtn" href="https://wa.me/916294172197" target="_blank">💬 WhatsApp</a>
 </div>
 
+<a class="linkbtn" style="display:block;margin-top:10px"
+href="https://maps.app.goo.gl/3LQ2pFVnWyg827b99?g_st=aw"
+target="_blank">
+📍 <span data-en="Open Google Maps Location" data-bn="Google Maps-এ লোকেশন দেখুন">Open Google Maps Location</span>
+</a>
 </div>
+
 </section>
 
 
+<!-- APPOINTMENT -->
+
 <section id="appointment" class="hidden card">
-
 <button class="back" onclick="show('home')">← Home</button>
-
-<h2>Book Appointment</h2>
+<h2 data-en="Book Appointment" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">Book Appointment</h2>
 
 <form onsubmit="send('Appointment');return false">
 
 <input id="an" placeholder="Patient name" required>
-
 <input id="aa" type="number" placeholder="Age" required>
 
 <select id="ag">
@@ -281,75 +362,57 @@ footer{
 <option>Nursing Care</option>
 <option>Home Visit</option>
 <option>Online Doctor Consultation</option>
+<option>Physiotherapy</option>
+<option>Blood Sample Collection</option>
+<option>Medical Equipment Rental</option>
 <option>Other</option>
 </select>
 
-<div class="appointment-label">
-Appointment Date
-</div>
-
+<div style="font-weight:700;margin-top:12px">Appointment Date</div>
 <input id="ad" type="date" required>
 
-<div class="appointment-label">
-Appointment Time
-</div>
-
+<div style="font-weight:700;margin-top:12px">Appointment Time</div>
 <input id="at" type="time" required>
 
-<button class="primary">
-Send Appointment Request
-</button>
-
+<button class="primary">Send Appointment Request</button>
 </form>
 
 <p class="small">
-The request opens WhatsApp. Please confirm the appointment before visiting.
+The request opens WhatsApp. Appointment must be confirmed before visiting.
 </p>
-
 </section>
 
 
+<!-- CONSULTATION -->
+
 <section id="consult" class="hidden card">
-
 <button class="back" onclick="show('home')">← Home</button>
-
 <h2>Online Doctor Consultation</h2>
 
 <form onsubmit="send('Online Doctor Consultation');return false">
 
 <input id="cn" placeholder="Patient name" required>
-
 <input id="ca" type="number" placeholder="Age" required>
-
 <input id="cm" inputmode="tel" placeholder="Mobile number" required>
-
-<div class="appointment-label">Consultation Date</div>
 <input id="cd" type="date" required>
-
-<div class="appointment-label">Consultation Time</div>
 <input id="ct" type="time" required>
 
-<textarea id="cp" placeholder="Briefly describe the problem (optional)"></textarea>
+<textarea id="cp" placeholder="Briefly describe the problem"></textarea>
 
-<button class="primary">
-Request Consultation
-</button>
-
+<button class="primary">Request Consultation</button>
 </form>
-
 </section>
 
 
+<!-- HOME VISIT -->
+
 <section id="homevisit" class="hidden card">
-
 <button class="back" onclick="show('home')">← Home</button>
-
 <h2>Request Home Visit</h2>
 
 <form onsubmit="send('Home Visit');return false">
 
 <input id="hn" placeholder="Patient name" required>
-
 <input id="hm" inputmode="tel" placeholder="Mobile number" required>
 
 <textarea id="ha" placeholder="Full address" required></textarea>
@@ -357,202 +420,336 @@ Request Consultation
 <select id="hs">
 <option>Vital signs monitoring</option>
 <option>Nursing care</option>
+<option>Old Age Home Care</option>
 <option>Catheterization</option>
 <option>NG tube procedure</option>
 <option>Dressing</option>
 <option>Other permitted service</option>
 </select>
 
-<div class="appointment-label">Visit Date</div>
 <input id="hd" type="date" required>
-
-<div class="appointment-label">Visit Time</div>
 <input id="ht" type="time" required>
 
-<button class="primary">
-Request Home Visit
-</button>
-
+<button class="primary">Request Home Visit</button>
 </form>
-
 </section>
 
 
+<!-- NURSING -->
+
 <section id="nursing" class="hidden card">
-
 <button class="back" onclick="show('home')">← Home</button>
+<h2>🩺 Nursing Services</h2>
 
-<h2>Nursing Services</h2>
-
-<div class="service">
-❤️ Vital signs monitoring — BP, Pulse, SpO₂, Temperature
-</div>
-
-<div class="service">
-👩‍⚕️ Nursing care and support
-</div>
-
-<div class="service">
-🟢 Catheterization — as appropriate and permitted
-</div>
-
-<div class="service">
-🟢 NG tube procedure — as appropriate and permitted
-</div>
-
-<div class="service">
-🩹 Dressing / wound care
-</div>
-
-<div class="service">
-➕ First aid
-</div>
+<div class="service">❤️ Vital signs monitoring — BP, Pulse, SpO₂, Temperature</div>
+<div class="service">👩‍⚕️ Nursing care and support</div>
+<div class="service">👴 Old Age Home Care</div>
+<div class="service">🟢 Catheterization — as appropriate and permitted</div>
+<div class="service">🟢 NG tube procedure — as appropriate and permitted</div>
+<div class="service">🩹 Dressing / wound care</div>
+<div class="service">➕ First aid</div>
 
 <p class="small">
 Services are subject to clinical assessment, professional scope, applicable law and referral requirements.
 </p>
 
+<button class="primary" onclick="show('homevisit')">🏠 Request Home Visit</button>
 </section>
 
 
-<section id="contact" class="hidden card">
+<!-- PHYSIOTHERAPY -->
 
+<section id="physio" class="hidden card">
 <button class="back" onclick="show('home')">← Home</button>
+<h2>🧑‍🦽 Physiotherapy</h2>
 
-<h2>Contact Us</h2>
+<div class="service">🏠 Home Physiotherapy</div>
+<div class="service">🦵 Mobility and exercise support</div>
+<div class="service">🚶 Elderly mobility support</div>
+<div class="service">🛌 Post-operative rehabilitation support</div>
+<div class="service">➕ Other physiotherapy services</div>
 
-<p><b>📞 6294172197</b></p>
-
-<p>✉️ parisubhajit@gmail.com</p>
-
-<p>
-📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
+<p class="small">
+Physiotherapy services should be provided by a qualified physiotherapist.
+Availability and service area may vary.
 </p>
 
-<div class="linkrow">
+<button class="primary" onclick="sendSimple('Physiotherapy Request')">
+Request Physiotherapy
+</button>
+</section>
 
-<a class="linkbtn" href="tel:+916294172197">
-Call
-</a>
 
-<a class="linkbtn" href="https://wa.me/916294172197" target="_blank">
-WhatsApp
-</a>
+<!-- BLOOD -->
 
+<section id="blood" class="hidden card">
+<button class="back" onclick="show('home')">← Home</button>
+<h2>🩸 Blood Sample Collection & Report</h2>
+
+<div class="info">
+Home sample collection and laboratory report delivery can be requested through our service.
+Testing is performed through the associated/reputed laboratory as applicable.
+</div>
+
+<form onsubmit="sendBlood();return false">
+
+<input id="bn" placeholder="Patient name" required>
+<input id="bm" inputmode="tel" placeholder="Mobile number" required>
+
+<textarea id="ba" placeholder="Full address for sample collection" required></textarea>
+
+<input id="bt" placeholder="Required blood test / tests" required>
+
+<div style="font-weight:700;margin-top:10px">Preferred Date</div>
+<input id="bd" type="date" required>
+
+<div style="font-weight:700;margin-top:10px">Preferred Time</div>
+<input id="btime" type="time" required>
+
+<select id="br">
+<option>WhatsApp Report</option>
+<option>Email Report</option>
+<option>Physical Report Collection</option>
+</select>
+
+<button class="primary">🩸 Request Sample Collection</button>
+</form>
+
+<p class="small">
+After the laboratory report is available, the patient can receive it through the selected delivery method.
+</p>
+</section>
+
+
+<!-- EQUIPMENT -->
+
+<section id="equipment" class="hidden card">
+<button class="back" onclick="show('home')">← Home</button>
+<h2>🏥 Medical Equipment Rental</h2>
+
+<div class="service">🫁 BiPAP Machine</div>
+<div class="service">😴 CPAP Machine</div>
+<div class="service">🫁 O₂ Concentrator</div>
+<div class="service">💨 Nebulizer</div>
+<div class="service">🦽 Wheelchair</div>
+<div class="service">🛏️ Patient / Hospital Bed</div>
+<div class="service">🩼 Walker</div>
+<div class="service">🦯 Walking Stick</div>
+<div class="service">🪑 Commode Chair</div>
+<div class="service">➕ Other Medical Equipment</div>
+
+<p class="small">
+Rental price and availability depend on equipment and current stock.
+</p>
+
+<form onsubmit="sendEquipment();return false">
+
+<input id="en" placeholder="Patient / Customer name" required>
+<input id="em" inputmode="tel" placeholder="Mobile number" required>
+
+<select id="eq">
+<option>BiPAP Machine</option>
+<option>CPAP Machine</option>
+<option>O₂ Concentrator</option>
+<option>Nebulizer</option>
+<option>Wheelchair</option>
+<option>Patient / Hospital Bed</option>
+<option>Walker</option>
+<option>Walking Stick</option>
+<option>Commode Chair</option>
+<option>Other Medical Equipment</option>
+</select>
+
+<input id="ed" type="number" min="1" placeholder="Required for how many days?" required>
+
+<button class="primary">Request Rental Information</button>
+</form>
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq" class="hidden card">
+<button class="back" onclick="show('home')">← Home</button>
+<h2>❓ FAQ / Common Questions</h2>
+
+<div class="faq">
+<button onclick="faq(this)">What are the clinic timings? ＋</button>
+<div class="answer hidden">Clinic timing is 8:00 AM to 8:00 PM. Sunday is weekly off. Emergency first aid is available any time as applicable.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">How can I book an appointment? ＋</button>
+<div class="answer hidden">Open Book Appointment, enter the patient details, select date and time, and send the request through WhatsApp.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">Is online doctor consultation available? ＋</button>
+<div class="answer hidden">Yes. You can submit an online consultation request through the app. Doctor availability should be confirmed before consultation.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">Do you provide home visits? ＋</button>
+<div class="answer hidden">Home visit requests can be submitted through the app. Availability depends on service area, timing and clinical requirements.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">Can I request blood sample collection? ＋</button>
+<div class="answer hidden">Yes. You can request sample collection and choose a preferred report delivery method.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">Can I rent medical equipment? ＋</button>
+<div class="answer hidden">Equipment such as BiPAP, CPAP, O₂ concentrator, nebulizer, wheelchair and other equipment can be requested subject to availability.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">Do you provide physiotherapy? ＋</button>
+<div class="answer hidden">Physiotherapy can be requested separately and should be provided by a qualified physiotherapist.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">How can I contact Pushpa Health Point? ＋</button>
+<div class="answer hidden">You can call or WhatsApp 6294172197, or open the Google Maps location from the app.</div>
+</div>
+
+<div class="faq">
+<button onclick="faq(this)">What should I do in an emergency? ＋</button>
+<div class="answer hidden">For serious emergencies, immediately contact the nearest hospital or emergency department. Do not delay emergency medical care.</div>
 </div>
 
 </section>
 
 
-<section id="about" class="hidden card">
+<!-- PRESCRIPTION -->
 
+<section id="prescription" class="hidden card">
 <button class="back" onclick="show('home')">← Home</button>
+<h2>📝 Doctor Prescription</h2>
 
-<h2>About Pushpa Health Point</h2>
+<div class="notice">
+🔐 This section is intended for an authorized doctor / prescriber only.
+The system does not independently diagnose or prescribe medicines.
+</div>
 
-<p>
-Basic-level community healthcare and nursing support with convenient appointment, home-visit and online-consultation request options.
+<input id="pn" placeholder="Patient Name">
+<input id="pa" type="number" placeholder="Age">
+<select id="pg">
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+
+<input id="pd" type="date">
+
+<input id="docname" placeholder="Doctor Name">
+<input id="docqual" placeholder="Qualification">
+<input id="regno" placeholder="Registration Number">
+
+<input id="diagnosis" placeholder="Diagnosis / Clinical Notes">
+
+<h3 style="font-size:15px">Medicine</h3>
+
+<table class="table">
+<tr>
+<th>Medicine</th>
+<th>Strength</th>
+<th>Dose</th>
+<th>Frequency</th>
+<th>Duration</th>
+</tr>
+<tr>
+<td><input id="m1" placeholder="Name"></td>
+<td><input id="m2" placeholder="e.g. 500 mg"></td>
+<td><input id="m3" placeholder="Dose"></td>
+<td><input id="m4" placeholder="e.g. BD"></td>
+<td><input id="m5" placeholder="Days"></td>
+</tr>
+</table>
+
+<textarea id="pinstruction" placeholder="Special instructions / Follow-up"></textarea>
+
+<button class="primary" onclick="previewPrescription()">Preview Prescription</button>
+
+<div id="presPreview" class="hidden" style="margin-top:15px">
+<hr>
+<h2 style="text-align:center">PUSHPA HEALTH POINT</h2>
+<p style="text-align:center;font-size:12px">
+Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
 </p>
+<hr>
+
+<p><b>Patient:</b> <span id="rpn"></span></p>
+<p><b>Age/Sex:</b> <span id="rpa"></span> / <span id="rpg"></span></p>
+<p><b>Date:</b> <span id="rpd"></span></p>
+<p><b>Diagnosis / Notes:</b> <span id="rdiag"></span></p>
+
+<table class="table">
+<tr>
+<th>Medicine</th>
+<th>Strength</th>
+<th>Dose</th>
+<th>Frequency</th>
+<th>Duration</th>
+</tr>
+<tr>
+<td id="rm1"></td>
+<td id="rm2"></td>
+<td id="rm3"></td>
+<td id="rm4"></td>
+<td id="rm5"></td>
+</tr>
+</table>
+
+<p><b>Instructions:</b> <span id="rinst"></span></p>
+
+<br><br>
+<p><b>Doctor:</b> <span id="rdoc"></span></p>
+<p><b>Qualification:</b> <span id="rqual"></span></p>
+<p><b>Registration No.:</b> <span id="rreg"></span></p>
+
+<button class="primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+</div>
 
 <p class="small">
-This app is an enquiry and booking tool and is not a substitute for emergency medical care.
+Prescription generation is provided as a digital form/printing facility for authorized prescribers.
 </p>
-
 </section>
 
 
-<footer>
-Pushpa Health Point • Your Health Is Our Priority
-</footer>
+<!-- CONTACT -->
 
-</main>
+<section id="contact" class="hidden card">
+<button class="back" onclick="show('home')">← Home</button>
+<h2>📞 Contact Us</h2>
+
+<p><b>📞 6294172197</b></p>
+<p>✉️ parisubhajit@gmail.com</p>
+
+<p>
+📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur,
+West Bengal – 721437
+</p>
+
+<div class="linkrow">
+<a class="linkbtn" href="tel:+916294172197">Call</a>
+<a class="linkbtn" href="https://wa.me/916294172197" target="_blank">WhatsApp</a>
+</div>
+
+<a class="linkbtn" style="display:block;margin-top:10px"
+href="https://maps.app.goo.gl/3LQ2pFVnWyg827b99?g_st=aw"
+target="_blank">
+📍 Open Google Maps
+</a>
+</section>
 
 
-<script>
+<!-- ABOUT -->
 
-const sections=[
-'home',
-'appointment',
-'consult',
-'homevisit',
-'nursing',
-'contact',
-'about'
-];
+<section id="about" class="hidden card">
+<button class="back" onclick="show('home')">← Home</button>
+<h2>ℹ️ About Pushpa Health Point</h2>
 
-function show(id){
-sections.forEach(x=>{
-document.getElementById(x).classList.toggle('hidden',x!==id)
-});
-scrollTo(0,0)
-}
-
-function v(id){
-return document.getElementById(id)?.value||''
-}
-
-function send(type){
-
-let msg='Pushpa Health Point - '+type+' Request\n\n';
-
-if(type==='Appointment'){
-msg+=`Patient: ${v('an')}
-Age: ${v('aa')}
-Gender: ${v('ag')}
-Mobile: ${v('am')}
-Service: ${v('as')}
-Date: ${v('ad')}
-Time: ${v('at')}`;
-}
-
-if(type==='Online Doctor Consultation'){
-msg+=`Patient: ${v('cn')}
-Age: ${v('ca')}
-Mobile: ${v('cm')}
-Date: ${v('cd')}
-Time: ${v('ct')}
-Problem: ${v('cp')}`;
-}
-
-if(type==='Home Visit'){
-msg+=`Patient: ${v('hn')}
-Mobile: ${v('hm')}
-Address: ${v('ha')}
-Service: ${v('hs')}
-Date: ${v('hd')}
-Time: ${v('ht')}`;
-}
-
-window.open(
-'https://wa.me/916294172197?text='+encodeURIComponent(msg),
-'_blank'
-);
-}
-
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt',e=>{
-e.preventDefault();
-deferredPrompt=e;
-document.getElementById('installBtn').style.display='block'
-});
-
-document.getElementById('installBtn').onclick=async()=>{
-if(deferredPrompt){
-deferredPrompt.prompt();
-await deferredPrompt.userChoice;
-deferredPrompt=null;
-document.getElementById('installBtn').style.display='none'
-}
-};
-
-if('serviceWorker' in navigator){
-window.addEventListener('load',()=>{
-navigator.serviceWorker.register('./sw.js')
-});
-}
-
-</script>
-
-</body>
-</html>
+<p>
+Pushpa Health Point provides basic community healthcare and nursing support
+with appointment, home visit, online consultation, physiothera
