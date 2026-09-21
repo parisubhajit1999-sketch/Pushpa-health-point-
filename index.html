@@ -11,46 +11,229 @@
 
 <style>
 :root{
---g:#087f73;--g2:#075c55;--bg:#f4f8f7;
---text:#173b3a;--pink:#ef4f8a;--orange:#f39b26;
---purple:#7660c9;--blue:#1688c9;--green:#42a85d;
+--g:#087f73;
+--g2:#075c55;
+--bg:#f4f8f7;
+--text:#173b3a;
+--pink:#ef4f8a;
+--orange:#f39b26;
+--purple:#7660c9;
+--blue:#1688c9;
+--green:#42a85d;
+--border:#d9e8e5;
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
 
 body{
 margin:0;
 font-family:Arial,sans-serif;
-background:
-linear-gradient(rgba(244,248,247,.94),rgba(244,248,247,.97)),
-radial-gradient(circle at 15% 20%,#d9f2ed 0,transparent 28%),
-radial-gradient(circle at 85% 75%,#e4f1f8 0,transparent 30%);
-background-attachment:fixed;
 color:var(--text);
+
+/* Soft healthcare background */
+background:
+linear-gradient(rgba(244,248,247,.91),rgba(244,248,247,.96)),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cg fill='none' stroke='%23087f73' stroke-opacity='.07' stroke-width='2'%3E%3Cpath d='M80 120c40-55 110-55 150 0s110 55 150 0 110-55 150 0'/%3E%3Cpath d='M80 480c40-55 110-55 150 0s110 55 150 0 110-55 150 0'/%3E%3Ccircle cx='90' cy='300' r='45'/%3E%3Ccircle cx='510' cy='300' r='45'/%3E%3Cpath d='M285 250h30v-30h-30v30zm0 30v30h30v-30h-30z' fill='%23087f73' fill-opacity='.05'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment:fixed;
+background-size:cover;
 }
 
+/* =========================
+   STARTING ANIMATION
+========================= */
+
+#splash{
+position:fixed;
+inset:0;
+z-index:99999;
+display:flex;
+align-items:center;
+justify-content:center;
+background:
+linear-gradient(135deg,#075c55,#087f73);
+color:#fff;
+transition:opacity .65s ease,visibility .65s ease;
+}
+
+#splash.hide{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+.splash-content{
+text-align:center;
+animation:splashEnter .9s ease both;
+}
+
+.splash-logo{
+width:105px;
+height:105px;
+margin:auto;
+border-radius:30px;
+background:#fff;
+color:var(--g);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+font-weight:900;
+box-shadow:0 12px 35px rgba(0,0,0,.20);
+animation:splashPulse 1.7s ease-in-out infinite;
+}
+
+.splash-logo .p{
+font-size:39px;
+font-weight:900;
+}
+
+.splash-logo .cross{
+font-size:25px;
+margin-left:3px;
+}
+
+.splash-logo .heart{
+font-size:23px;
+margin-left:3px;
+}
+
+.splash-title{
+font-size:26px;
+font-weight:800;
+margin-top:20px;
+letter-spacing:.2px;
+}
+
+.splash-tag{
+font-size:13px;
+opacity:.9;
+margin-top:7px;
+}
+
+.splash-loader{
+width:80px;
+height:3px;
+background:rgba(255,255,255,.25);
+border-radius:10px;
+margin:22px auto 0;
+overflow:hidden;
+}
+
+.splash-loader span{
+display:block;
+height:100%;
+width:35%;
+background:#fff;
+border-radius:10px;
+animation:loaderMove 1.2s ease-in-out infinite;
+}
+
+@keyframes splashEnter{
+from{
+opacity:0;
+transform:translateY(20px) scale(.95)
+}
+to{
+opacity:1;
+transform:translateY(0) scale(1)
+}
+}
+
+@keyframes splashPulse{
+0%,100%{
+transform:scale(1)
+}
+50%{
+transform:scale(1.05)
+}
+}
+
+@keyframes loaderMove{
+0%{
+transform:translateX(-120%)
+}
+100%{
+transform:translateX(320%)
+}
+}
+
+
+/* =========================
+   HEADER / HERO
+========================= */
+
 header{
-background:linear-gradient(135deg,var(--g),var(--g2));
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(135deg,rgba(8,127,115,.94),rgba(7,92,85,.94)),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='350' viewBox='0 0 900 350'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.16' stroke-width='2'%3E%3Cpath d='M0 260c100-90 170-90 270 0s170 90 270 0 170-90 360 0'/%3E%3Cpath d='M0 300c100-90 170-90 270 0s170 90 270 0 170-90 360 0'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.08'%3E%3Ccircle cx='760' cy='80' r='90'/%3E%3Ccircle cx='830' cy='250' r='55'/%3E%3C/g%3E%3C/svg%3E");
+background-size:cover;
+background-position:center;
 color:#fff;
 padding:20px 16px;
-border-radius:0 0 24px 24px
+border-radius:0 0 28px 28px;
+box-shadow:0 5px 18px rgba(0,0,0,.10);
+}
+
+header:after{
+content:"";
+position:absolute;
+right:-55px;
+bottom:-65px;
+width:170px;
+height:170px;
+border:2px solid rgba(255,255,255,.12);
+border-radius:50%;
+pointer-events:none;
 }
 
 .logo{
-width:62px;
-height:62px;
-border-radius:18px;
+width:64px;
+height:64px;
+border-radius:20px;
 background:#fff;
-display:grid;
-place-items:center;
+display:flex;
+align-items:center;
+justify-content:center;
 color:var(--g);
-font-size:30px;
 float:left;
-margin-right:12px
+margin-right:12px;
+box-shadow:0 5px 18px rgba(0,0,0,.15);
+font-weight:900;
+position:relative;
+z-index:2;
 }
 
-h1{font-size:24px;margin:5px 0}
-.tag{font-size:13px;opacity:.9}
+.logo .logo-p{
+font-size:27px;
+}
+
+.logo .logo-cross{
+font-size:20px;
+margin-left:2px;
+}
+
+.logo .logo-heart{
+font-size:17px;
+margin-left:2px;
+}
+
+h1{
+font-size:24px;
+margin:5px 0
+}
+
+.tag{
+font-size:13px;
+opacity:.9
+}
 
 .lang{
 float:right;
@@ -59,8 +242,16 @@ color:var(--g);
 border:0;
 border-radius:20px;
 padding:8px 12px;
-font-weight:700
+font-weight:700;
+box-shadow:0 2px 8px rgba(0,0,0,.12);
+position:relative;
+z-index:3;
 }
+
+
+/* =========================
+   MAIN
+========================= */
 
 main{
 padding:16px;
@@ -68,10 +259,13 @@ max-width:600px;
 margin:auto
 }
 
-.address,.card{
-background:#fff;
-border-radius:16px;
-box-shadow:0 3px 12px #0000000d
+.address,
+.card{
+background:rgba(255,255,255,.96);
+border:1px solid var(--border);
+border-radius:18px;
+box-shadow:0 4px 14px rgba(23,59,58,.07);
+backdrop-filter:blur(3px);
 }
 
 .address{
@@ -83,6 +277,7 @@ line-height:1.5
 
 .info{
 background:#eaf7f4;
+border:1px solid #d5ebe6;
 border-radius:14px;
 padding:12px;
 margin:12px 0;
@@ -93,6 +288,9 @@ line-height:1.5
 .notice{
 background:#fff4e5;
 border-left:4px solid var(--orange);
+border-top:1px solid #f4dfc3;
+border-right:1px solid #f4dfc3;
+border-bottom:1px solid #f4dfc3;
 padding:12px;
 border-radius:12px;
 font-size:13px;
@@ -100,22 +298,41 @@ line-height:1.5;
 margin:14px 0
 }
 
+
+/* =========================
+   HOME OPTIONS
+========================= */
+
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px
+gap:11px;
 }
 
 .btn{
-border:0;
-border-radius:16px;
+border:1px solid rgba(255,255,255,.38);
+border-radius:17px;
 padding:15px 8px;
 color:#fff;
 font-weight:700;
 font-size:13px;
 min-height:88px;
-box-shadow:0 2px 7px #0001;
-cursor:pointer
+box-shadow:0 3px 9px rgba(0,0,0,.10);
+cursor:pointer;
+transition:
+transform .18s ease,
+box-shadow .18s ease,
+filter .18s ease;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 14px rgba(0,0,0,.14);
+filter:brightness(1.02);
+}
+
+.btn:active{
+transform:scale(.98);
 }
 
 .a{background:#008f83}
@@ -129,6 +346,11 @@ cursor:pointer
 .i{background:#d16b35}
 .j{background:#087f73}
 
+
+/* =========================
+   CARDS
+========================= */
+
 .card{
 padding:16px;
 margin-top:14px
@@ -136,20 +358,105 @@ margin-top:14px
 
 .card h2{
 font-size:18px;
-margin:0 0 12px
+margin:0 0 15px;
+padding:11px 12px;
+border:1px solid var(--border);
+border-radius:13px;
+background:linear-gradient(180deg,#f9fdfc,#f1f8f6);
+display:flex;
+align-items:center;
+gap:7px;
 }
 
-input,select,textarea{
+
+/* Relevant form icon area */
+.card h2:before{
+font-size:24px;
+width:38px;
+height:38px;
+border-radius:11px;
+background:#e8f6f3;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+}
+
+#appointment h2:before{
+content:"📅";
+}
+
+#consult h2:before{
+content:"👨‍⚕️";
+}
+
+#homevisit h2:before{
+content:"🏠";
+}
+
+#nursing h2:before{
+content:"🩺";
+}
+
+#physio h2:before{
+content:"🧑‍🦽";
+}
+
+#blood h2:before{
+content:"🩸";
+}
+
+#equipment h2:before{
+content:"🏥";
+}
+
+#faq h2:before{
+content:"❓";
+}
+
+#prescription h2:before{
+content:"📝";
+}
+
+#contact h2:before{
+content:"📞";
+}
+
+
+/* Existing emoji in heading kept; icon area adds professional visual */
+.card h2{
+flex-wrap:wrap;
+}
+
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+
+input,
+select,
+textarea{
 width:100%;
 padding:12px;
 margin:6px 0;
 border:1px solid #d6e1df;
 border-radius:11px;
 font-size:14px;
-background:#fff
+background:#fff;
+transition:border-color .18s ease,box-shadow .18s ease;
 }
 
-textarea{min-height:80px}
+input:focus,
+select:focus,
+textarea:focus{
+outline:none;
+border-color:#72bcb3;
+box-shadow:0 0 0 3px rgba(8,127,115,.08);
+}
+
+textarea{
+min-height:80px
+}
 
 .primary{
 background:var(--g);
@@ -160,19 +467,20 @@ padding:13px 16px;
 width:100%;
 font-weight:700;
 margin-top:8px;
-cursor:pointer
+cursor:pointer;
+box-shadow:0 3px 8px rgba(8,127,115,.15);
 }
 
 .secondary{
 background:#eef7f5;
 color:var(--g);
-border:0;
+border:1px solid #d7ebe7;
 border-radius:12px;
 padding:13px 16px;
 width:100%;
 font-weight:700;
 margin-top:8px;
-cursor:pointer
+cursor:pointer;
 }
 
 .linkrow{
@@ -183,6 +491,7 @@ gap:10px
 
 .linkbtn{
 padding:13px;
+border:1px solid #d7ebe7;
 border-radius:12px;
 text-align:center;
 text-decoration:none;
@@ -202,7 +511,8 @@ padding:12px 14px;
 width:100%;
 font-weight:700;
 margin:12px 0;
-cursor:pointer
+cursor:pointer;
+box-shadow:0 3px 8px rgba(0,0,0,.10);
 }
 
 .small{
@@ -217,9 +527,13 @@ border-bottom:1px solid #edf1f0;
 line-height:1.4
 }
 
-.service:last-child{border:0}
+.service:last-child{
+border:0
+}
 
-.hidden{display:none!important}
+.hidden{
+display:none!important
+}
 
 .back{
 background:none;
@@ -268,7 +582,8 @@ border-collapse:collapse;
 margin-top:8px
 }
 
-.table th,.table td{
+.table th,
+.table td{
 border:1px solid #dfe9e7;
 padding:7px;
 font-size:12px;
@@ -278,6 +593,7 @@ text-align:left
 .table th{
 background:#eef7f5
 }
+
 
 /* PRESCRIPTION */
 
@@ -299,6 +615,7 @@ width:100%
 min-width:650px
 }
 
+
 /* PRESCRIPTION PREVIEW SCREEN */
 
 #presPreview{
@@ -310,6 +627,7 @@ border-radius:12px
 #presPreview .medicine-wrap{
 overflow-x:auto
 }
+
 
 /* PRINT ONLY PRESCRIPTION */
 
@@ -426,16 +744,100 @@ break-inside:avoid !important
 }
 
 }
+
+
+/* MOBILE */
+
+@media(max-width:420px){
+
+header{
+padding:18px 13px;
+}
+
+.logo{
+width:58px;
+height:58px;
+}
+
+h1{
+font-size:21px;
+}
+
+.grid{
+gap:9px;
+}
+
+.btn{
+font-size:12px;
+min-height:84px;
+}
+
+main{
+padding:13px;
+}
+
+.card{
+padding:13px;
+}
+
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+scroll-behavior:auto!important;
+animation:none!important;
+transition:none!important;
+}
+
+}
 </style>
 </head>
 
 <body>
 
+<!-- STARTING ANIMATION -->
+<div id="splash">
+
+<div class="splash-content">
+
+<div class="splash-logo">
+<span class="p">P</span>
+<span class="cross">✚</span>
+<span class="heart">♥</span>
+</div>
+
+<div class="splash-title">
+Pushpa Health Point
+</div>
+
+<div class="splash-tag">
+Your Health Is Our Priority
+</div>
+
+<div class="splash-loader">
+<span></span>
+</div>
+
+</div>
+
+</div>
+
+
 <header>
 
 <button class="lang" id="langBtn">বাংলা</button>
 
-<div class="logo">✚</div>
+<div class="logo">
+<span class="logo-p">P</span>
+<span class="logo-cross">✚</span>
+<span class="logo-heart">♥</span>
+</div>
 
 <h1 id="clinicName">Pushpa Health Point</h1>
 
@@ -1451,6 +1853,26 @@ Pushpa Health Point • Your Health Is Our Priority
 
 
 <script>
+
+/* =========================
+   STARTING ANIMATION
+========================= */
+
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+const splash=
+document.getElementById("splash");
+
+if(splash){
+splash.classList.add("hide");
+}
+
+},1800);
+
+});
+
 
 /* =========================
    PAGE NAVIGATION
