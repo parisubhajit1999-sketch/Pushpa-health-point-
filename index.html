@@ -171,7 +171,8 @@ border-radius:12px;
 padding:13px 16px;
 width:100%;
 font-weight:700;
-margin-top:8px
+margin-top:8px;
+cursor:pointer
 }
 
 .linkrow{
@@ -478,6 +479,12 @@ Services are provided according to clinical assessment, professional scope and a
 📲 Install Pushpa Health Point App
 </button>
 
+<!-- NOTIFICATION BUTTON -->
+
+<button class="install" id="notificationBtn">
+🔔 Enable Notifications
+</button>
+
 <div class="grid">
 
 <button class="btn a" data-page="appointment" id="btnAppointment">
@@ -570,18 +577,9 @@ id="mapBtn">
 
 <form id="appointmentForm">
 
-<input
-id="an"
-placeholder="Patient name"
-required
->
+<input id="an" placeholder="Patient name" required>
 
-<input
-id="aa"
-type="number"
-placeholder="Age"
-required
->
+<input id="aa" type="number" placeholder="Age" required>
 
 <select id="ag" required>
 
@@ -652,11 +650,7 @@ Appointment Date
 </b>
 </label>
 
-<input
-id="ad"
-type="date"
-required
->
+<input id="ad" type="date" required>
 
 <label>
 <b id="appointmentTimeLabel">
@@ -664,19 +658,13 @@ Appointment Time
 </b>
 </label>
 
-<input
-id="at"
-type="time"
-required
->
+<input id="at" type="time" required>
 
 <p class="small" id="appointmentTimeHint">
 Select your preferred time.
 </p>
 
-<button
-class="primary"
-id="appointmentSubmit">
+<button class="primary" id="appointmentSubmit">
 Send Appointment Request
 </button>
 
@@ -703,25 +691,11 @@ The request opens WhatsApp. Appointment must be confirmed before visiting.
 
 <form id="consultForm">
 
-<input
-id="cn"
-placeholder="Patient name"
-required
->
+<input id="cn" placeholder="Patient name" required>
 
-<input
-id="ca"
-type="number"
-placeholder="Age"
-required
->
+<input id="ca" type="number" placeholder="Age" required>
 
-<input
-id="cm"
-inputmode="tel"
-placeholder="Mobile number"
-required
->
+<input id="cm" inputmode="tel" placeholder="Mobile number" required>
 
 <label>
 <b id="consultDateLabel">
@@ -729,11 +703,7 @@ Appointment Date
 </b>
 </label>
 
-<input
-id="cd"
-type="date"
-required
->
+<input id="cd" type="date" required>
 
 <label>
 <b id="consultTimeLabel">
@@ -741,24 +711,15 @@ Appointment Time
 </b>
 </label>
 
-<input
-id="ct"
-type="time"
-required
->
+<input id="ct" type="time" required>
 
 <p class="small" id="consultTimeHint">
 Select your preferred consultation time.
 </p>
 
-<textarea
-id="cp"
-placeholder="Briefly describe the problem">
-</textarea>
+<textarea id="cp" placeholder="Briefly describe the problem"></textarea>
 
-<button
-class="primary"
-id="consultSubmit">
+<button class="primary" id="consultSubmit">
 Request Consultation
 </button>
 
@@ -781,24 +742,11 @@ Request Consultation
 
 <form id="homevisitForm">
 
-<input
-id="hn"
-placeholder="Patient name"
-required
->
+<input id="hn" placeholder="Patient name" required>
 
-<input
-id="hm"
-inputmode="tel"
-placeholder="Mobile number"
-required
->
+<input id="hm" inputmode="tel" placeholder="Mobile number" required>
 
-<textarea
-id="ha"
-placeholder="Full address"
-required>
-</textarea>
+<textarea id="ha" placeholder="Full address" required></textarea>
 
 <select id="hs">
 
@@ -838,11 +786,7 @@ Date
 </b>
 </label>
 
-<input
-id="hd"
-type="date"
-required
->
+<input id="hd" type="date" required>
 
 <label>
 <b id="homeTimeLabel">
@@ -850,19 +794,13 @@ Time
 </b>
 </label>
 
-<input
-id="ht"
-type="time"
-required
->
+<input id="ht" type="time" required>
 
 <p class="small" id="homeTimeHint">
 Select your preferred visit time.
 </p>
 
-<button
-class="primary"
-id="homeVisitSubmit">
+<button class="primary" id="homeVisitSubmit">
 Request Home Visit
 </button>
 
@@ -915,10 +853,7 @@ Request Home Visit
 Services are subject to clinical assessment, professional scope, applicable law and referral requirements.
 </p>
 
-<button
-class="primary"
-data-page="homevisit"
-id="nursingHomeVisit">
+<button class="primary" data-page="homevisit" id="nursingHomeVisit">
 🏠 Request Home Visit
 </button>
 
@@ -962,9 +897,7 @@ Physiotherapy services should be provided by a qualified physiotherapist.
 Availability and service area may vary.
 </p>
 
-<button
-class="primary"
-id="physioBtn">
+<button class="primary" id="physioBtn">
 Request Physiotherapy
 </button>
 
@@ -992,30 +925,13 @@ Testing is performed through the associated/reputed laboratory as applicable.
 
 <form id="bloodForm">
 
-<input
-id="bn"
-placeholder="Patient name"
-required
->
+<input id="bn" placeholder="Patient name" required>
 
-<input
-id="bm"
-inputmode="tel"
-placeholder="Mobile number"
-required
->
+<input id="bm" inputmode="tel" placeholder="Mobile number" required>
 
-<textarea
-id="ba"
-placeholder="Full address for sample collection"
-required>
-</textarea>
+<textarea id="ba" placeholder="Full address for sample collection" required></textarea>
 
-<input
-id="bt"
-placeholder="Required blood test / tests"
-required
->
+<input id="bt" placeholder="Required blood test / tests" required>
 
 <label>
 <b id="bloodDateLabel">
@@ -1023,11 +939,7 @@ Preferred Date
 </b>
 </label>
 
-<input
-id="bd"
-type="date"
-required
->
+<input id="bd" type="date" required>
 
 <label>
 <b id="bloodTimeLabel">
@@ -1035,11 +947,7 @@ Preferred Time
 </b>
 </label>
 
-<input
-id="btime"
-type="time"
-required
->
+<input id="btime" type="time" required>
 
 <p class="small" id="bloodTimeHint">
 Select your preferred sample collection time.
@@ -1061,9 +969,7 @@ Physical Report Collection
 
 </select>
 
-<button
-class="primary"
-id="bloodSubmit">
+<button class="primary" id="bloodSubmit">
 🩸 Request Sample Collection
 </button>
 
@@ -1130,18 +1036,9 @@ Rental price and availability depend on equipment and current stock.
 
 <form id="equipmentForm">
 
-<input
-id="en"
-placeholder="Patient / Customer name"
-required
->
+<input id="en" placeholder="Patient / Customer name" required>
 
-<input
-id="em"
-inputmode="tel"
-placeholder="Mobile number"
-required
->
+<input id="em" inputmode="tel" placeholder="Mobile number" required>
 
 <select id="eq">
 
@@ -1187,17 +1084,9 @@ Other Medical Equipment
 
 </select>
 
-<input
-id="ed"
-type="number"
-min="1"
-placeholder="Required for how many days?"
-required
->
+<input id="ed" type="number" min="1" placeholder="Required for how many days?" required>
 
-<button
-class="primary"
-id="equipmentSubmit">
+<button class="primary" id="equipmentSubmit">
 Request Rental Information
 </button>
 
@@ -1219,119 +1108,66 @@ Request Rental Information
 </h2>
 
 <div class="faq">
-
-<button id="faq1q">
-What are the clinic timings? ＋
-</button>
-
+<button id="faq1q">What are the clinic timings? ＋</button>
 <div class="answer hidden" id="faq1a">
 Clinic timing is 8:00 AM to 8:00 PM. Sunday is weekly off. Emergency first aid is available any time as applicable.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq2q">
-How can I book an appointment? ＋
-</button>
-
+<button id="faq2q">How can I book an appointment? ＋</button>
 <div class="answer hidden" id="faq2a">
 Open Book Appointment, enter the patient details, select date and time, and send the request through WhatsApp.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq3q">
-Is online doctor consultation available? ＋
-</button>
-
+<button id="faq3q">Is online doctor consultation available? ＋</button>
 <div class="answer hidden" id="faq3a">
 Yes. You can submit an online consultation request through the app. Doctor availability should be confirmed before consultation.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq4q">
-Do you provide home visits? ＋
-</button>
-
+<button id="faq4q">Do you provide home visits? ＋</button>
 <div class="answer hidden" id="faq4a">
 Home visit requests can be submitted through the app. Availability depends on service area, timing and clinical requirements.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq5q">
-Can I request blood sample collection? ＋
-</button>
-
+<button id="faq5q">Can I request blood sample collection? ＋</button>
 <div class="answer hidden" id="faq5a">
 Yes. You can request sample collection and choose a preferred report delivery method.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq6q">
-Can I rent medical equipment? ＋
-</button>
-
+<button id="faq6q">Can I rent medical equipment? ＋</button>
 <div class="answer hidden" id="faq6a">
 Equipment can be requested subject to availability.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq7q">
-Do you provide physiotherapy? ＋
-</button>
-
+<button id="faq7q">Do you provide physiotherapy? ＋</button>
 <div class="answer hidden" id="faq7a">
 Physiotherapy can be requested separately and should be provided by a qualified physiotherapist.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq8q">
-How can I contact Pushpa Health Point? ＋
-</button>
-
+<button id="faq8q">How can I contact Pushpa Health Point? ＋</button>
 <div class="answer hidden" id="faq8a">
 You can call or WhatsApp 6294172197, or open the Google Maps location from the app.
 </div>
-
 </div>
 
-
 <div class="faq">
-
-<button id="faq9q">
-What should I do in an emergency? ＋
-</button>
-
+<button id="faq9q">What should I do in an emergency? ＋</button>
 <div class="answer hidden" id="faq9a">
 For serious emergencies, immediately contact the nearest hospital or emergency department. Do not delay emergency medical care.
 </div>
-
 </div>
 
 </section>
@@ -1350,30 +1186,21 @@ For serious emergencies, immediately contact the nearest hospital or emergency d
 </h2>
 
 <div class="notice" id="prescriptionNotice">
-
 🔐 This section is intended for an authorized doctor / prescriber only.
 The system does not independently diagnose or prescribe medicines.
-
 </div>
 
 <label class="pres-label" id="pnLabel">
 Patient Name
 </label>
 
-<input
-id="pn"
-placeholder="Patient Name"
->
+<input id="pn" placeholder="Patient Name">
 
 <label class="pres-label" id="paLabel">
 Age
 </label>
 
-<input
-id="pa"
-type="number"
-placeholder="Age"
->
+<input id="pa" type="number" placeholder="Age">
 
 <label class="pres-label" id="pgLabel">
 Gender
@@ -1381,17 +1208,9 @@ Gender
 
 <select id="pg">
 
-<option value="Male" id="pgMale">
-Male
-</option>
-
-<option value="Female" id="pgFemale">
-Female
-</option>
-
-<option value="Other" id="pgOther">
-Other
-</option>
+<option value="Male" id="pgMale">Male</option>
+<option value="Female" id="pgFemale">Female</option>
+<option value="Other" id="pgOther">Other</option>
 
 </select>
 
@@ -1399,118 +1218,70 @@ Other
 Date
 </label>
 
-<input
-id="pd"
-type="date"
->
+<input id="pd" type="date">
 
 <label class="pres-label" id="docnameLabel">
 Doctor Name
 </label>
 
-<input
-id="docname"
-placeholder="Doctor Name"
->
+<input id="docname" placeholder="Doctor Name">
 
 <label class="pres-label" id="docqualLabel">
 Qualification
 </label>
 
-<input
-id="docqual"
-placeholder="Qualification"
->
+<input id="docqual" placeholder="Qualification">
 
 <label class="pres-label" id="regnoLabel">
 Registration Number
 </label>
 
-<input
-id="regno"
-placeholder="Registration Number"
->
+<input id="regno" placeholder="Registration Number">
 
 <label class="pres-label" id="diagnosisLabel">
 Diagnosis / Clinical Notes
 </label>
 
-<input
-id="diagnosis"
-placeholder="Diagnosis / Clinical Notes"
->
+<input id="diagnosis" placeholder="Diagnosis / Clinical Notes">
 
-<h3
-id="medicineTitle"
-style="font-size:15px">
+<h3 id="medicineTitle" style="font-size:15px">
 Medicine
 </h3>
 
 <div class="medicine-wrap">
 
-<table
-class="table medicine-table"
-id="medicineTable">
+<table class="table medicine-table" id="medicineTable">
 
 <tr>
 
-<th id="medicineHead">
-Medicine
-</th>
-
-<th id="doseHead">
-Dose
-</th>
-
-<th id="strengthHead">
-Strength
-</th>
-
-<th id="frequencyHead">
-Frequency
-</th>
-
-<th id="durationHead">
-Duration
-</th>
+<th id="medicineHead">Medicine</th>
+<th id="doseHead">Dose</th>
+<th id="strengthHead">Strength</th>
+<th id="frequencyHead">Frequency</th>
+<th id="durationHead">Duration</th>
 
 </tr>
 
 <tr class="medicineRow">
 
 <td>
-<input
-class="mName"
-placeholder="Name"
->
+<input class="mName" placeholder="Name">
 </td>
 
 <td>
-<input
-class="mDose"
-placeholder="e.g. 1 tablet"
->
+<input class="mDose" placeholder="e.g. 1 tablet">
 </td>
 
 <td>
-<input
-class="mStrength"
-placeholder="e.g. 500 mg"
->
+<input class="mStrength" placeholder="e.g. 500 mg">
 </td>
 
 <td>
-<input
-class="mFrequency"
-placeholder="e.g. BD"
->
+<input class="mFrequency" placeholder="e.g. BD">
 </td>
 
 <td>
-<input
-class="mDuration"
-placeholder="e.g. 5 days"
->
+<input class="mDuration" placeholder="e.g. 5 days">
 </td>
 
 </tr>
@@ -1519,36 +1290,21 @@ placeholder="e.g. 5 days"
 
 </div>
 
-<button
-type="button"
-class="secondary"
-id="addMedicineBtn">
+<button type="button" class="secondary" id="addMedicineBtn">
 ➕ Add Medicine
 </button>
 
-<label
-class="pres-label"
-id="instructionLabel">
+<label class="pres-label" id="instructionLabel">
 Special Instructions / Follow-up
 </label>
 
-<textarea
-id="pinstruction"
-placeholder="Special instructions / Follow-up">
-</textarea>
+<textarea id="pinstruction" placeholder="Special instructions / Follow-up"></textarea>
 
-<button
-class="primary"
-id="previewBtn">
+<button class="primary" id="previewBtn">
 Preview Prescription
 </button>
 
-
-<!-- FINAL PRESCRIPTION ONLY -->
-
-<div
-id="presPreview"
-class="hidden">
+<div id="presPreview" class="hidden">
 
 <hr>
 
@@ -1557,83 +1313,45 @@ PUSHPA HEALTH POINT
 </h2>
 
 <p style="text-align:center;font-size:12px">
-
 Dakshin Palasi, Khurshi, Narayangarh,
 Paschim Medinipur, West Bengal – 721437
-
 </p>
 
 <hr>
 
 <p>
-
-<b id="rPatientLabel">
-Patient:
-</b>
-
+<b id="rPatientLabel">Patient:</b>
 <span id="rpn"></span>
-
 </p>
 
 <p>
-
-<b id="rAgeLabel">
-Age/Sex:
-</b>
-
+<b id="rAgeLabel">Age/Sex:</b>
 <span id="rpa"></span>
 /
 <span id="rpg"></span>
-
 </p>
 
 <p>
-
-<b id="rDateLabel">
-Date:
-</b>
-
+<b id="rDateLabel">Date:</b>
 <span id="rpd"></span>
-
 </p>
 
 <p>
-
-<b id="rDiagnosisLabel">
-Diagnosis / Notes:
-</b>
-
+<b id="rDiagnosisLabel">Diagnosis / Notes:</b>
 <span id="rdiag"></span>
-
 </p>
 
 <div class="medicine-wrap">
 
-<table
-class="table medicine-table"
-id="previewMedicineTable">
+<table class="table medicine-table" id="previewMedicineTable">
 
 <tr>
 
-<th id="rMedicineHead">
-Medicine
-</th>
-
-<th id="rDoseHead">
-Dose
-</th>
-
-<th id="rStrengthHead">
-Strength
-</th>
-
-<th id="rFrequencyHead">
-Frequency
-</th>
-
-<th id="rDurationHead">
-Duration
-</th>
+<th id="rMedicineHead">Medicine</th>
+<th id="rDoseHead">Dose</th>
+<th id="rStrengthHead">Strength</th>
+<th id="rFrequencyHead">Frequency</th>
+<th id="rDurationHead">Duration</th>
 
 </tr>
 
@@ -1642,50 +1360,28 @@ Duration
 </div>
 
 <p>
-
-<b id="rInstructionLabel">
-Instructions:
-</b>
-
+<b id="rInstructionLabel">Instructions:</b>
 <span id="rinst"></span>
-
 </p>
 
 <br>
 
 <p>
-
-<b id="rDoctorLabel">
-Doctor:
-</b>
-
+<b id="rDoctorLabel">Doctor:</b>
 <span id="rdoc"></span>
-
 </p>
 
 <p>
-
-<b id="rQualLabel">
-Qualification:
-</b>
-
+<b id="rQualLabel">Qualification:</b>
 <span id="rqual"></span>
-
 </p>
 
 <p>
-
-<b id="rRegLabel">
-Registration No.:
-</b>
-
+<b id="rRegLabel">Registration No.:</b>
 <span id="rreg"></span>
-
 </p>
 
-<button
-class="primary"
-id="printBtn">
+<button class="primary" id="printBtn">
 🖨️ Print / Save as PDF
 </button>
 
@@ -1720,15 +1416,13 @@ id="printBtn">
 
 <div class="linkrow">
 
-<a
-class="linkbtn"
+<a class="linkbtn"
 href="tel:+916294172197"
 id="contactCall">
 Call
 </a>
 
-<a
-class="linkbtn"
+<a class="linkbtn"
 href="https://wa.me/916294172197"
 target="_blank"
 id="contactWhatsApp">
@@ -1822,6 +1516,51 @@ return el ? el.value : "";
 
 
 /* =========================
+   12 HOUR TIME FORMAT
+========================= */
+
+function formatTime12(time){
+
+if(!time) return "";
+
+const parts=time.split(":");
+
+let hour=parseInt(parts[0],10);
+const minute=parts[1] || "00";
+
+const ampm=hour>=12 ? "PM" : "AM";
+
+hour=hour%12;
+
+if(hour===0){
+hour=12;
+}
+
+return hour+":"+minute+" "+ampm;
+
+}
+
+
+/* =========================
+   DATE FORMAT
+========================= */
+
+function formatDate(date){
+
+if(!date) return "";
+
+const parts=date.split("-");
+
+if(parts.length!==3){
+return date;
+}
+
+return parts[2]+"/"+parts[1]+"/"+parts[0];
+
+}
+
+
+/* =========================
    WHATSAPP
 ========================= */
 
@@ -1837,6 +1576,158 @@ window.open(url,"_blank");
 
 
 /* =========================
+   LOCAL NOTIFICATION
+========================= */
+
+async function enableNotifications(){
+
+if(!("Notification" in window)){
+
+alert(
+currentLanguage==="bn"
+?
+"এই ডিভাইসে Notification সমর্থিত নয়।"
+:
+"Notifications are not supported on this device."
+);
+
+return;
+
+}
+
+try{
+
+const permission=
+await Notification.requestPermission();
+
+if(permission==="granted"){
+
+showLocalNotification(
+currentLanguage==="bn"
+?
+"Pushpa Health Point"
+:
+"Pushpa Health Point",
+
+currentLanguage==="bn"
+?
+"Notification সফলভাবে চালু হয়েছে।"
+:
+"Notifications have been enabled successfully."
+
+);
+
+updateNotificationButton();
+
+}else{
+
+alert(
+currentLanguage==="bn"
+?
+"Notification অনুমতি দেওয়া হয়নি। ব্রাউজার Settings থেকে Notification Allow করুন।"
+:
+"Notification permission was not granted. Please allow notifications from browser settings."
+);
+
+}
+
+}catch(error){
+
+console.log("Notification error:",error);
+
+}
+
+}
+
+
+function showLocalNotification(title,body){
+
+if(!("Notification" in window)){
+return;
+}
+
+if(Notification.permission!=="granted"){
+return;
+}
+
+if(
+navigator.serviceWorker &&
+navigator.serviceWorker.ready
+){
+
+navigator.serviceWorker.ready.then(function(registration){
+
+registration.showNotification(
+title,
+{
+body:body,
+icon:"./icon-192.png",
+badge:"./icon-192.png",
+vibrate:[200,100,200],
+data:{
+url:"./"
+}
+}
+);
+
+});
+
+}else{
+
+new Notification(title,{
+body:body,
+icon:"./icon-192.png"
+});
+
+}
+
+}
+
+
+function updateNotificationButton(){
+
+const button=
+document.getElementById("notificationBtn");
+
+if(!button) return;
+
+if(Notification.permission==="granted"){
+
+button.innerText=
+currentLanguage==="bn"
+?
+"🔔 Notification চালু আছে"
+:
+"🔔 Notifications Enabled";
+
+}else{
+
+button.innerText=
+currentLanguage==="bn"
+?
+"🔔 Notification চালু করুন"
+:
+"🔔 Enable Notifications";
+
+}
+
+}
+
+
+/* =========================
+   NOTIFICATION BUTTON
+========================= */
+
+document
+.getElementById("notificationBtn")
+.addEventListener("click",function(){
+
+enableNotifications();
+
+});
+
+
+/* =========================
    APPOINTMENT FORM
 ========================= */
 
@@ -1846,15 +1737,57 @@ document
 
 e.preventDefault();
 
-openWhatsApp(`Pushpa Health Point - Appointment Request
+const time12=
+formatTime12(value("at"));
+
+const dateText=
+formatDate(value("ad"));
+
+const message=
+
+currentLanguage==="bn"
+
+?
+
+`পুষ্পা হেলথ পয়েন্ট - অ্যাপয়েন্টমেন্টের অনুরোধ
+
+রোগীর নাম: ${value("an")}
+বয়স: ${value("aa")}
+লিঙ্গ: ${value("ag")}
+মোবাইল: ${value("am")}
+পরিষেবা: ${value("as")}
+তারিখ: ${dateText}
+সময়: ${time12}`
+
+:
+
+`Pushpa Health Point - Appointment Request
 
 Patient: ${value("an")}
 Age: ${value("aa")}
 Gender: ${value("ag")}
 Mobile: ${value("am")}
 Service: ${value("as")}
-Date: ${value("ad")}
-Time: ${value("at")}`);
+Date: ${dateText}
+Time: ${time12}`;
+
+openWhatsApp(message);
+
+showLocalNotification(
+
+currentLanguage==="bn"
+?
+"অ্যাপয়েন্টমেন্টের অনুরোধ"
+:
+"Appointment Request",
+
+currentLanguage==="bn"
+?
+`${dateText}, ${time12}-এ অ্যাপয়েন্টমেন্টের অনুরোধ পাঠানো হয়েছে।`
+:
+`Appointment request sent for ${dateText}, ${time12}.`
+
+);
 
 });
 
@@ -1869,14 +1802,55 @@ document
 
 e.preventDefault();
 
-openWhatsApp(`Pushpa Health Point - Online Doctor Consultation Request
+const time12=
+formatTime12(value("ct"));
+
+const dateText=
+formatDate(value("cd"));
+
+const message=
+
+currentLanguage==="bn"
+
+?
+
+`পুষ্পা হেলথ পয়েন্ট - অনলাইন ডাক্তার পরামর্শের অনুরোধ
+
+রোগীর নাম: ${value("cn")}
+বয়স: ${value("ca")}
+মোবাইল: ${value("cm")}
+তারিখ: ${dateText}
+সময়: ${time12}
+সমস্যা: ${value("cp")}`
+
+:
+
+`Pushpa Health Point - Online Doctor Consultation Request
 
 Patient: ${value("cn")}
 Age: ${value("ca")}
 Mobile: ${value("cm")}
-Date: ${value("cd")}
-Time: ${value("ct")}
-Problem: ${value("cp")}`);
+Date: ${dateText}
+Time: ${time12}
+Problem: ${value("cp")}`;
+
+openWhatsApp(message);
+
+showLocalNotification(
+
+currentLanguage==="bn"
+?
+"অনলাইন ডাক্তার পরামর্শ"
+:
+"Online Doctor Consultation",
+
+currentLanguage==="bn"
+?
+`${dateText}, ${time12}-এর জন্য পরামর্শের অনুরোধ পাঠানো হয়েছে।`
+:
+`Consultation request sent for ${dateText}, ${time12}.`
+
+);
 
 });
 
@@ -1891,14 +1865,55 @@ document
 
 e.preventDefault();
 
-openWhatsApp(`Pushpa Health Point - Home Visit Request
+const time12=
+formatTime12(value("ht"));
+
+const dateText=
+formatDate(value("hd"));
+
+const message=
+
+currentLanguage==="bn"
+
+?
+
+`পুষ্পা হেলথ পয়েন্ট - বাড়িতে পরিষেবার অনুরোধ
+
+রোগীর নাম: ${value("hn")}
+মোবাইল: ${value("hm")}
+ঠিকানা: ${value("ha")}
+পরিষেবা: ${value("hs")}
+তারিখ: ${dateText}
+সময়: ${time12}`
+
+:
+
+`Pushpa Health Point - Home Visit Request
 
 Patient: ${value("hn")}
 Mobile: ${value("hm")}
 Address: ${value("ha")}
 Service: ${value("hs")}
-Date: ${value("hd")}
-Time: ${value("ht")}`);
+Date: ${dateText}
+Time: ${time12}`;
+
+openWhatsApp(message);
+
+showLocalNotification(
+
+currentLanguage==="bn"
+?
+"বাড়িতে পরিষেবার অনুরোধ"
+:
+"Home Visit Request",
+
+currentLanguage==="bn"
+?
+`${dateText}, ${time12}-এর জন্য বাড়িতে পরিষেবার অনুরোধ পাঠানো হয়েছে।`
+:
+`Home visit request sent for ${dateText}, ${time12}.`
+
+);
 
 });
 
@@ -1911,9 +1926,39 @@ document
 .getElementById("physioBtn")
 .addEventListener("click",function(){
 
-openWhatsApp(`Pushpa Health Point - Physiotherapy Request
+const message=
 
-Please contact me regarding physiotherapy service.`);
+currentLanguage==="bn"
+
+?
+
+`পুষ্পা হেলথ পয়েন্ট - ফিজিওথেরাপির অনুরোধ
+
+ফিজিওথেরাপি পরিষেবা সম্পর্কে আমার সঙ্গে যোগাযোগ করুন।`
+
+:
+
+`Pushpa Health Point - Physiotherapy Request
+
+Please contact me regarding physiotherapy service.`;
+
+openWhatsApp(message);
+
+showLocalNotification(
+
+currentLanguage==="bn"
+?
+"ফিজিওথেরাপির অনুরোধ"
+:
+"Physiotherapy Request",
+
+currentLanguage==="bn"
+?
+"ফিজিওথেরাপির অনুরোধ পাঠানো হয়েছে।"
+:
+"Physiotherapy request sent."
+
+);
 
 });
 
@@ -1928,15 +1973,57 @@ document
 
 e.preventDefault();
 
-openWhatsApp(`Pushpa Health Point - Blood Sample Collection Request
+const time12=
+formatTime12(value("btime"));
+
+const dateText=
+formatDate(value("bd"));
+
+const message=
+
+currentLanguage==="bn"
+
+?
+
+`পুষ্পা হেলথ পয়েন্ট - রক্তের নমুনা সংগ্রহের অনুরোধ
+
+রোগীর নাম: ${value("bn")}
+মোবাইল: ${value("bm")}
+ঠিকানা: ${value("ba")}
+পরীক্ষা: ${value("bt")}
+তারিখ: ${dateText}
+সময়: ${time12}
+রিপোর্ট পাওয়ার পদ্ধতি: ${value("br")}`
+
+:
+
+`Pushpa Health Point - Blood Sample Collection Request
 
 Patient: ${value("bn")}
 Mobile: ${value("bm")}
 Address: ${value("ba")}
 Test: ${value("bt")}
-Date: ${value("bd")}
-Time: ${value("btime")}
-Report Delivery: ${value("br")}`);
+Date: ${dateText}
+Time: ${time12}
+Report Delivery: ${value("br")}`;
+
+openWhatsApp(message);
+
+showLocalNotification(
+
+currentLanguage==="bn"
+?
+"রক্তের নমুনা সংগ্রহ"
+:
+"Blood Sample Collection",
+
+currentLanguage==="bn"
+?
+`${dateText}, ${time12}-এর জন্য নমুনা সংগ্রহের অনুরোধ পাঠানো হয়েছে।`
+:
+`Sample collection request sent for ${dateText}, ${time12}.`
+
+);
 
 });
 
@@ -1951,12 +2038,45 @@ document
 
 e.preventDefault();
 
-openWhatsApp(`Pushpa Health Point - Medical Equipment Rental Request
+const message=
+
+currentLanguage==="bn"
+
+?
+
+`পুষ্পা হেলথ পয়েন্ট - মেডিকেল সরঞ্জাম ভাড়ার অনুরোধ
+
+গ্রাহক/রোগীর নাম: ${value("en")}
+মোবাইল: ${value("em")}
+সরঞ্জাম: ${value("eq")}
+প্রয়োজনীয় সময়কাল: ${value("ed")} দিন`
+
+:
+
+`Pushpa Health Point - Medical Equipment Rental Request
 
 Customer/Patient: ${value("en")}
 Mobile: ${value("em")}
 Equipment: ${value("eq")}
-Required Duration: ${value("ed")} days`);
+Required Duration: ${value("ed")} days`;
+
+openWhatsApp(message);
+
+showLocalNotification(
+
+currentLanguage==="bn"
+?
+"মেডিকেল সরঞ্জামের অনুরোধ"
+:
+"Medical Equipment Request",
+
+currentLanguage==="bn"
+?
+"মেডিকেল সরঞ্জাম ভাড়ার অনুরোধ পাঠানো হয়েছে।"
+:
+"Medical equipment rental request sent."
+
+);
 
 });
 
@@ -2763,17 +2883,10 @@ const bnValues=[
 
 options.forEach(function(option,index){
 
-if(isBN){
-
 option.textContent=
-bnValues[index];
-
-}else{
-
-option.textContent=
-values[index];
-
-}
+isBN
+?bnValues[index]
+:values[index];
 
 });
 
@@ -2894,6 +3007,11 @@ setText("offTitle",T.offTitle);
 setText("emergencyTitle",T.emergencyTitle);
 setText("notice",T.notice);
 setText("installBtn",T.install);
+
+
+/* NOTIFICATION BUTTON */
+
+updateNotificationButton();
 
 
 /* HOME BUTTONS */
@@ -3149,6 +3267,15 @@ T.mobile
 setPlaceholder(
 "ba",
 T.address
+);
+
+setPlaceholder(
+"bt",
+currentLanguage==="bn"
+?
+"প্রয়োজনীয় রক্ত পরীক্ষা লিখুন"
+:
+"Required blood test / tests"
 );
 
 setText(
@@ -3442,14 +3569,18 @@ T.footer
 
 document.getElementById("langBtn").innerText=
 currentLanguage==="en"
-?"বাংলা"
-:"English";
+?
+"বাংলা"
+:
+"English";
 
 
 document.documentElement.lang=
 currentLanguage==="bn"
-?"bn"
-:"en";
+?
+"bn"
+:
+"en";
 
 
 applyServiceLanguage();
@@ -3637,6 +3768,13 @@ function(){
 
 navigator.serviceWorker
 .register("./sw.js")
+.then(function(){
+
+console.log("Pushpa Health Point Service Worker registered.");
+
+updateNotificationButton();
+
+})
 .catch(function(error){
 
 console.log(
