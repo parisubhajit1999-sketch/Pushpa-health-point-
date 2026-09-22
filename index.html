@@ -35,8 +35,6 @@ body{
 margin:0;
 font-family:Arial,sans-serif;
 color:var(--text);
-
-/* Soft healthcare background */
 background:
 linear-gradient(rgba(244,248,247,.91),rgba(244,248,247,.96)),
 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cg fill='none' stroke='%23087f73' stroke-opacity='.07' stroke-width='2'%3E%3Cpath d='M80 120c40-55 110-55 150 0s110 55 150 0 110-55 150 0'/%3E%3Cpath d='M80 480c40-55 110-55 150 0s110 55 150 0 110-55 150 0'/%3E%3Ccircle cx='90' cy='300' r='45'/%3E%3Ccircle cx='510' cy='300' r='45'/%3E%3Cpath d='M285 250h30v-30h-30v30zm0 30v30h30v-30h-30z' fill='%23087f73' fill-opacity='.05'/%3E%3C/g%3E%3C/svg%3E");
@@ -209,6 +207,11 @@ box-shadow:0 5px 18px rgba(0,0,0,.15);
 font-weight:900;
 position:relative;
 z-index:2;
+cursor:pointer;
+touch-action:manipulation;
+user-select:none;
+-webkit-user-select:none;
+-webkit-touch-callout:none;
 }
 
 .logo .logo-p{
@@ -368,8 +371,6 @@ align-items:center;
 gap:7px;
 }
 
-
-/* Relevant form icon area */
 .card h2:before{
 font-size:24px;
 width:38px;
@@ -422,8 +423,6 @@ content:"📝";
 content:"📞";
 }
 
-
-/* Existing emoji in heading kept; icon area adds professional visual */
 .card h2{
 flex-wrap:wrap;
 }
@@ -801,7 +800,6 @@ transition:none!important;
 
 <body>
 
-<!-- STARTING ANIMATION -->
 <div id="splash">
 
 <div class="splash-content">
@@ -833,7 +831,7 @@ Your Health Is Our Priority
 
 <button class="lang" id="langBtn">বাংলা</button>
 
-<div class="logo">
+<div class="logo" id="adminLogo">
 <span class="logo-p">P</span>
 <span class="logo-cross">✚</span>
 <span class="logo-heart">♥</span>
@@ -848,8 +846,6 @@ Your Health Is Our Priority
 </header>
 
 <main>
-
-<!-- HOME -->
 
 <section id="home">
 
@@ -880,8 +876,6 @@ Services are provided according to clinical assessment, professional scope and a
 <button class="install" id="installBtn">
 📲 Install Pushpa Health Point App
 </button>
-
-<!-- NOTIFICATION BUTTON -->
 
 <button class="install" id="notificationBtn">
 🔔 Enable Notifications
@@ -964,8 +958,6 @@ id="mapBtn">
 
 </section>
 
-
-<!-- APPOINTMENT -->
 
 <section id="appointment" class="hidden card">
 
@@ -1079,8 +1071,6 @@ The request opens WhatsApp. Appointment must be confirmed before visiting.
 </section>
 
 
-<!-- CONSULT -->
-
 <section id="consult" class="hidden card">
 
 <button class="back" data-page="home" id="backConsult">
@@ -1129,8 +1119,6 @@ Request Consultation
 
 </section>
 
-
-<!-- HOME VISIT -->
 
 <section id="homevisit" class="hidden card">
 
@@ -1211,8 +1199,6 @@ Request Home Visit
 </section>
 
 
-<!-- NURSING -->
-
 <section id="nursing" class="hidden card">
 
 <button class="back" data-page="home">
@@ -1262,8 +1248,6 @@ Services are subject to clinical assessment, professional scope, applicable law 
 </section>
 
 
-<!-- PHYSIO -->
-
 <section id="physio" class="hidden card">
 
 <button class="back" data-page="home">
@@ -1305,8 +1289,6 @@ Request Physiotherapy
 
 </section>
 
-
-<!-- BLOOD -->
 
 <section id="blood" class="hidden card">
 
@@ -1379,8 +1361,6 @@ Physical Report Collection
 
 </section>
 
-
-<!-- EQUIPMENT -->
 
 <section id="equipment" class="hidden card">
 
@@ -1497,8 +1477,6 @@ Request Rental Information
 </section>
 
 
-<!-- FAQ -->
-
 <section id="faq" class="hidden card">
 
 <button class="back" data-page="home">
@@ -1574,8 +1552,6 @@ For serious emergencies, immediately contact the nearest hospital or emergency d
 
 </section>
 
-
-<!-- PRESCRIPTION -->
 
 <section id="prescription" class="hidden card">
 
@@ -1791,8 +1767,6 @@ Paschim Medinipur, West Bengal – 721437
 
 </section>
 
-
-<!-- CONTACT -->
 
 <section id="contact" class="hidden card">
 
@@ -2640,10 +2614,8 @@ value("docqual");
 document.getElementById("rreg").innerText=
 value("regno");
 
-
 const previewTable=
 document.getElementById("previewMedicineTable");
-
 
 previewTable.innerHTML=`
 
@@ -2673,7 +2645,6 @@ ${currentLanguage==="bn"?"সময়কাল":"Duration"}
 
 `;
 
-
 document
 .querySelectorAll("#medicineTable .medicineRow")
 .forEach(function(row){
@@ -2692,7 +2663,6 @@ row.querySelector(".mFrequency").value;
 
 const duration=
 row.querySelector(".mDuration").value;
-
 
 if(
 name ||
@@ -2718,7 +2688,6 @@ newRow.innerHTML=`
 }
 
 });
-
 
 document
 .getElementById("presPreview")
@@ -2749,7 +2718,6 @@ let deferredPrompt=null;
 const installButton=
 document.getElementById("installBtn");
 
-
 window.addEventListener(
 "beforeinstallprompt",
 function(event){
@@ -2759,7 +2727,6 @@ event.preventDefault();
 deferredPrompt=event;
 
 });
-
 
 installButton.addEventListener(
 "click",
@@ -2798,440 +2765,157 @@ currentLanguage==="bn"
 
 let currentLanguage="en";
 
-
 const BN={
 
 clinicName:"পুষ্পা হেলথ পয়েন্ট",
-
 tag:"আপনার স্বাস্থ্যই আমাদের অগ্রাধিকার",
-
 timingTitle:"ক্লিনিকের সময়:",
-
 offTitle:"সাপ্তাহিক ছুটি:",
-
 emergencyTitle:"জরুরি প্রাথমিক চিকিৎসা:",
-
-notice:
-"⚠️ জরুরি অবস্থায় দ্রুত নিকটস্থ হাসপাতাল বা ইমার্জেন্সি বিভাগে যোগাযোগ করুন। পরিষেবা রোগীর অবস্থা, পেশাগত সীমারেখা ও প্রযোজ্য নিয়ম অনুযায়ী প্রদান করা হয়।",
-
-install:
-"📲 পুষ্পা হেলথ পয়েন্ট অ্যাপ ইনস্টল করুন",
-
-appointment:
-"📅<br>অ্যাপয়েন্টমেন্ট বুক করুন",
-
-consult:
-"👨‍⚕️<br>অনলাইন ডাক্তার পরামর্শ",
-
-homeVisit:
-"🏠<br>বাড়িতে পরিষেবা",
-
-nursing:
-"🩺<br>নার্সিং পরিষেবা",
-
-physio:
-"🧑‍🦽<br>ফিজিওথেরাপি",
-
-blood:
-"🩸<br>রক্ত পরীক্ষা ও রিপোর্ট",
-
-equipment:
-"🏥<br>মেডিকেল সরঞ্জাম ভাড়া",
-
-faq:
-"❓<br>সাধারণ প্রশ্ন",
-
-prescription:
-"📝<br>ডাক্তারের প্রেসক্রিপশন",
-
-contact:
-"📞<br>যোগাযোগ করুন",
-
-quick:
-"দ্রুত যোগাযোগ",
-
-call:
-"📞 কল",
-
-whatsapp:
-"💬 হোয়াটসঅ্যাপ",
-
-map:
-"📍 গুগল ম্যাপের লোকেশন খুলুন",
-
-back:
-"← হোম",
-
-appointmentTitle:
-"📅 অ্যাপয়েন্টমেন্ট বুক করুন",
-
-patient:
-"রোগীর নাম",
-
-age:
-"বয়স",
-
-gender:
-"লিঙ্গ",
-
-male:
-"পুরুষ",
-
-female:
-"মহিলা",
-
-other:
-"অন্যান্য",
-
-mobile:
-"মোবাইল নম্বর",
-
-date:
-"অ্যাপয়েন্টমেন্টের তারিখ",
-
-time:
-"অ্যাপয়েন্টমেন্টের সময়",
-
-timeHint:
-"আপনার পছন্দের সময় নির্বাচন করুন।",
-
-sendAppointment:
-"অ্যাপয়েন্টমেন্টের অনুরোধ পাঠান",
-
-appointmentNote:
-"অনুরোধটি হোয়াটসঅ্যাপে খুলবে। আসার আগে অ্যাপয়েন্টমেন্ট নিশ্চিত করুন।",
-
-consultTitle:
-"👨‍⚕️ অনলাইন ডাক্তার পরামর্শ",
-
-requestConsult:
-"পরামর্শের অনুরোধ পাঠান",
-
-consultTimeHint:
-"আপনার পছন্দের পরামর্শের সময় নির্বাচন করুন।",
-
-problem:
-"সমস্যাটি সংক্ষেপে লিখুন",
-
-homeVisitTitle:
-"🏠 বাড়িতে পরিষেবার অনুরোধ",
-
-address:
-"সম্পূর্ণ ঠিকানা",
-
-requestHome:
-"বাড়িতে পরিষেবার অনুরোধ পাঠান",
-
-homeTimeHint:
-"আপনার পছন্দের বাড়িতে পরিষেবার সময় নির্বাচন করুন।",
-
-nursingTitle:
-"🩺 নার্সিং পরিষেবা",
-
-nursingNote:
-"পরিষেবা রোগীর অবস্থা, পেশাগত সীমারেখা, প্রযোজ্য আইন ও প্রয়োজনীয় রেফারেলের ভিত্তিতে প্রদান করা হবে।",
-
-nursingHome:
-"🏠 বাড়িতে পরিষেবার অনুরোধ",
-
-physioTitle:
-"🧑‍🦽 ফিজিওথেরাপি",
-
-physioNote:
-"ফিজিওথেরাপি পরিষেবা যোগ্য ফিজিওথেরাপিস্টের মাধ্যমে প্রদান করা উচিত। পরিষেবার এলাকা ও সময় পরিবর্তিত হতে পারে।",
-
-requestPhysio:
-"ফিজিওথেরাপির অনুরোধ করুন",
-
-bloodTitle:
-"🩸 রক্তের নমুনা সংগ্রহ ও রিপোর্ট",
-
-bloodInfo:
-"বাড়ি থেকে নমুনা সংগ্রহ ও ল্যাবরেটরি রিপোর্ট ডেলিভারির অনুরোধ করা যাবে। প্রযোজ্য ক্ষেত্রে সংশ্লিষ্ট/বিশ্বস্ত ল্যাবরেটরির মাধ্যমে পরীক্ষা করা হবে।",
-
-preferredDate:
-"পছন্দের তারিখ",
-
-preferredTime:
-"পছন্দের সময়",
-
-bloodTimeHint:
-"আপনার পছন্দের নমুনা সংগ্রহের সময় নির্বাচন করুন।",
-
-requestBlood:
-"🩸 নমুনা সংগ্রহের অনুরোধ করুন",
-
-equipmentTitle:
-"🏥 মেডিকেল সরঞ্জাম ভাড়া",
-
-equipmentNote:
-"সরঞ্জামের ধরন ও বর্তমান স্টকের উপর ভাড়া এবং প্রাপ্যতা নির্ভর করবে।",
-
-duration:
-"কত দিনের জন্য প্রয়োজন?",
-
-requestRental:
-"ভাড়ার তথ্যের অনুরোধ করুন",
-
-faqTitle:
-"❓ সাধারণ প্রশ্ন",
-
-prescriptionTitle:
-"📝 ডাক্তারের প্রেসক্রিপশন",
-
-prescriptionNotice:
-"🔐 এই অংশটি শুধুমাত্র অনুমোদিত ডাক্তার/প্রেসক্রাইবারের জন্য। সিস্টেম নিজে থেকে রোগ নির্ণয় বা ওষুধের প্রেসক্রিপশন দেয় না।",
-
-medicine:
-"ওষুধ",
-
-strength:
-"শক্তি",
-
-dose:
-"ডোজ",
-
-frequency:
-"কতবার",
-
-duration2:
-"সময়কাল",
-
-instruction:
-"বিশেষ নির্দেশ / ফলো-আপ",
-
-preview:
-"প্রেসক্রিপশন দেখুন",
-
-print:
-"🖨️ প্রিন্ট / PDF হিসেবে সংরক্ষণ",
-
-contactTitle:
-"📞 যোগাযোগ করুন",
-
-footer:
-"পুষ্পা হেলথ পয়েন্ট • আপনার স্বাস্থ্যই আমাদের অগ্রাধিকার"
+notice:"⚠️ জরুরি অবস্থায় দ্রুত নিকটস্থ হাসপাতাল বা ইমার্জেন্সি বিভাগে যোগাযোগ করুন। পরিষেবা রোগীর অবস্থা, পেশাগত সীমারেখা ও প্রযোজ্য নিয়ম অনুযায়ী প্রদান করা হয়।",
+install:"📲 পুষ্পা হেলথ পয়েন্ট অ্যাপ ইনস্টল করুন",
+appointment:"📅<br>অ্যাপয়েন্টমেন্ট বুক করুন",
+consult:"👨‍⚕️<br>অনলাইন ডাক্তার পরামর্শ",
+homeVisit:"🏠<br>বাড়িতে পরিষেবা",
+nursing:"🩺<br>নার্সিং পরিষেবা",
+physio:"🧑‍🦽<br>ফিজিওথেরাপি",
+blood:"🩸<br>রক্ত পরীক্ষা ও রিপোর্ট",
+equipment:"🏥<br>মেডিকেল সরঞ্জাম ভাড়া",
+faq:"❓<br>সাধারণ প্রশ্ন",
+prescription:"📝<br>ডাক্তারের প্রেসক্রিপশন",
+contact:"📞<br>যোগাযোগ করুন",
+quick:"দ্রুত যোগাযোগ",
+call:"📞 কল",
+whatsapp:"💬 হোয়াটসঅ্যাপ",
+map:"📍 গুগল ম্যাপের লোকেশন খুলুন",
+back:"← হোম",
+appointmentTitle:"📅 অ্যাপয়েন্টমেন্ট বুক করুন",
+patient:"রোগীর নাম",
+age:"বয়স",
+gender:"লিঙ্গ",
+male:"পুরুষ",
+female:"মহিলা",
+other:"অন্যান্য",
+mobile:"মোবাইল নম্বর",
+date:"অ্যাপয়েন্টমেন্টের তারিখ",
+time:"অ্যাপয়েন্টমেন্টের সময়",
+timeHint:"আপনার পছন্দের সময় নির্বাচন করুন।",
+sendAppointment:"অ্যাপয়েন্টমেন্টের অনুরোধ পাঠান",
+appointmentNote:"অনুরোধটি হোয়াটসঅ্যাপে খুলবে। আসার আগে অ্যাপয়েন্টমেন্ট নিশ্চিত করুন।",
+consultTitle:"👨‍⚕️ অনলাইন ডাক্তার পরামর্শ",
+requestConsult:"পরামর্শের অনুরোধ পাঠান",
+consultTimeHint:"আপনার পছন্দের পরামর্শের সময় নির্বাচন করুন।",
+problem:"সমস্যাটি সংক্ষেপে লিখুন",
+homeVisitTitle:"🏠 বাড়িতে পরিষেবার অনুরোধ",
+address:"সম্পূর্ণ ঠিকানা",
+requestHome:"বাড়িতে পরিষেবার অনুরোধ পাঠান",
+homeTimeHint:"আপনার পছন্দের বাড়িতে পরিষেবার সময় নির্বাচন করুন।",
+nursingTitle:"🩺 নার্সিং পরিষেবা",
+nursingNote:"পরিষেবা রোগীর অবস্থা, পেশাগত সীমারেখা, প্রযোজ্য আইন ও প্রয়োজনীয় রেফারেলের ভিত্তিতে প্রদান করা হবে।",
+nursingHome:"🏠 বাড়িতে পরিষেবার অনুরোধ",
+physioTitle:"🧑‍🦽 ফিজিওথেরাপি",
+physioNote:"ফিজিওথেরাপি পরিষেবা যোগ্য ফিজিওথেরাপিস্টের মাধ্যমে প্রদান করা উচিত। পরিষেবার এলাকা ও সময় পরিবর্তিত হতে পারে।",
+requestPhysio:"ফিজিওথেরাপির অনুরোধ করুন",
+bloodTitle:"🩸 রক্তের নমুনা সংগ্রহ ও রিপোর্ট",
+bloodInfo:"বাড়ি থেকে নমুনা সংগ্রহ ও ল্যাবরেটরি রিপোর্ট ডেলিভারির অনুরোধ করা যাবে। প্রযোজ্য ক্ষেত্রে সংশ্লিষ্ট/বিশ্বস্ত ল্যাবরেটরির মাধ্যমে পরীক্ষা করা হবে।",
+preferredDate:"পছন্দের তারিখ",
+preferredTime:"পছন্দের সময়",
+bloodTimeHint:"আপনার পছন্দের নমুনা সংগ্রহের সময় নির্বাচন করুন।",
+requestBlood:"🩸 নমুনা সংগ্রহের অনুরোধ করুন",
+equipmentTitle:"🏥 মেডিকেল সরঞ্জাম ভাড়া",
+equipmentNote:"সরঞ্জামের ধরন ও বর্তমান স্টকের উপর ভাড়া এবং প্রাপ্যতা নির্ভর করবে।",
+duration:"কত দিনের জন্য প্রয়োজন?",
+requestRental:"ভাড়ার তথ্যের অনুরোধ করুন",
+faqTitle:"❓ সাধারণ প্রশ্ন",
+prescriptionTitle:"📝 ডাক্তারের প্রেসক্রিপশন",
+prescriptionNotice:"🔐 এই অংশটি শুধুমাত্র অনুমোদিত ডাক্তার/প্রেসক্রাইবারের জন্য। সিস্টেম নিজে থেকে রোগ নির্ণয় বা ওষুধের প্রেসক্রিপশন দেয় না।",
+medicine:"ওষুধ",
+strength:"শক্তি",
+dose:"ডোজ",
+frequency:"কতবার",
+duration2:"সময়কাল",
+instruction:"বিশেষ নির্দেশ / ফলো-আপ",
+preview:"প্রেসক্রিপশন দেখুন",
+print:"🖨️ প্রিন্ট / PDF হিসেবে সংরক্ষণ",
+contactTitle:"📞 যোগাযোগ করুন",
+footer:"পুষ্পা হেলথ পয়েন্ট • আপনার স্বাস্থ্যই আমাদের অগ্রাধিকার"
 
 };
 
-
 const EN={
 
-clinicName:
-"Pushpa Health Point",
-
-tag:
-"Your Health Is Our Priority",
-
-timingTitle:
-"Clinic Timing:",
-
-offTitle:
-"Weekly Off:",
-
-emergencyTitle:
-"Emergency First Aid:",
-
-notice:
-"⚠️ For emergencies, please visit the nearest hospital or emergency department immediately. Services are provided according to clinical assessment, professional scope and applicable rules.",
-
-install:
-"📲 Install Pushpa Health Point App",
-
-appointment:
-"📅<br>Book Appointment",
-
-consult:
-"👨‍⚕️<br>Online Doctor Consultation",
-
-homeVisit:
-"🏠<br>Home Visit",
-
-nursing:
-"🩺<br>Nursing Services",
-
-physio:
-"🧑‍🦽<br>Physiotherapy",
-
-blood:
-"🩸<br>Blood Test & Report",
-
-equipment:
-"🏥<br>Equipment Rental",
-
-faq:
-"❓<br>FAQ / Common Questions",
-
-prescription:
-"📝<br>Doctor Prescription",
-
-contact:
-"📞<br>Contact Us",
-
-quick:
-"Quick Contact",
-
-call:
-"📞 Call",
-
-whatsapp:
-"💬 WhatsApp",
-
-map:
-"📍 Open Google Maps Location",
-
-back:
-"← Home",
-
-appointmentTitle:
-"📅 Book Appointment",
-
-patient:
-"Patient name",
-
-age:
-"Age",
-
-gender:
-"Gender",
-
-male:
-"Male",
-
-female:
-"Female",
-
-other:
-"Other",
-
-mobile:
-"Mobile number",
-
-date:
-"Appointment Date",
-
-time:
-"Appointment Time",
-
-timeHint:
-"Select your preferred time.",
-
-sendAppointment:
-"Send Appointment Request",
-
-appointmentNote:
-"The request opens WhatsApp. Appointment must be confirmed before visiting.",
-
-consultTitle:
-"👨‍⚕️ Online Doctor Consultation",
-
-requestConsult:
-"Request Consultation",
-
-consultTimeHint:
-"Select your preferred consultation time.",
-
-problem:
-"Briefly describe the problem",
-
-homeVisitTitle:
-"🏠 Request Home Visit",
-
-address:
-"Full address",
-
-requestHome:
-"Request Home Visit",
-
-homeTimeHint:
-"Select your preferred visit time.",
-
-nursingTitle:
-"🩺 Nursing Services",
-
-nursingNote:
-"Services are subject to clinical assessment, professional scope, applicable law and referral requirements.",
-
-nursingHome:
-"🏠 Request Home Visit",
-
-physioTitle:
-"🧑‍🦽 Physiotherapy",
-
-physioNote:
-"Physiotherapy services should be provided by a qualified physiotherapist. Availability and service area may vary.",
-
-requestPhysio:
-"Request Physiotherapy",
-
-bloodTitle:
-"🩸 Blood Sample Collection & Report",
-
-bloodInfo:
-"Home sample collection and laboratory report delivery can be requested through our service. Testing is performed through the associated/reputed laboratory as applicable.",
-
-preferredDate:
-"Preferred Date",
-
-preferredTime:
-"Preferred Time",
-
-bloodTimeHint:
-"Select your preferred sample collection time.",
-
-requestBlood:
-"🩸 Request Sample Collection",
-
-equipmentTitle:
-"🏥 Medical Equipment Rental",
-
-equipmentNote:
-"Rental price and availability depend on equipment and current stock.",
-
-duration:
-"Required for how many days?",
-
-requestRental:
-"Request Rental Information",
-
-faqTitle:
-"❓ FAQ / Common Questions",
-
-prescriptionTitle:
-"📝 Doctor Prescription",
-
-prescriptionNotice:
-"🔐 This section is intended for an authorized doctor / prescriber only. The system does not independently diagnose or prescribe medicines.",
-
-medicine:
-"Medicine",
-
-strength:
-"Strength",
-
-dose:
-"Dose",
-
-frequency:
-"Frequency",
-
-duration2:
-"Duration",
-
-instruction:
-"Special instructions / Follow-up",
-
-preview:
-"Preview Prescription",
-
-print:
-"🖨️ Print / Save as PDF",
-
-contactTitle:
-"📞 Contact Us",
-
-footer:
-"Pushpa Health Point • Your Health Is Our Priority"
+clinicName:"Pushpa Health Point",
+tag:"Your Health Is Our Priority",
+timingTitle:"Clinic Timing:",
+offTitle:"Weekly Off:",
+emergencyTitle:"Emergency First Aid:",
+notice:"⚠️ For emergencies, please visit the nearest hospital or emergency department immediately. Services are provided according to clinical assessment, professional scope and applicable rules.",
+install:"📲 Install Pushpa Health Point App",
+appointment:"📅<br>Book Appointment",
+consult:"👨‍⚕️<br>Online Doctor Consultation",
+homeVisit:"🏠<br>Home Visit",
+nursing:"🩺<br>Nursing Services",
+physio:"🧑‍🦽<br>Physiotherapy",
+blood:"🩸<br>Blood Test & Report",
+equipment:"🏥<br>Equipment Rental",
+faq:"❓<br>FAQ / Common Questions",
+prescription:"📝<br>Doctor Prescription",
+contact:"📞<br>Contact Us",
+quick:"Quick Contact",
+call:"📞 Call",
+whatsapp:"💬 WhatsApp",
+map:"📍 Open Google Maps Location",
+back:"← Home",
+appointmentTitle:"📅 Book Appointment",
+patient:"Patient name",
+age:"Age",
+gender:"Gender",
+male:"Male",
+female:"Female",
+other:"Other",
+mobile:"Mobile number",
+date:"Appointment Date",
+time:"Appointment Time",
+timeHint:"Select your preferred time.",
+sendAppointment:"Send Appointment Request",
+appointmentNote:"The request opens WhatsApp. Appointment must be confirmed before visiting.",
+consultTitle:"👨‍⚕️ Online Doctor Consultation",
+requestConsult:"Request Consultation",
+consultTimeHint:"Select your preferred consultation time.",
+problem:"Briefly describe the problem",
+homeVisitTitle:"🏠 Request Home Visit",
+address:"Full address",
+requestHome:"Request Home Visit",
+homeTimeHint:"Select your preferred visit time.",
+nursingTitle:"🩺 Nursing Services",
+nursingNote:"Services are subject to clinical assessment, professional scope, applicable law and referral requirements.",
+nursingHome:"🏠 Request Home Visit",
+physioTitle:"🧑‍🦽 Physiotherapy",
+physioNote:"Physiotherapy services should be provided by a qualified physiotherapist. Availability and service area may vary.",
+requestPhysio:"Request Physiotherapy",
+bloodTitle:"🩸 Blood Sample Collection & Report",
+bloodInfo:"Home sample collection and laboratory report delivery can be requested through our service. Testing is performed through the associated/reputed laboratory as applicable.",
+preferredDate:"Preferred Date",
+preferredTime:"Preferred Time",
+bloodTimeHint:"Select your preferred sample collection time.",
+requestBlood:"🩸 Request Sample Collection",
+equipmentTitle:"🏥 Medical Equipment Rental",
+equipmentNote:"Rental price and availability depend on equipment and current stock.",
+duration:"Required for how many days?",
+requestRental:"Request Rental Information",
+faqTitle:"❓ FAQ / Common Questions",
+prescriptionTitle:"📝 Doctor Prescription",
+prescriptionNotice:"🔐 This section is intended for an authorized doctor / prescriber only. The system does not independently diagnose or prescribe medicines.",
+medicine:"Medicine",
+strength:"Strength",
+dose:"Dose",
+frequency:"Frequency",
+duration2:"Duration",
+instruction:"Special instructions / Follow-up",
+preview:"Preview Prescription",
+print:"🖨️ Print / Save as PDF",
+contactTitle:"📞 Contact Us",
+footer:"Pushpa Health Point • Your Health Is Our Priority"
 
 };
 
@@ -3277,7 +2961,6 @@ function applyServiceLanguage(){
 const isBN=
 currentLanguage==="bn";
 
-
 const options=
 document.querySelectorAll("#as option");
 
@@ -3312,7 +2995,6 @@ isBN
 
 });
 
-
 const homeOptions=
 document.querySelectorAll("#hs option");
 
@@ -3343,7 +3025,6 @@ isBN ? homeBN[index] : homeEN[index];
 
 });
 
-
 const reportOptions=
 document.querySelectorAll("#br option");
 
@@ -3365,7 +3046,6 @@ option.textContent=
 isBN ? reportBN[index] : reportEN[index];
 
 });
-
 
 const equipmentOptions=
 document.querySelectorAll("#eq option");
@@ -3419,9 +3099,6 @@ currentLanguage==="bn"
 ?BN
 :EN;
 
-
-/* HEADER */
-
 setText("clinicName",T.clinicName);
 setText("tag",T.tag);
 setText("timingTitle",T.timingTitle);
@@ -3430,13 +3107,7 @@ setText("emergencyTitle",T.emergencyTitle);
 setText("notice",T.notice);
 setText("installBtn",T.install);
 
-
-/* NOTIFICATION BUTTON */
-
 updateNotificationButton();
-
-
-/* HOME BUTTONS */
 
 setText("btnAppointment",T.appointment);
 setText("btnConsult",T.consult);
@@ -3449,16 +3120,10 @@ setText("btnFaq",T.faq);
 setText("btnPrescription",T.prescription);
 setText("btnContact",T.contact);
 
-
-/* CONTACT */
-
 setText("quickTitle",T.quick);
 setText("callBtn",T.call);
 setText("whatsappBtn",T.whatsapp);
 setText("mapBtn",T.map);
-
-
-/* BACK BUTTONS */
 
 document
 .querySelectorAll(".back")
@@ -3468,228 +3133,52 @@ x.innerText=T.back;
 
 });
 
+setText("appointmentTitle",T.appointmentTitle);
+setPlaceholder("an",T.patient);
+setPlaceholder("aa",T.age);
+setPlaceholder("am",T.mobile);
+setText("genderPlaceholder",T.gender);
+setText("genderMale",T.male);
+setText("genderFemale",T.female);
+setText("genderOther",T.other);
+setText("appointmentDateLabel",T.date);
+setText("appointmentTimeLabel",T.time);
+setText("appointmentTimeHint",T.timeHint);
+setText("appointmentSubmit",T.sendAppointment);
+setText("appointmentNote",T.appointmentNote);
 
-/* APPOINTMENT */
+setText("consultTitle",T.consultTitle);
+setPlaceholder("cn",T.patient);
+setPlaceholder("ca",T.age);
+setPlaceholder("cm",T.mobile);
+setText("consultDateLabel",T.date);
+setText("consultTimeLabel",T.time);
+setText("consultTimeHint",T.consultTimeHint);
+setPlaceholder("cp",T.problem);
+setText("consultSubmit",T.requestConsult);
 
-setText(
-"appointmentTitle",
-T.appointmentTitle
-);
+setText("homeVisitTitle",T.homeVisitTitle);
+setPlaceholder("hn",T.patient);
+setPlaceholder("hm",T.mobile);
+setPlaceholder("ha",T.address);
+setText("homeDateLabel",T.date);
+setText("homeTimeLabel",T.time);
+setText("homeTimeHint",T.homeTimeHint);
+setText("homeVisitSubmit",T.requestHome);
 
-setPlaceholder(
-"an",
-T.patient
-);
+setText("nursingTitle",T.nursingTitle);
+setText("nursingNote",T.nursingNote);
+setText("nursingHomeVisit",T.nursingHome);
 
-setPlaceholder(
-"aa",
-T.age
-);
+setText("physioTitle",T.physioTitle);
+setText("physioNote",T.physioNote);
+setText("physioBtn",T.requestPhysio);
 
-setPlaceholder(
-"am",
-T.mobile
-);
-
-setText(
-"genderPlaceholder",
-T.gender
-);
-
-setText(
-"genderMale",
-T.male
-);
-
-setText(
-"genderFemale",
-T.female
-);
-
-setText(
-"genderOther",
-T.other
-);
-
-setText(
-"appointmentDateLabel",
-T.date
-);
-
-setText(
-"appointmentTimeLabel",
-T.time
-);
-
-setText(
-"appointmentTimeHint",
-T.timeHint
-);
-
-setText(
-"appointmentSubmit",
-T.sendAppointment
-);
-
-setText(
-"appointmentNote",
-T.appointmentNote
-);
-
-
-/* CONSULT */
-
-setText(
-"consultTitle",
-T.consultTitle
-);
-
-setPlaceholder(
-"cn",
-T.patient
-);
-
-setPlaceholder(
-"ca",
-T.age
-);
-
-setPlaceholder(
-"cm",
-T.mobile
-);
-
-setText(
-"consultDateLabel",
-T.date
-);
-
-setText(
-"consultTimeLabel",
-T.time
-);
-
-setText(
-"consultTimeHint",
-T.consultTimeHint
-);
-
-setPlaceholder(
-"cp",
-T.problem
-);
-
-setText(
-"consultSubmit",
-T.requestConsult
-);
-
-
-/* HOME VISIT */
-
-setText(
-"homeVisitTitle",
-T.homeVisitTitle
-);
-
-setPlaceholder(
-"hn",
-T.patient
-);
-
-setPlaceholder(
-"hm",
-T.mobile
-);
-
-setPlaceholder(
-"ha",
-T.address
-);
-
-setText(
-"homeDateLabel",
-T.date
-);
-
-setText(
-"homeTimeLabel",
-T.time
-);
-
-setText(
-"homeTimeHint",
-T.homeTimeHint
-);
-
-setText(
-"homeVisitSubmit",
-T.requestHome
-);
-
-
-/* NURSING */
-
-setText(
-"nursingTitle",
-T.nursingTitle
-);
-
-setText(
-"nursingNote",
-T.nursingNote
-);
-
-setText(
-"nursingHomeVisit",
-T.nursingHome
-);
-
-
-/* PHYSIO */
-
-setText(
-"physioTitle",
-T.physioTitle
-);
-
-setText(
-"physioNote",
-T.physioNote
-);
-
-setText(
-"physioBtn",
-T.requestPhysio
-);
-
-
-/* BLOOD */
-
-setText(
-"bloodTitle",
-T.bloodTitle
-);
-
-setText(
-"bloodInfo",
-T.bloodInfo
-);
-
-setPlaceholder(
-"bn",
-T.patient
-);
-
-setPlaceholder(
-"bm",
-T.mobile
-);
-
-setPlaceholder(
-"ba",
-T.address
-);
+setText("bloodTitle",T.bloodTitle);
+setText("bloodInfo",T.bloodInfo);
+setPlaceholder("bn",T.patient);
+setPlaceholder("bm",T.mobile);
+setPlaceholder("ba",T.address);
 
 setPlaceholder(
 "bt",
@@ -3700,180 +3189,41 @@ currentLanguage==="bn"
 "Required blood test / tests"
 );
 
-setText(
-"bloodDateLabel",
-T.preferredDate
-);
+setText("bloodDateLabel",T.preferredDate);
+setText("bloodTimeLabel",T.preferredTime);
+setText("bloodTimeHint",T.bloodTimeHint);
+setText("bloodSubmit",T.requestBlood);
 
-setText(
-"bloodTimeLabel",
-T.preferredTime
-);
+setText("equipmentTitle",T.equipmentTitle);
+setText("equipmentNote",T.equipmentNote);
+setPlaceholder("en",T.patient);
+setPlaceholder("em",T.mobile);
+setPlaceholder("ed",T.duration);
+setText("equipmentSubmit",T.requestRental);
 
-setText(
-"bloodTimeHint",
-T.bloodTimeHint
-);
+setText("faqTitle",T.faqTitle);
 
-setText(
-"bloodSubmit",
-T.requestBlood
-);
+setText("prescriptionTitle",T.prescriptionTitle);
+setText("prescriptionNotice",T.prescriptionNotice);
 
+setText("pnLabel",currentLanguage==="bn"?"রোগীর নাম":"Patient Name");
+setText("paLabel",currentLanguage==="bn"?"বয়স":"Age");
+setText("pgLabel",currentLanguage==="bn"?"লিঙ্গ":"Gender");
+setText("pdLabel",currentLanguage==="bn"?"তারিখ":"Date");
+setText("docnameLabel",currentLanguage==="bn"?"ডাক্তারের নাম":"Doctor Name");
+setText("docqualLabel",currentLanguage==="bn"?"যোগ্যতা":"Qualification");
+setText("regnoLabel",currentLanguage==="bn"?"রেজিস্ট্রেশন নম্বর":"Registration Number");
+setText("diagnosisLabel",currentLanguage==="bn"?"রোগ নির্ণয় / ক্লিনিক্যাল নোট":"Diagnosis / Clinical Notes");
 
-/* EQUIPMENT */
-
-setText(
-"equipmentTitle",
-T.equipmentTitle
-);
-
-setText(
-"equipmentNote",
-T.equipmentNote
-);
-
-setPlaceholder(
-"en",
-T.patient
-);
-
-setPlaceholder(
-"em",
-T.mobile
-);
-
-setPlaceholder(
-"ed",
-T.duration
-);
-
-setText(
-"equipmentSubmit",
-T.requestRental
-);
-
-
-/* FAQ */
-
-setText(
-"faqTitle",
-T.faqTitle
-);
-
-
-/* PRESCRIPTION */
-
-setText(
-"prescriptionTitle",
-T.prescriptionTitle
-);
-
-setText(
-"prescriptionNotice",
-T.prescriptionNotice
-);
-
-setText(
-"pnLabel",
-currentLanguage==="bn"
-?"রোগীর নাম"
-:"Patient Name"
-);
-
-setText(
-"paLabel",
-currentLanguage==="bn"
-?"বয়স"
-:"Age"
-);
-
-setText(
-"pgLabel",
-currentLanguage==="bn"
-?"লিঙ্গ"
-:"Gender"
-);
-
-setText(
-"pdLabel",
-currentLanguage==="bn"
-?"তারিখ"
-:"Date"
-);
-
-setText(
-"docnameLabel",
-currentLanguage==="bn"
-?"ডাক্তারের নাম"
-:"Doctor Name"
-);
-
-setText(
-"docqualLabel",
-currentLanguage==="bn"
-?"যোগ্যতা"
-:"Qualification"
-);
-
-setText(
-"regnoLabel",
-currentLanguage==="bn"
-?"রেজিস্ট্রেশন নম্বর"
-:"Registration Number"
-);
-
-setText(
-"diagnosisLabel",
-currentLanguage==="bn"
-?"রোগ নির্ণয় / ক্লিনিক্যাল নোট"
-:"Diagnosis / Clinical Notes"
-);
-
-setText(
-"medicineTitle",
-T.medicine
-);
-
-setText(
-"medicineHead",
-T.medicine
-);
-
-setText(
-"doseHead",
-T.dose
-);
-
-setText(
-"strengthHead",
-T.strength
-);
-
-setText(
-"frequencyHead",
-T.frequency
-);
-
-setText(
-"durationHead",
-T.duration2
-);
-
-setText(
-"instructionLabel",
-T.instruction
-);
-
-setText(
-"previewBtn",
-T.preview
-);
-
-setText(
-"printBtn",
-T.print
-);
+setText("medicineTitle",T.medicine);
+setText("medicineHead",T.medicine);
+setText("doseHead",T.dose);
+setText("strengthHead",T.strength);
+setText("frequencyHead",T.frequency);
+setText("durationHead",T.duration2);
+setText("instructionLabel",T.instruction);
+setText("previewBtn",T.preview);
+setText("printBtn",T.print);
 
 setText(
 "addMedicineBtn",
@@ -3882,112 +3232,23 @@ currentLanguage==="bn"
 :"➕ Add Medicine"
 );
 
+setPlaceholder("pn",currentLanguage==="bn"?"রোগীর নাম":"Patient Name");
+setPlaceholder("pa",currentLanguage==="bn"?"বয়স":"Age");
+setPlaceholder("docname",currentLanguage==="bn"?"ডাক্তারের নাম":"Doctor Name");
+setPlaceholder("docqual",currentLanguage==="bn"?"যোগ্যতা":"Qualification");
+setPlaceholder("regno",currentLanguage==="bn"?"রেজিস্ট্রেশন নম্বর":"Registration Number");
+setPlaceholder("diagnosis",currentLanguage==="bn"?"রোগ নির্ণয় / ক্লিনিক্যাল নোট":"Diagnosis / Clinical Notes");
+setPlaceholder("pinstruction",currentLanguage==="bn"?"বিশেষ নির্দেশ / ফলো-আপ":"Special Instructions / Follow-up");
 
-/* PRESCRIPTION PLACEHOLDERS */
+setText("pgMale",currentLanguage==="bn"?"পুরুষ":"Male");
+setText("pgFemale",currentLanguage==="bn"?"মহিলা":"Female");
+setText("pgOther",currentLanguage==="bn"?"অন্যান্য":"Other");
 
-setPlaceholder(
-"pn",
-currentLanguage==="bn"
-?"রোগীর নাম"
-:"Patient Name"
-);
-
-setPlaceholder(
-"pa",
-currentLanguage==="bn"
-?"বয়স"
-:"Age"
-);
-
-setPlaceholder(
-"docname",
-currentLanguage==="bn"
-?"ডাক্তারের নাম"
-:"Doctor Name"
-);
-
-setPlaceholder(
-"docqual",
-currentLanguage==="bn"
-?"যোগ্যতা"
-:"Qualification"
-);
-
-setPlaceholder(
-"regno",
-currentLanguage==="bn"
-?"রেজিস্ট্রেশন নম্বর"
-:"Registration Number"
-);
-
-setPlaceholder(
-"diagnosis",
-currentLanguage==="bn"
-?"রোগ নির্ণয় / ক্লিনিক্যাল নোট"
-:"Diagnosis / Clinical Notes"
-);
-
-setPlaceholder(
-"pinstruction",
-currentLanguage==="bn"
-?"বিশেষ নির্দেশ / ফলো-আপ"
-:"Special Instructions / Follow-up"
-);
-
-
-/* PRESCRIPTION GENDER */
-
-setText(
-"pgMale",
-currentLanguage==="bn"
-?"পুরুষ"
-:"Male"
-);
-
-setText(
-"pgFemale",
-currentLanguage==="bn"
-?"মহিলা"
-:"Female"
-);
-
-setText(
-"pgOther",
-currentLanguage==="bn"
-?"অন্যান্য"
-:"Other"
-);
-
-
-/* CONTACT */
-
-setText(
-"contactTitle",
-T.contactTitle
-);
-
-setText(
-"contactCall",
-T.call
-);
-
-setText(
-"contactWhatsApp",
-T.whatsapp
-);
-
-setText(
-"contactMap",
-T.map
-);
-
-setText(
-"footer",
-T.footer
-);
-
-
-/* LANGUAGE BUTTON */
+setText("contactTitle",T.contactTitle);
+setText("contactCall",T.call);
+setText("contactWhatsApp",T.whatsapp);
+setText("contactMap",T.map);
+setText("footer",T.footer);
 
 document.getElementById("langBtn").innerText=
 currentLanguage==="en"
@@ -3996,14 +3257,12 @@ currentLanguage==="en"
 :
 "English";
 
-
 document.documentElement.lang=
 currentLanguage==="bn"
 ?
 "bn"
 :
 "en";
-
 
 applyServiceLanguage();
 
@@ -4015,48 +3274,27 @@ applyServiceLanguage();
 ========================= */
 
 const faqBN=[
-
 "ক্লিনিকের সময় কী?",
-
 "কীভাবে অ্যাপয়েন্টমেন্ট বুক করব?",
-
 "অনলাইন ডাক্তার পরামর্শ কি পাওয়া যায়?",
-
 "আপনারা কি বাড়িতে পরিষেবা দেন?",
-
 "রক্তের নমুনা সংগ্রহের অনুরোধ করা যাবে কি?",
-
 "মেডিকেল সরঞ্জাম কি ভাড়া পাওয়া যায়?",
-
 "ফিজিওথেরাপি কি পাওয়া যায়?",
-
 "পুষ্পা হেলথ পয়েন্টে কীভাবে যোগাযোগ করব?",
-
 "জরুরি অবস্থায় কী করা উচিত?"
-
 ];
 
-
 const faqEN=[
-
 "What are the clinic timings?",
-
 "How can I book an appointment?",
-
 "Is online doctor consultation available?",
-
 "Do you provide home visits?",
-
 "Can I request blood sample collection?",
-
 "Can I rent medical equipment?",
-
 "Do you provide physiotherapy?",
-
 "How can I contact Pushpa Health Point?",
-
 "What should I do in an emergency?"
-
 ];
 
 
@@ -4065,48 +3303,27 @@ const faqEN=[
 ========================= */
 
 const faqAnswersBN=[
-
 "ক্লিনিকের সময় সকাল ৮টা থেকে রাত ৮টা পর্যন্ত। রবিবার সাপ্তাহিক ছুটি। প্রযোজ্য ক্ষেত্রে জরুরি প্রাথমিক চিকিৎসা যেকোনো সময় পাওয়া যেতে পারে।",
-
 "অ্যাপের ‘অ্যাপয়েন্টমেন্ট বুক করুন’ অপশন খুলে রোগীর তথ্য, তারিখ ও সময় লিখে হোয়াটসঅ্যাপের মাধ্যমে অনুরোধ পাঠাতে হবে।",
-
 "হ্যাঁ। অ্যাপের মাধ্যমে অনলাইন ডাক্তার পরামর্শের অনুরোধ করা যাবে। পরামর্শের আগে ডাক্তারের প্রাপ্যতা নিশ্চিত করতে হবে।",
-
 "হ্যাঁ। অ্যাপের মাধ্যমে বাড়িতে পরিষেবার অনুরোধ করা যাবে। পরিষেবার এলাকা, সময় এবং রোগীর প্রয়োজনের উপর প্রাপ্যতা নির্ভর করবে।",
-
 "হ্যাঁ। অ্যাপের মাধ্যমে রক্তের নমুনা সংগ্রহের অনুরোধ করা যাবে এবং রিপোর্ট পাওয়ার পদ্ধতি নির্বাচন করা যাবে।",
-
 "হ্যাঁ। বর্তমান স্টক ও প্রাপ্যতার ভিত্তিতে মেডিকেল সরঞ্জাম ভাড়া নেওয়ার অনুরোধ করা যাবে।",
-
 "হ্যাঁ। ফিজিওথেরাপির অনুরোধ করা যাবে। ফিজিওথেরাপি যোগ্য ফিজিওথেরাপিস্টের মাধ্যমে প্রদান করা উচিত।",
-
 "৬২৯৪১৭২১৯৭ নম্বরে ফোন বা হোয়াটসঅ্যাপ করতে পারেন অথবা অ্যাপ থেকে গুগল ম্যাপের লোকেশন খুলতে পারেন।",
-
 "গুরুতর জরুরি অবস্থায় দেরি না করে নিকটস্থ হাসপাতাল বা ইমার্জেন্সি বিভাগে যোগাযোগ করুন। জরুরি চিকিৎসা নিতে দেরি করবেন না।"
-
 ];
 
-
 const faqAnswersEN=[
-
 "Clinic timing is 8:00 AM to 8:00 PM. Sunday is weekly off. Emergency first aid is available any time as applicable.",
-
 "Open Book Appointment, enter the patient details, select the date and time, and send the request through WhatsApp.",
-
 "Yes. You can submit an online consultation request through the app. Doctor availability should be confirmed before consultation.",
-
 "Yes. Home visit requests can be submitted through the app. Availability depends on service area, timing and clinical requirements.",
-
 "Yes. You can request sample collection and choose a preferred report delivery method.",
-
 "Equipment can be requested subject to availability.",
-
 "Physiotherapy can be requested separately and should be provided by a qualified physiotherapist.",
-
 "You can call or WhatsApp 6294172197, or open the Google Maps location from the app.",
-
 "For serious emergencies, immediately contact the nearest hospital or emergency department. Do not delay emergency medical care."
-
 ];
 
 
@@ -4124,7 +3341,6 @@ document.getElementById("faq"+i+"q");
 const a=
 document.getElementById("faq"+i+"a");
 
-
 if(q){
 
 q.innerText=
@@ -4138,7 +3354,6 @@ faqEN[i-1]
 +" ＋";
 
 }
-
 
 if(a){
 
@@ -4179,6 +3394,123 @@ translateFAQ();
 
 
 /* =========================
+   ADMIN LOGO - 3 SECOND LONG PRESS
+========================= */
+
+(function(){
+
+const adminLogo=
+document.getElementById("adminLogo");
+
+if(!adminLogo){
+return;
+}
+
+let pressTimer=null;
+let longPressTriggered=false;
+
+
+/* Start */
+
+function startLongPress(e){
+
+if(e.type==="touchstart"){
+e.preventDefault();
+}
+
+clearTimeout(pressTimer);
+
+longPressTriggered=false;
+
+pressTimer=setTimeout(function(){
+
+longPressTriggered=true;
+
+alert(
+currentLanguage==="bn"
+?
+"🔐 Admin Access খুলেছে।"
+:
+"🔐 Admin Access opened."
+);
+
+},3000);
+
+}
+
+
+/* Cancel */
+
+function cancelLongPress(){
+
+if(pressTimer){
+
+clearTimeout(pressTimer);
+pressTimer=null;
+
+}
+
+}
+
+
+/* Mobile */
+
+adminLogo.addEventListener(
+"touchstart",
+startLongPress,
+{passive:false}
+);
+
+adminLogo.addEventListener(
+"touchend",
+cancelLongPress
+);
+
+adminLogo.addEventListener(
+"touchcancel",
+cancelLongPress
+);
+
+
+/* Desktop */
+
+adminLogo.addEventListener(
+"mousedown",
+startLongPress
+);
+
+adminLogo.addEventListener(
+"mouseup",
+cancelLongPress
+);
+
+adminLogo.addEventListener(
+"mouseleave",
+cancelLongPress
+);
+
+
+/* Prevent normal click action */
+
+adminLogo.addEventListener(
+"click",
+function(e){
+
+if(longPressTriggered){
+
+e.preventDefault();
+e.stopPropagation();
+
+longPressTriggered=false;
+
+}
+
+});
+
+})();
+
+
+/* =========================
    SERVICE WORKER
 ========================= */
 
@@ -4192,7 +3524,9 @@ navigator.serviceWorker
 .register("./sw.js")
 .then(function(){
 
-console.log("Pushpa Health Point Service Worker registered.");
+console.log(
+"Pushpa Health Point Service Worker registered."
+);
 
 updateNotificationButton();
 
