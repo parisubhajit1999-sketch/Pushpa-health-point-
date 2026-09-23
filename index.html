@@ -327,6 +327,7 @@ flex-shrink:0;
 }
 
 #appointment h2:before{content:"📅"}
+#myAppointment h2:before{content:"📋"}
 #consult h2:before{content:"👨‍⚕️"}
 #homevisit h2:before{content:"🏠"}
 #nursing h2:before{content:"🩺"}
@@ -334,9 +335,9 @@ flex-shrink:0;
 #blood h2:before{content:"🩸"}
 #equipment h2:before{content:"🏥"}
 #faq h2:before{content:"❓"}
-#prescription h2:before{content:"📝"}
 #contact h2:before{content:"📞"}
 #admin h2:before{content:"🔐"}
+#adminPrescriptionPanel h2:before{content:"📝"}
 
 input,select,textarea{
 width:100%;
@@ -639,6 +640,59 @@ color:#607371;
 margin-top:8px;
 }
 
+.my-appointment-card{
+border:1px solid var(--border);
+border-radius:14px;
+padding:13px;
+margin:10px 0;
+background:#fff;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.my-appointment-head{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:8px;
+}
+
+.my-appointment-id{
+font-size:11px;
+font-weight:800;
+color:var(--g);
+}
+
+.my-appointment-details{
+font-size:13px;
+line-height:1.65;
+margin-top:9px;
+}
+
+.cancel-note{
+background:#fff4e5;
+border:1px solid #f4dfc3;
+border-radius:10px;
+padding:9px;
+font-size:11px;
+line-height:1.45;
+margin-top:9px;
+}
+
+.admin-prescription-box{
+border:1px solid var(--border);
+border-radius:14px;
+padding:13px;
+background:#fff;
+margin-top:12px;
+}
+
+.admin-prescription-actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-top:8px;
+}
+
 @media print{
 
 @page{
@@ -870,8 +924,8 @@ Services are provided according to clinical assessment, professional scope and a
 ❓<br>FAQ / Common Questions
 </button>
 
-<button class="btn i" data-page="prescription" id="btnPrescription">
-📝<br>Doctor Prescription
+<button class="btn i" data-page="myAppointment" id="btnMyAppointment">
+📋<br>My Appointment
 </button>
 
 <button class="btn j" data-page="contact" id="btnContact">
@@ -957,6 +1011,40 @@ Send Appointment Request
 <p class="small" id="appointmentNote">
 The request opens WhatsApp. Appointment must be confirmed before visiting.
 </p>
+
+</section>
+
+
+<!-- =========================
+     MY APPOINTMENT
+========================= -->
+
+<section id="myAppointment" class="hidden card">
+
+<button class="back" data-page="home">
+← Home
+</button>
+
+<h2 id="myAppointmentTitle">
+📋 My Appointment
+</h2>
+
+<div class="info" id="myAppointmentInfo">
+Enter the same mobile number used while booking the appointment.
+Your appointment details will be loaded from the database.
+</div>
+
+<input
+id="myAppointmentMobile"
+inputmode="tel"
+placeholder="Enter mobile number"
+>
+
+<button class="primary" id="findAppointmentBtn">
+🔍 Find My Appointment
+</button>
+
+<div id="myAppointmentList"></div>
 
 </section>
 
@@ -1231,11 +1319,111 @@ Request Rental Information
 </section>
 
 
-<section id="prescription" class="hidden card">
+<section id="contact" class="hidden card">
 
 <button class="back" data-page="home">← Home</button>
 
-<h2 id="prescriptionTitle">📝 Doctor Prescription</h2>
+<h2 id="contactTitle">📞 Contact Us</h2>
+
+<p><b>📞 6294172197</b></p>
+<p>✉️ parisubhajit@gmail.com</p>
+
+<p id="contactAddress">
+📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
+</p>
+
+<div class="linkrow">
+
+<a class="linkbtn" href="tel:+916294172197" id="contactCall">Call</a>
+
+<a class="linkbtn" href="https://wa.me/916294172197"
+target="_blank" id="contactWhatsApp">WhatsApp</a>
+
+</div>
+
+<a class="linkbtn" style="margin-top:10px"
+href="https://maps.app.goo.gl/3LQ2pFVnWyg827b99?g_st=aw"
+target="_blank" id="contactMap">
+📍 Open Google Maps
+</a>
+
+</section>
+
+
+<!-- =========================
+     ADMIN DASHBOARD
+========================= -->
+
+<section id="admin" class="hidden card">
+
+<button class="back" data-page="home" id="adminBack">
+← Home
+</button>
+
+<h2 id="adminTitle">🔐 Admin Dashboard</h2>
+
+<div class="admin-top">
+
+<b id="adminWelcome">
+Pushpa Health Point Admin
+</b>
+
+<p class="small" id="adminInfo">
+Manage appointment and service requests from this dashboard.
+</p>
+
+<div class="admin-counts">
+
+<div class="admin-count">
+<strong id="pendingCount">0</strong>
+Pending
+</div>
+
+<div class="admin-count">
+<strong id="confirmedCount">0</strong>
+Confirmed
+</div>
+
+<div class="admin-count">
+<strong id="doneCount">0</strong>
+Done
+</div>
+
+<div class="admin-count">
+<strong id="cancelledCount">0</strong>
+Cancelled
+</div>
+
+</div>
+
+<button class="secondary admin-refresh" id="refreshAdminBtn">
+🔄 Refresh Requests
+</button>
+
+<button class="primary" id="openAdminPrescriptionBtn">
+📝 Doctor Prescription
+</button>
+
+<div class="firebase-note" id="firebaseStatus">
+Checking database connection...
+</div>
+
+</div>
+
+
+<!-- =========================
+     ADMIN PRESCRIPTION
+========================= -->
+
+<div id="adminPrescriptionPanel" class="admin-prescription-box hidden">
+
+<button class="back" id="closeAdminPrescription">
+← Admin Dashboard
+</button>
+
+<h2 id="adminPrescriptionTitle">
+📝 Doctor Prescription
+</h2>
 
 <div class="notice" id="prescriptionNotice">
 🔐 This section is intended for an authorized doctor / prescriber only.
@@ -1377,95 +1565,8 @@ Paschim Medinipur, West Bengal – 721437
 
 </div>
 
-</section>
-
-
-<section id="contact" class="hidden card">
-
-<button class="back" data-page="home">← Home</button>
-
-<h2 id="contactTitle">📞 Contact Us</h2>
-
-<p><b>📞 6294172197</b></p>
-<p>✉️ parisubhajit@gmail.com</p>
-
-<p id="contactAddress">
-📍 Dakshin Palasi, Khurshi, Narayangarh, Paschim Medinipur, West Bengal – 721437
-</p>
-
-<div class="linkrow">
-
-<a class="linkbtn" href="tel:+916294172197" id="contactCall">Call</a>
-
-<a class="linkbtn" href="https://wa.me/916294172197"
-target="_blank" id="contactWhatsApp">WhatsApp</a>
-
 </div>
 
-<a class="linkbtn" style="margin-top:10px"
-href="https://maps.app.goo.gl/3LQ2pFVnWyg827b99?g_st=aw"
-target="_blank" id="contactMap">
-📍 Open Google Maps
-</a>
-
-</section>
-
-
-<!-- =========================
-     ADMIN DASHBOARD
-========================= -->
-
-<section id="admin" class="hidden card">
-
-<button class="back" data-page="home" id="adminBack">
-← Home
-</button>
-
-<h2 id="adminTitle">🔐 Admin Dashboard</h2>
-
-<div class="admin-top">
-
-<b id="adminWelcome">
-Pushpa Health Point Admin
-</b>
-
-<p class="small" id="adminInfo">
-Manage appointment and service requests from this dashboard.
-</p>
-
-<div class="admin-counts">
-
-<div class="admin-count">
-<strong id="pendingCount">0</strong>
-Pending
-</div>
-
-<div class="admin-count">
-<strong id="confirmedCount">0</strong>
-Confirmed
-</div>
-
-<div class="admin-count">
-<strong id="doneCount">0</strong>
-Done
-</div>
-
-<div class="admin-count">
-<strong id="cancelledCount">0</strong>
-Cancelled
-</div>
-
-</div>
-
-<button class="secondary admin-refresh" id="refreshAdminBtn">
-🔄 Refresh Requests
-</button>
-
-<div class="firebase-note" id="firebaseStatus">
-Checking database connection...
-</div>
-
-</div>
 
 <div class="admin-filter">
 
@@ -1546,6 +1647,7 @@ const LOCAL_REQUEST_KEY=
 const pages=[
 "home",
 "appointment",
+"myAppointment",
 "consult",
 "homevisit",
 "nursing",
@@ -1553,7 +1655,6 @@ const pages=[
 "blood",
 "equipment",
 "faq",
-"prescription",
 "contact",
 "admin"
 ];
@@ -1569,6 +1670,17 @@ el.classList.toggle("hidden",page!==id);
 }
 
 });
+
+if(id!=="admin"){
+
+const prescriptionPanel=
+document.getElementById("adminPrescriptionPanel");
+
+if(prescriptionPanel){
+prescriptionPanel.classList.add("hidden");
+}
+
+}
 
 window.scrollTo({
 top:0,
@@ -1726,7 +1838,25 @@ function saveLocalRequest(request){
 const requests=
 getLocalRequests();
 
+const existingIndex=
+requests.findIndex(function(item){
+return item.id===request.id;
+});
+
+if(existingIndex>=0){
+
+requests[existingIndex]=
+Object.assign(
+{},
+requests[existingIndex],
+request
+);
+
+}else{
+
 requests.unshift(request);
+
+}
 
 localStorage.setItem(
 LOCAL_REQUEST_KEY,
@@ -1792,8 +1922,15 @@ await saveRequestToFirebase(request);
 
 if(firebaseSaved){
 
-document.getElementById("firebaseStatus").innerText=
+const status=
+document.getElementById("firebaseStatus");
+
+if(status){
+
+status.innerText=
 "Firebase database connected.";
+
+}
 
 }
 
@@ -2032,6 +2169,487 @@ currentLanguage==="bn"
 :
 `Request ID ${id} has been sent.`
 );
+
+});
+
+
+/* =========================
+   MY APPOINTMENT
+========================= */
+
+function normalizeMobile(number){
+
+return String(number||"")
+.replace(/\D/g,"")
+.replace(/^91/,"");
+
+}
+
+
+function appointmentTimeDifference(item){
+
+if(!item.date || !item.time){
+return null;
+}
+
+const appointmentDateTime=
+new Date(
+item.date+"T"+item.time
+);
+
+if(isNaN(appointmentDateTime.getTime())){
+return null;
+}
+
+return appointmentDateTime.getTime()-Date.now();
+
+}
+
+
+function canCancelAppointment(item){
+
+if(!item){
+return false;
+}
+
+if(item.type!=="Appointment"){
+return false;
+}
+
+if(
+item.status==="Cancelled" ||
+item.status==="Done"
+){
+return false;
+}
+
+const difference=
+appointmentTimeDifference(item);
+
+if(difference===null){
+return false;
+}
+
+return difference >= 5*60*60*1000;
+
+}
+
+
+function formatRemainingTime(ms){
+
+if(ms<=0){
+return "0";
+}
+
+const totalMinutes=
+Math.floor(ms/60000);
+
+const hours=
+Math.floor(totalMinutes/60);
+
+const minutes=
+totalMinutes%60;
+
+return hours+"h "+minutes+"m";
+
+}
+
+
+async function findMyAppointments(){
+
+const mobile=
+normalizeMobile(
+value("myAppointmentMobile")
+);
+
+const list=
+document.getElementById("myAppointmentList");
+
+if(!mobile){
+
+list.innerHTML=
+`
+<div class="notice">
+${
+currentLanguage==="bn"
+?
+"দয়া করে আপনার মোবাইল নম্বর লিখুন।"
+:
+"Please enter your mobile number."
+}
+</div>
+`;
+
+return;
+
+}
+
+list.innerHTML=
+`
+<p class="small">
+${
+currentLanguage==="bn"
+?
+"Appointment খোঁজা হচ্ছে..."
+:
+"Searching for appointments..."
+}
+</p>
+`;
+
+const requests=
+await getAllRequests();
+
+const appointments=
+requests.filter(function(item){
+
+return(
+item.type==="Appointment" &&
+normalizeMobile(item.mobile)===mobile
+);
+
+});
+
+if(!appointments.length){
+
+list.innerHTML=
+`
+<div class="info">
+${
+currentLanguage==="bn"
+?
+"এই মোবাইল নম্বরে কোনো Appointment পাওয়া যায়নি।"
+:
+"No appointment was found for this mobile number."
+}
+</div>
+`;
+
+return;
+
+}
+
+list.innerHTML="";
+
+appointments.forEach(function(item){
+
+renderMyAppointmentCard(item,list);
+
+});
+
+}
+
+
+function renderMyAppointmentCard(item,list){
+
+const card=
+document.createElement("div");
+
+card.className="my-appointment-card";
+
+const status=
+item.status||"Pending";
+
+const date=
+item.dateText||
+formatDate(item.date||"");
+
+const time=
+item.timeText||
+formatTime12(item.time||"");
+
+let actionHTML="";
+
+if(status==="Cancelled"){
+
+actionHTML=
+`
+<div class="cancel-note">
+${
+currentLanguage==="bn"
+?
+"এই Appointment ইতিমধ্যে Cancelled হয়েছে।"
+:
+"This appointment has already been cancelled."
+}
+</div>
+`;
+
+}else if(status==="Done"){
+
+actionHTML=
+`
+<div class="cancel-note">
+${
+currentLanguage==="bn"
+?
+"এই Appointment সম্পন্ন হয়েছে।"
+:
+"This appointment has already been completed."
+}
+</div>
+`;
+
+}else if(canCancelAppointment(item)){
+
+const remaining=
+appointmentTimeDifference(item);
+
+actionHTML=
+`
+<button
+class="danger cancel-appointment-btn"
+data-id="${escapeHtml(item.id||"")}"
+style="width:100%;margin-top:10px"
+>
+❌ ${currentLanguage==="bn"?"Appointment Cancel করুন":"Cancel Appointment"}
+</button>
+
+<div class="small" style="margin-top:7px">
+${
+currentLanguage==="bn"
+?
+"Appointment-এর সময়ের ৫ ঘণ্টা আগে পর্যন্ত Cancel করা যাবে।"
+:
+"Cancellation is available until 5 hours before the appointment time."
+}
+</div>
+`;
+
+}else{
+
+const remaining=
+appointmentTimeDifference(item);
+
+if(remaining!==null && remaining>0){
+
+actionHTML=
+`
+<div class="cancel-note">
+${
+currentLanguage==="bn"
+?
+"⚠️ এখন আর Cancel করা যাবে না। Appointment-এর সময়ের ৫ ঘণ্টার কম বাকি আছে।"
+:
+"⚠️ Cancellation is no longer available because less than 5 hours remain before the appointment."
+}
+</div>
+`;
+
+}else{
+
+actionHTML=
+`
+<div class="cancel-note">
+${
+currentLanguage==="bn"
+?
+"এই Appointment-এর সময় ইতিমধ্যে চলে গেছে।"
+:
+"The appointment time has already passed."
+}
+</div>
+`;
+
+}
+
+}
+
+card.innerHTML=
+`
+<div class="my-appointment-head">
+
+<div>
+
+<div class="my-appointment-id">
+🆔 ${escapeHtml(item.id||"")}
+</div>
+
+<div style="font-weight:800;margin-top:4px">
+${escapeHtml(item.service||"Appointment")}
+</div>
+
+</div>
+
+<span class="status-badge status-${escapeHtml(status)}">
+${escapeHtml(status)}
+</span>
+
+</div>
+
+<div class="my-appointment-details">
+
+<div>
+👤 <b>${currentLanguage==="bn"?"রোগী":"Patient"}:</b>
+${escapeHtml(item.name||"—")}
+</div>
+
+<div>
+📱 <b>${currentLanguage==="bn"?"মোবাইল":"Mobile"}:</b>
+${escapeHtml(item.mobile||"—")}
+</div>
+
+<div>
+📅 <b>${currentLanguage==="bn"?"তারিখ":"Date"}:</b>
+${escapeHtml(date||"—")}
+</div>
+
+<div>
+🕐 <b>${currentLanguage==="bn"?"সময়":"Time"}:</b>
+${escapeHtml(time||"—")}
+</div>
+
+</div>
+
+${actionHTML}
+
+`;
+
+list.appendChild(card);
+
+}
+
+
+document
+.getElementById("findAppointmentBtn")
+.addEventListener("click",function(){
+
+findMyAppointments();
+
+});
+
+
+/* =========================
+   CANCEL APPOINTMENT
+========================= */
+
+async function cancelCustomerAppointment(id){
+
+const requests=
+await getAllRequests();
+
+const appointment=
+requests.find(function(item){
+
+return(
+item.id===id &&
+item.type==="Appointment"
+);
+
+});
+
+if(!appointment){
+
+alert(
+currentLanguage==="bn"
+?
+"Appointment পাওয়া যায়নি।"
+:
+"Appointment was not found."
+);
+
+return;
+
+}
+
+if(!canCancelAppointment(appointment)){
+
+alert(
+currentLanguage==="bn"
+?
+"❌ Appointment-এর সময়ের ৫ ঘণ্টার কম বাকি থাকলে Cancel করা যাবে না।"
+:
+"❌ Appointment cannot be cancelled less than 5 hours before the appointment time."
+);
+
+await findMyAppointments();
+
+return;
+
+}
+
+const confirmed=
+confirm(
+currentLanguage==="bn"
+?
+`আপনি কি ${appointment.dateText||formatDate(appointment.date)} ${appointment.timeText||formatTime12(appointment.time)}-এর Appointment Cancel করতে চান?`
+:
+`Do you want to cancel the appointment on ${appointment.dateText||formatDate(appointment.date)} at ${appointment.timeText||formatTime12(appointment.time)}?`
+);
+
+if(!confirmed){
+return;
+}
+
+await updateRequestStatus(id,"Cancelled");
+
+const message=
+
+currentLanguage==="bn"
+
+?
+
+`পুষ্পা হেলথ পয়েন্ট - Appointment Cancellation
+
+Request ID: ${id}
+
+রোগীর নাম: ${appointment.name||""}
+মোবাইল: ${appointment.mobile||""}
+তারিখ: ${appointment.dateText||formatDate(appointment.date||"")}
+সময়: ${appointment.timeText||formatTime12(appointment.time||"")}
+
+Status: Cancelled by Customer`
+
+:
+
+`Pushpa Health Point - Appointment Cancellation
+
+Request ID: ${id}
+
+Patient: ${appointment.name||""}
+Mobile: ${appointment.mobile||""}
+Date: ${appointment.dateText||formatDate(appointment.date||"")}
+Time: ${appointment.timeText||formatTime12(appointment.time||"")}
+
+Status: Cancelled by Customer`;
+
+openWhatsApp(message);
+
+showLocalNotification(
+currentLanguage==="bn"
+?
+"Appointment Cancelled"
+:
+"Appointment Cancelled",
+currentLanguage==="bn"
+?
+`Request ID ${id} Cancelled হয়েছে।`
+:
+`Request ID ${id} has been cancelled.`
+);
+
+await findMyAppointments();
+
+}
+
+
+/* Event delegation for customer cancellation */
+
+document
+.getElementById("myAppointmentList")
+.addEventListener("click",function(e){
+
+const button=
+e.target.closest(".cancel-appointment-btn");
+
+if(!button){
+return;
+}
+
+const id=
+button.getAttribute("data-id");
+
+cancelCustomerAppointment(id);
 
 });
 
@@ -2466,6 +3084,33 @@ return {
 
 
 document
+.getElementById("openAdminPrescriptionBtn")
+.addEventListener("click",function(){
+
+document
+.getElementById("adminPrescriptionPanel")
+.classList.remove("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+
+document
+.getElementById("closeAdminPrescription")
+.addEventListener("click",function(){
+
+document
+.getElementById("adminPrescriptionPanel")
+.classList.add("hidden");
+
+});
+
+
+document
 .getElementById("addMedicineBtn")
 .addEventListener("click",function(){
 
@@ -2627,7 +3272,7 @@ physio:"🧑‍🦽<br>ফিজিওথেরাপি",
 blood:"🩸<br>রক্ত পরীক্ষা ও রিপোর্ট",
 equipment:"🏥<br>মেডিকেল সরঞ্জাম ভাড়া",
 faq:"❓<br>সাধারণ প্রশ্ন",
-prescription:"📝<br>ডাক্তারের প্রেসক্রিপশন",
+myAppointment:"📋<br>আমার অ্যাপয়েন্টমেন্ট",
 contact:"📞<br>যোগাযোগ করুন",
 quick:"দ্রুত যোগাযোগ",
 call:"📞 কল",
@@ -2647,6 +3292,9 @@ time:"অ্যাপয়েন্টমেন্টের সময়",
 timeHint:"আপনার পছন্দের সময় নির্বাচন করুন।",
 sendAppointment:"অ্যাপয়েন্টমেন্টের অনুরোধ পাঠান",
 appointmentNote:"অনুরোধটি হোয়াটসঅ্যাপে খুলবে। আসার আগে অ্যাপয়েন্টমেন্ট নিশ্চিত করুন।",
+myAppointmentTitle:"📋 আমার অ্যাপয়েন্টমেন্ট",
+myAppointmentInfo:"অ্যাপয়েন্টমেন্ট বুক করার সময় যে মোবাইল নম্বর ব্যবহার করেছেন সেটি লিখুন।",
+findAppointment:"🔍 আমার অ্যাপয়েন্টমেন্ট খুঁজুন",
 consultTitle:"👨‍⚕️ অনলাইন ডাক্তার পরামর্শ",
 requestConsult:"পরামর্শের অনুরোধ পাঠান",
 consultTimeHint:"আপনার পছন্দের পরামর্শের সময় নির্বাচন করুন।",
@@ -2704,7 +3352,7 @@ physio:"🧑‍🦽<br>Physiotherapy",
 blood:"🩸<br>Blood Test & Report",
 equipment:"🏥<br>Equipment Rental",
 faq:"❓<br>FAQ / Common Questions",
-prescription:"📝<br>Doctor Prescription",
+myAppointment:"📋<br>My Appointment",
 contact:"📞<br>Contact Us",
 quick:"Quick Contact",
 call:"📞 Call",
@@ -2724,6 +3372,9 @@ time:"Appointment Time",
 timeHint:"Select your preferred time.",
 sendAppointment:"Send Appointment Request",
 appointmentNote:"The request opens WhatsApp. Appointment must be confirmed before visiting.",
+myAppointmentTitle:"📋 My Appointment",
+myAppointmentInfo:"Enter the same mobile number used while booking the appointment.",
+findAppointment:"🔍 Find My Appointment",
 consultTitle:"👨‍⚕️ Online Doctor Consultation",
 requestConsult:"Request Consultation",
 consultTimeHint:"Select your preferred consultation time.",
@@ -2919,7 +3570,7 @@ setText("btnPhysio",T.physio);
 setText("btnBlood",T.blood);
 setText("btnEquipment",T.equipment);
 setText("btnFaq",T.faq);
-setText("btnPrescription",T.prescription);
+setText("btnMyAppointment",T.myAppointment);
 setText("btnContact",T.contact);
 
 setText("quickTitle",T.quick);
@@ -2944,6 +3595,11 @@ setText("appointmentTimeLabel",T.time);
 setText("appointmentTimeHint",T.timeHint);
 setText("appointmentSubmit",T.sendAppointment);
 setText("appointmentNote",T.appointmentNote);
+
+setText("myAppointmentTitle",T.myAppointmentTitle);
+setText("myAppointmentInfo",T.myAppointmentInfo);
+setPlaceholder("myAppointmentMobile",T.mobile);
+setText("findAppointmentBtn",T.findAppointment);
 
 setText("consultTitle",T.consultTitle);
 setPlaceholder("cn",T.patient);
@@ -2992,7 +3648,7 @@ setText("equipmentSubmit",T.requestRental);
 
 setText("faqTitle",T.faqTitle);
 
-setText("prescriptionTitle",T.prescriptionTitle);
+setText("adminPrescriptionTitle",T.prescriptionTitle);
 setText("prescriptionNotice",T.prescriptionNotice);
 
 setText("pnLabel",currentLanguage==="bn"?"রোগীর নাম":"Patient Name");
@@ -3157,6 +3813,13 @@ setText(
 bn
 ?"এই ড্যাশবোর্ড থেকে Appointment ও Service Request পরিচালনা করুন।"
 :"Manage appointment and service requests from this dashboard."
+);
+
+setText(
+"openAdminPrescriptionBtn",
+bn
+?"📝 ডাক্তারের প্রেসক্রিপশন"
+:"📝 Doctor Prescription"
 );
 
 setText(
@@ -3347,23 +4010,37 @@ try{
 firebase=
 await getFirebaseRequests();
 
-document.getElementById("firebaseStatus").innerText=
+const status=
+document.getElementById("firebaseStatus");
+
+if(status){
+
+status.innerText=
 currentLanguage==="bn"
 ?
 "🟢 Firebase Database সংযুক্ত আছে।"
 :
 "🟢 Firebase Database connected.";
 
+}
+
 }catch(error){
 
 console.log(error);
 
-document.getElementById("firebaseStatus").innerText=
+const status=
+document.getElementById("firebaseStatus");
+
+if(status){
+
+status.innerText=
 currentLanguage==="bn"
 ?
 "🟡 Firebase data পাওয়া যায়নি। Local data দেখানো হচ্ছে।"
 :
 "🟡 Firebase data unavailable. Showing local data.";
+
+}
 
 }
 
@@ -3407,6 +4084,10 @@ async function loadAdminRequests(){
 
 const list=
 document.getElementById("adminRequestList");
+
+if(!list){
+return;
+}
 
 list.innerHTML=
 `<p class="small">${
@@ -3690,8 +4371,6 @@ JSON.stringify(local)
 
 }
 
-let firebaseOK=false;
-
 try{
 
 const response=
@@ -3711,8 +4390,6 @@ updatedAt:new Date().toISOString()
 })
 }
 );
-
-firebaseOK=response.ok;
 
 }catch(error){
 
