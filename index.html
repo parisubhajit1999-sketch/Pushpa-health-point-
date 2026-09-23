@@ -686,11 +686,124 @@ background:#fff;
 margin-top:12px;
 }
 
-.admin-prescription-actions{
+/* =========================
+   SERVICE CHARGE UI
+========================= */
+
+.service-charge-box{
+margin:10px 0;
+padding:12px;
+border-radius:13px;
+background:linear-gradient(135deg,#eaf7f4,#f7fbfa);
+border:1px solid #cfe6e1;
+}
+
+.service-charge-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+font-size:13px;
+}
+
+.service-charge-label{
+font-weight:700;
+color:#315653;
+}
+
+.service-charge-value{
+font-size:19px;
+font-weight:900;
+color:var(--g);
+white-space:nowrap;
+}
+
+.service-charge-note{
+font-size:11px;
+color:#607371;
+margin-top:5px;
+line-height:1.4;
+}
+
+.admin-pricing-box{
+border:1px solid var(--border);
+border-radius:14px;
+padding:13px;
+background:#fff;
+margin:12px 0;
+}
+
+.admin-pricing-title{
+font-size:16px;
+font-weight:800;
+margin-bottom:4px;
+}
+
+.price-row{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:1fr 120px;
 gap:8px;
-margin-top:8px;
+align-items:center;
+padding:8px 0;
+border-bottom:1px solid #edf1f0;
+}
+
+.price-row:last-child{
+border-bottom:0;
+}
+
+.price-name{
+font-size:13px;
+font-weight:700;
+}
+
+.price-note{
+font-size:10px;
+color:#718381;
+margin-top:2px;
+}
+
+.price-input-wrap{
+display:flex;
+align-items:center;
+gap:4px;
+}
+
+.price-symbol{
+font-weight:800;
+color:var(--g);
+}
+
+.price-input{
+margin:0!important;
+padding:9px!important;
+text-align:right;
+}
+
+.price-save-status{
+font-size:11px;
+color:#607371;
+margin-top:7px;
+}
+
+.total-charge-box{
+margin-top:10px;
+padding:12px;
+border-radius:12px;
+background:#fff8e8;
+border:1px solid #f1dfb6;
+}
+
+.total-charge-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:800;
+}
+
+.total-charge-value{
+font-size:20px;
+color:#9a6200;
 }
 
 @media print{
@@ -812,6 +925,10 @@ main{padding:13px}
 
 .admin-counts{
 grid-template-columns:repeat(2,1fr);
+}
+
+.price-row{
+grid-template-columns:1fr 105px;
 }
 
 }
@@ -992,6 +1109,20 @@ target="_blank" id="mapBtn">
 <option value="Other">Other</option>
 </select>
 
+<div class="service-charge-box">
+<div class="service-charge-row">
+<span class="service-charge-label" id="appointmentChargeLabel">
+💰 Service Charge
+</span>
+<span class="service-charge-value" id="appointmentCharge">
+₹100
+</span>
+</div>
+<div class="service-charge-note" id="appointmentChargeNote">
+This charge is shown before sending your booking request.
+</div>
+</div>
+
 <label><b id="appointmentDateLabel">Appointment Date</b></label>
 <input id="ad" type="date" required>
 
@@ -1014,10 +1145,6 @@ The request opens WhatsApp. Appointment must be confirmed before visiting.
 
 </section>
 
-
-<!-- =========================
-     MY APPOINTMENT
-========================= -->
 
 <section id="myAppointment" class="hidden card">
 
@@ -1061,6 +1188,20 @@ placeholder="Enter mobile number"
 <input id="ca" type="number" placeholder="Age" required>
 <input id="cm" inputmode="tel" placeholder="Mobile number" required>
 
+<div class="service-charge-box">
+<div class="service-charge-row">
+<span class="service-charge-label" id="consultChargeLabel">
+💰 Service Charge
+</span>
+<span class="service-charge-value" id="consultCharge">
+₹200
+</span>
+</div>
+<div class="service-charge-note" id="consultChargeNote">
+This charge is shown before sending your consultation request.
+</div>
+</div>
+
 <label><b id="consultDateLabel">Appointment Date</b></label>
 <input id="cd" type="date" required>
 
@@ -1103,6 +1244,20 @@ Request Consultation
 <option value="Dressing">Dressing</option>
 <option value="Other permitted service">Other permitted service</option>
 </select>
+
+<div class="service-charge-box">
+<div class="service-charge-row">
+<span class="service-charge-label" id="homeChargeLabel">
+💰 Service Charge
+</span>
+<span class="service-charge-value" id="homeCharge">
+₹300
+</span>
+</div>
+<div class="service-charge-note" id="homeChargeNote">
+Home visit charge depends on selected service.
+</div>
+</div>
 
 <label><b id="homeDateLabel">Date</b></label>
 <input id="hd" type="date" required>
@@ -1160,6 +1315,20 @@ Services are subject to clinical assessment, professional scope, applicable law 
 <div class="service">🛌 Post-operative rehabilitation support</div>
 <div class="service">➕ Other physiotherapy services</div>
 
+<div class="service-charge-box">
+<div class="service-charge-row">
+<span class="service-charge-label" id="physioChargeLabel">
+💰 Service Charge
+</span>
+<span class="service-charge-value" id="physioCharge">
+₹300
+</span>
+</div>
+<div class="service-charge-note" id="physioChargeNote">
+Current physiotherapy service charge.
+</div>
+</div>
+
 <p class="small" id="physioNote">
 Physiotherapy services should be provided by a qualified physiotherapist.
 Availability and service area may vary.
@@ -1189,6 +1358,20 @@ Testing is performed through the associated/reputed laboratory as applicable.
 <input id="bm" inputmode="tel" placeholder="Mobile number" required>
 <textarea id="ba" placeholder="Full address for sample collection" required></textarea>
 <input id="bt" placeholder="Required blood test / tests" required>
+
+<div class="service-charge-box">
+<div class="service-charge-row">
+<span class="service-charge-label" id="bloodChargeLabel">
+💰 Sample Collection Charge
+</span>
+<span class="service-charge-value" id="bloodCharge">
+₹100
+</span>
+</div>
+<div class="service-charge-note" id="bloodChargeNote">
+Laboratory test price may be separate. This is the service/sample collection charge.
+</div>
+</div>
 
 <label><b id="bloodDateLabel">Preferred Date</b></label>
 <input id="bd" type="date" required>
@@ -1254,7 +1437,28 @@ Rental price and availability depend on equipment and current stock.
 <option value="Other Medical Equipment">Other Medical Equipment</option>
 </select>
 
-<input id="ed" type="number" min="1" placeholder="Required for how many days?" required>
+<input id="ed" type="number" min="1" value="1" placeholder="Required for how many days?" required>
+
+<div class="service-charge-box">
+<div class="service-charge-row">
+<span class="service-charge-label" id="equipmentChargeLabel">
+💰 Rental Service Charge
+</span>
+<span class="service-charge-value" id="equipmentCharge">
+₹100/day
+</span>
+</div>
+<div class="service-charge-note" id="equipmentChargeNote">
+Rental charge is calculated according to selected duration.
+</div>
+</div>
+
+<div class="total-charge-box">
+<div class="total-charge-row">
+<span id="equipmentTotalLabel">Estimated Total</span>
+<span class="total-charge-value" id="equipmentTotal">₹100</span>
+</div>
+</div>
 
 <button class="primary" id="equipmentSubmit">
 Request Rental Information
@@ -1350,10 +1554,6 @@ target="_blank" id="contactMap">
 </section>
 
 
-<!-- =========================
-     ADMIN DASHBOARD
-========================= -->
-
 <section id="admin" class="hidden card">
 
 <button class="back" data-page="home" id="adminBack">
@@ -1404,8 +1604,133 @@ Cancelled
 📝 Doctor Prescription
 </button>
 
+<button class="primary" id="openPricingBtn">
+💰 Service Charge / Price Settings
+</button>
+
 <div class="firebase-note" id="firebaseStatus">
 Checking database connection...
+</div>
+
+</div>
+
+
+<!-- =========================
+     ADMIN SERVICE PRICING
+========================= -->
+
+<div id="adminPricingPanel" class="admin-pricing-box hidden">
+
+<button class="back" id="closePricing">
+← Admin Dashboard
+</button>
+
+<div class="admin-pricing-title" id="pricingTitle">
+💰 Service Charge / Price Settings
+</div>
+
+<p class="small" id="pricingInfo">
+Set or change the service charge here. New customer requests will use the updated prices.
+</p>
+
+<div class="price-row">
+<div>
+<div class="price-name">📅 Appointment</div>
+<div class="price-note">General appointment / selected appointment service</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="priceAppointment" type="number" min="0">
+</div>
+</div>
+
+<div class="price-row">
+<div>
+<div class="price-name">👨‍⚕️ Online Doctor Consultation</div>
+<div class="price-note">Per consultation request</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="priceConsultation" type="number" min="0">
+</div>
+</div>
+
+<div class="price-row">
+<div>
+<div class="price-name">🏠 Home Visit</div>
+<div class="price-note">Base home visit charge</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="priceHomeVisit" type="number" min="0">
+</div>
+</div>
+
+<div class="price-row">
+<div>
+<div class="price-name">🩺 Nursing Care</div>
+<div class="price-note">Used when Nursing Care is selected</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="priceNursing" type="number" min="0">
+</div>
+</div>
+
+<div class="price-row">
+<div>
+<div class="price-name">👴 Old Age Home Care</div>
+<div class="price-note">Home care service</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="priceOldAge" type="number" min="0">
+</div>
+</div>
+
+<div class="price-row">
+<div>
+<div class="price-name">🧑‍🦽 Physiotherapy</div>
+<div class="price-note">Per requested session/service</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="pricePhysio" type="number" min="0">
+</div>
+</div>
+
+<div class="price-row">
+<div>
+<div class="price-name">🩸 Blood Sample Collection</div>
+<div class="price-note">Sample collection/service charge only</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="priceBlood" type="number" min="0">
+</div>
+</div>
+
+<div class="price-row">
+<div>
+<div class="price-name">🏥 Medical Equipment Rental</div>
+<div class="price-note">Per day service/rental charge</div>
+</div>
+<div class="price-input-wrap">
+<span class="price-symbol">₹</span>
+<input class="price-input" id="priceEquipment" type="number" min="0">
+</div>
+</div>
+
+<button class="primary" id="savePricingBtn">
+💾 Save Service Charges
+</button>
+
+<button class="secondary" id="resetPricingBtn">
+↩ Reset Sample Prices
+</button>
+
+<div class="price-save-status" id="pricingSaveStatus">
+Prices are loaded from the app settings.
 </div>
 
 </div>
@@ -1639,6 +1964,374 @@ const FIREBASE_DB_URL=
 const LOCAL_REQUEST_KEY=
 "pushpaHealthPointRequests";
 
+const LOCAL_PRICE_KEY=
+"pushpaHealthPointServiceCharges";
+
+
+/* =========================
+   SERVICE PRICES
+   SAMPLE DEFAULT PRICES
+========================= */
+
+const DEFAULT_PRICES={
+appointment:100,
+consultation:200,
+homeVisit:300,
+nursing:150,
+oldAge:200,
+physio:300,
+blood:100,
+equipment:100
+};
+
+let servicePrices=
+Object.assign({},DEFAULT_PRICES);
+
+
+/* =========================
+   PRICE HELPERS
+========================= */
+
+function money(amount){
+
+const number=
+Number(amount)||0;
+
+return "₹"+number.toLocaleString("en-IN");
+
+}
+
+
+function getLocalPrices(){
+
+try{
+
+const data=
+localStorage.getItem(LOCAL_PRICE_KEY);
+
+if(data){
+
+const parsed=JSON.parse(data);
+
+return Object.assign(
+{},
+DEFAULT_PRICES,
+parsed
+);
+
+}
+
+}catch(error){
+
+console.log(error);
+
+}
+
+return Object.assign({},DEFAULT_PRICES);
+
+}
+
+
+function saveLocalPrices(){
+
+localStorage.setItem(
+LOCAL_PRICE_KEY,
+JSON.stringify(servicePrices)
+);
+
+}
+
+
+async function loadServicePrices(){
+
+servicePrices=getLocalPrices();
+
+updateAllServiceCharges();
+
+try{
+
+const response=
+await fetch(
+FIREBASE_DB_URL+
+"/settings/serviceCharges.json"
+);
+
+if(!response.ok){
+throw new Error("Firebase price HTTP "+response.status);
+}
+
+const data=
+await response.json();
+
+if(data){
+
+servicePrices=
+Object.assign(
+{},
+DEFAULT_PRICES,
+data
+);
+
+saveLocalPrices();
+
+updateAllServiceCharges();
+
+}
+
+}catch(error){
+
+console.log(
+"Firebase price settings unavailable:",
+error
+);
+
+}
+
+}
+
+
+async function saveServicePricesToFirebase(){
+
+try{
+
+const response=
+await fetch(
+FIREBASE_DB_URL+
+"/settings/serviceCharges.json",
+{
+method:"PUT",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(servicePrices)
+}
+);
+
+if(!response.ok){
+
+throw new Error(
+"Firebase price HTTP "+response.status
+);
+
+}
+
+return true;
+
+}catch(error){
+
+console.log(
+"Firebase price save failed:",
+error
+);
+
+return false;
+
+}
+
+}
+
+
+/* =========================
+   SERVICE PRICE LOGIC
+========================= */
+
+function getAppointmentCharge(){
+
+const selected=
+value("as");
+
+if(
+selected==="Nursing Care"
+){
+return servicePrices.nursing;
+}
+
+if(
+selected==="Home Visit"
+){
+return servicePrices.homeVisit;
+}
+
+if(
+selected==="Online Doctor Consultation"
+){
+return servicePrices.consultation;
+}
+
+if(
+selected==="Physiotherapy"
+){
+return servicePrices.physio;
+}
+
+if(
+selected==="Blood Sample Collection"
+){
+return servicePrices.blood;
+}
+
+if(
+selected==="Medical Equipment Rental"
+){
+return servicePrices.equipment;
+}
+
+return servicePrices.appointment;
+
+}
+
+
+function getHomeVisitCharge(){
+
+const selected=
+value("hs");
+
+if(
+selected==="Nursing care"
+){
+return servicePrices.nursing;
+}
+
+if(
+selected==="Old Age Home Care"
+){
+return servicePrices.oldAge;
+}
+
+return servicePrices.homeVisit;
+
+}
+
+
+function updateAppointmentCharge(){
+
+const charge=
+getAppointmentCharge();
+
+const el=
+document.getElementById("appointmentCharge");
+
+if(el){
+
+el.innerText=
+money(charge);
+
+}
+
+}
+
+
+function updateConsultCharge(){
+
+const el=
+document.getElementById("consultCharge");
+
+if(el){
+
+el.innerText=
+money(servicePrices.consultation);
+
+}
+
+}
+
+
+function updateHomeVisitCharge(){
+
+const charge=
+getHomeVisitCharge();
+
+const el=
+document.getElementById("homeCharge");
+
+if(el){
+
+el.innerText=
+money(charge);
+
+}
+
+}
+
+
+function updatePhysioCharge(){
+
+const el=
+document.getElementById("physioCharge");
+
+if(el){
+
+el.innerText=
+money(servicePrices.physio);
+
+}
+
+}
+
+
+function updateBloodCharge(){
+
+const el=
+document.getElementById("bloodCharge");
+
+if(el){
+
+el.innerText=
+money(servicePrices.blood);
+
+}
+
+}
+
+
+function updateEquipmentCharge(){
+
+const days=
+Math.max(
+1,
+parseInt(value("ed"),10)||1
+);
+
+const perDay=
+Number(servicePrices.equipment)||0;
+
+const total=
+perDay*days;
+
+const charge=
+document.getElementById("equipmentCharge");
+
+const totalEl=
+document.getElementById("equipmentTotal");
+
+if(charge){
+
+charge.innerText=
+money(perDay)+"/day";
+
+}
+
+if(totalEl){
+
+totalEl.innerText=
+money(total);
+
+}
+
+}
+
+
+function updateAllServiceCharges(){
+
+updateAppointmentCharge();
+updateConsultCharge();
+updateHomeVisitCharge();
+updatePhysioCharge();
+updateBloodCharge();
+updateEquipmentCharge();
+
+}
+
 
 /* =========================
    PAGE NAVIGATION
@@ -1676,8 +2369,15 @@ if(id!=="admin"){
 const prescriptionPanel=
 document.getElementById("adminPrescriptionPanel");
 
+const pricingPanel=
+document.getElementById("adminPricingPanel");
+
 if(prescriptionPanel){
 prescriptionPanel.classList.add("hidden");
+}
+
+if(pricingPanel){
+pricingPanel.classList.add("hidden");
 }
 
 }
@@ -2089,6 +2789,19 @@ enableNotifications();
 
 
 /* =========================
+   APPOINTMENT PRICE CHANGE
+========================= */
+
+document
+.getElementById("as")
+.addEventListener("change",function(){
+
+updateAppointmentCharge();
+
+});
+
+
+/* =========================
    APPOINTMENT
 ========================= */
 
@@ -2101,6 +2814,9 @@ e.preventDefault();
 const time12=formatTime12(value("at"));
 const dateText=formatDate(value("ad"));
 
+const charge=
+getAppointmentCharge();
+
 const id=createRequestId("Appointment");
 
 const request={
@@ -2111,6 +2827,7 @@ age:value("aa"),
 gender:value("ag"),
 mobile:value("am"),
 service:value("as"),
+serviceCharge:charge,
 date:value("ad"),
 time:value("at"),
 dateText:dateText,
@@ -2136,6 +2853,7 @@ Request ID: ${id}
 লিঙ্গ: ${value("ag")}
 মোবাইল: ${value("am")}
 পরিষেবা: ${value("as")}
+Service Charge: ${money(charge)}
 তারিখ: ${dateText}
 সময়: ${time12}
 
@@ -2152,6 +2870,7 @@ Age: ${value("aa")}
 Gender: ${value("ag")}
 Mobile: ${value("am")}
 Service: ${value("as")}
+Service Charge: ${money(charge)}
 Date: ${dateText}
 Time: ${time12}
 
@@ -2165,9 +2884,9 @@ currentLanguage==="bn"
 :"Appointment Request",
 currentLanguage==="bn"
 ?
-`Request ID ${id} পাঠানো হয়েছে।`
+`Request ID ${id} পাঠানো হয়েছে। Charge ${money(charge)}`
 :
-`Request ID ${id} has been sent.`
+`Request ID ${id} has been sent. Charge ${money(charge)}`
 );
 
 });
@@ -2392,9 +3111,6 @@ currentLanguage==="bn"
 
 }else if(canCancelAppointment(item)){
 
-const remaining=
-appointmentTimeDifference(item);
-
 actionHTML=
 `
 <button
@@ -2487,6 +3203,11 @@ ${escapeHtml(item.name||"—")}
 <div>
 📱 <b>${currentLanguage==="bn"?"মোবাইল":"Mobile"}:</b>
 ${escapeHtml(item.mobile||"—")}
+</div>
+
+<div>
+💰 <b>${currentLanguage==="bn"?"Service Charge":"Service Charge"}:</b>
+${escapeHtml(money(item.serviceCharge||0))}
 </div>
 
 <div>
@@ -2633,8 +3354,6 @@ await findMyAppointments();
 }
 
 
-/* Event delegation for customer cancellation */
-
 document
 .getElementById("myAppointmentList")
 .addEventListener("click",function(e){
@@ -2667,6 +3386,9 @@ e.preventDefault();
 const time12=formatTime12(value("ct"));
 const dateText=formatDate(value("cd"));
 
+const charge=
+Number(servicePrices.consultation)||0;
+
 const id=createRequestId(
 "Online Doctor Consultation"
 );
@@ -2677,6 +3399,7 @@ type:"Online Doctor Consultation",
 name:value("cn"),
 age:value("ca"),
 mobile:value("cm"),
+serviceCharge:charge,
 date:value("cd"),
 time:value("ct"),
 dateText:dateText,
@@ -2701,6 +3424,7 @@ Request ID: ${id}
 রোগীর নাম: ${value("cn")}
 বয়স: ${value("ca")}
 মোবাইল: ${value("cm")}
+Service Charge: ${money(charge)}
 তারিখ: ${dateText}
 সময়: ${time12}
 সমস্যা: ${value("cp")}
@@ -2716,6 +3440,7 @@ Request ID: ${id}
 Patient: ${value("cn")}
 Age: ${value("ca")}
 Mobile: ${value("cm")}
+Service Charge: ${money(charge)}
 Date: ${dateText}
 Time: ${time12}
 Problem: ${value("cp")}
@@ -2730,9 +3455,9 @@ currentLanguage==="bn"
 :"Online Doctor Consultation",
 currentLanguage==="bn"
 ?
-`Request ID ${id} পাঠানো হয়েছে।`
+`Request ID ${id} পাঠানো হয়েছে। Charge ${money(charge)}`
 :
-`Request ID ${id} has been sent.`
+`Request ID ${id} has been sent. Charge ${money(charge)}`
 );
 
 });
@@ -2743,6 +3468,15 @@ currentLanguage==="bn"
 ========================= */
 
 document
+.getElementById("hs")
+.addEventListener("change",function(){
+
+updateHomeVisitCharge();
+
+});
+
+
+document
 .getElementById("homevisitForm")
 .addEventListener("submit",async function(e){
 
@@ -2750,6 +3484,9 @@ e.preventDefault();
 
 const time12=formatTime12(value("ht"));
 const dateText=formatDate(value("hd"));
+
+const charge=
+getHomeVisitCharge();
 
 const id=createRequestId("Home Visit");
 
@@ -2760,6 +3497,7 @@ name:value("hn"),
 mobile:value("hm"),
 address:value("ha"),
 service:value("hs"),
+serviceCharge:charge,
 date:value("hd"),
 time:value("ht"),
 dateText:dateText,
@@ -2784,6 +3522,7 @@ Request ID: ${id}
 মোবাইল: ${value("hm")}
 ঠিকানা: ${value("ha")}
 পরিষেবা: ${value("hs")}
+Service Charge: ${money(charge)}
 তারিখ: ${dateText}
 সময়: ${time12}
 
@@ -2799,6 +3538,7 @@ Patient: ${value("hn")}
 Mobile: ${value("hm")}
 Address: ${value("ha")}
 Service: ${value("hs")}
+Service Charge: ${money(charge)}
 Date: ${dateText}
 Time: ${time12}
 
@@ -2812,9 +3552,9 @@ currentLanguage==="bn"
 :"Home Visit Request",
 currentLanguage==="bn"
 ?
-`Request ID ${id} পাঠানো হয়েছে।`
+`Request ID ${id} পাঠানো হয়েছে। Charge ${money(charge)}`
 :
-`Request ID ${id} has been sent.`
+`Request ID ${id} has been sent. Charge ${money(charge)}`
 );
 
 });
@@ -2828,6 +3568,9 @@ document
 .getElementById("physioBtn")
 .addEventListener("click",async function(){
 
+const charge=
+Number(servicePrices.physio)||0;
+
 const id=createRequestId("Physiotherapy");
 
 const request={
@@ -2835,6 +3578,7 @@ id:id,
 type:"Physiotherapy",
 name:"",
 mobile:"",
+serviceCharge:charge,
 date:"",
 time:"",
 status:"Pending",
@@ -2853,6 +3597,8 @@ currentLanguage==="bn"
 
 Request ID: ${id}
 
+Service Charge: ${money(charge)}
+
 ফিজিওথেরাপি পরিষেবা সম্পর্কে আমার সঙ্গে যোগাযোগ করুন।`
 
 :
@@ -2860,6 +3606,8 @@ Request ID: ${id}
 `Pushpa Health Point - Physiotherapy Request
 
 Request ID: ${id}
+
+Service Charge: ${money(charge)}
 
 Please contact me regarding physiotherapy service.`;
 
@@ -2871,9 +3619,9 @@ currentLanguage==="bn"
 :"Physiotherapy Request",
 currentLanguage==="bn"
 ?
-`Request ID ${id} পাঠানো হয়েছে।`
+`Request ID ${id} পাঠানো হয়েছে। Charge ${money(charge)}`
 :
-`Request ID ${id} has been sent.`
+`Request ID ${id} has been sent. Charge ${money(charge)}`
 );
 
 });
@@ -2892,6 +3640,9 @@ e.preventDefault();
 const time12=formatTime12(value("btime"));
 const dateText=formatDate(value("bd"));
 
+const charge=
+Number(servicePrices.blood)||0;
+
 const id=createRequestId(
 "Blood Sample Collection"
 );
@@ -2903,6 +3654,7 @@ name:value("bn"),
 mobile:value("bm"),
 address:value("ba"),
 test:value("bt"),
+serviceCharge:charge,
 date:value("bd"),
 time:value("btime"),
 dateText:dateText,
@@ -2928,6 +3680,7 @@ Request ID: ${id}
 মোবাইল: ${value("bm")}
 ঠিকানা: ${value("ba")}
 পরীক্ষা: ${value("bt")}
+Sample Collection Charge: ${money(charge)}
 তারিখ: ${dateText}
 সময়: ${time12}
 রিপোর্ট পাওয়ার পদ্ধতি: ${value("br")}
@@ -2944,6 +3697,7 @@ Patient: ${value("bn")}
 Mobile: ${value("bm")}
 Address: ${value("ba")}
 Test: ${value("bt")}
+Sample Collection Charge: ${money(charge)}
 Date: ${dateText}
 Time: ${time12}
 Report Delivery: ${value("br")}
@@ -2958,9 +3712,9 @@ currentLanguage==="bn"
 :"Blood Sample Collection",
 currentLanguage==="bn"
 ?
-`Request ID ${id} পাঠানো হয়েছে।`
+`Request ID ${id} পাঠানো হয়েছে। Charge ${money(charge)}`
 :
-`Request ID ${id} has been sent.`
+`Request ID ${id} has been sent. Charge ${money(charge)}`
 );
 
 });
@@ -2971,10 +3725,40 @@ currentLanguage==="bn"
 ========================= */
 
 document
+.getElementById("ed")
+.addEventListener("input",function(){
+
+updateEquipmentCharge();
+
+});
+
+
+document
+.getElementById("eq")
+.addEventListener("change",function(){
+
+updateEquipmentCharge();
+
+});
+
+
+document
 .getElementById("equipmentForm")
 .addEventListener("submit",async function(e){
 
 e.preventDefault();
+
+const days=
+Math.max(
+1,
+parseInt(value("ed"),10)||1
+);
+
+const perDay=
+Number(servicePrices.equipment)||0;
+
+const total=
+perDay*days;
 
 const id=createRequestId(
 "Medical Equipment Rental"
@@ -2986,7 +3770,9 @@ type:"Medical Equipment Rental",
 name:value("en"),
 mobile:value("em"),
 equipment:value("eq"),
-duration:value("ed"),
+duration:days,
+serviceChargePerDay:perDay,
+serviceCharge:total,
 status:"Pending",
 createdAt:new Date().toISOString()
 };
@@ -3006,7 +3792,9 @@ Request ID: ${id}
 গ্রাহক/রোগীর নাম: ${value("en")}
 মোবাইল: ${value("em")}
 সরঞ্জাম: ${value("eq")}
-প্রয়োজনীয় সময়কাল: ${value("ed")} দিন
+প্রয়োজনীয় সময়কাল: ${days} দিন
+Rental Charge: ${money(perDay)} / day
+Estimated Total: ${money(total)}
 
 Status: Pending`
 
@@ -3019,7 +3807,9 @@ Request ID: ${id}
 Customer/Patient: ${value("en")}
 Mobile: ${value("em")}
 Equipment: ${value("eq")}
-Required Duration: ${value("ed")} days
+Required Duration: ${days} days
+Rental Charge: ${money(perDay)} / day
+Estimated Total: ${money(total)}
 
 Status: Pending`;
 
@@ -3031,9 +3821,9 @@ currentLanguage==="bn"
 :"Medical Equipment Request",
 currentLanguage==="bn"
 ?
-`Request ID ${id} পাঠানো হয়েছে।`
+`Request ID ${id} পাঠানো হয়েছে। Total ${money(total)}`
 :
-`Request ID ${id} has been sent.`
+`Request ID ${id} has been sent. Total ${money(total)}`
 );
 
 });
@@ -3090,6 +3880,10 @@ document
 document
 .getElementById("adminPrescriptionPanel")
 .classList.remove("hidden");
+
+document
+.getElementById("adminPricingPanel")
+.classList.add("hidden");
 
 window.scrollTo({
 top:0,
@@ -3199,6 +3993,216 @@ document
 .getElementById("printBtn")
 .addEventListener("click",function(){
 window.print();
+});
+
+
+/* =========================
+   ADMIN PRICING
+========================= */
+
+function loadPricingInputs(){
+
+document.getElementById("priceAppointment").value=
+servicePrices.appointment;
+
+document.getElementById("priceConsultation").value=
+servicePrices.consultation;
+
+document.getElementById("priceHomeVisit").value=
+servicePrices.homeVisit;
+
+document.getElementById("priceNursing").value=
+servicePrices.nursing;
+
+document.getElementById("priceOldAge").value=
+servicePrices.oldAge;
+
+document.getElementById("pricePhysio").value=
+servicePrices.physio;
+
+document.getElementById("priceBlood").value=
+servicePrices.blood;
+
+document.getElementById("priceEquipment").value=
+servicePrices.equipment;
+
+}
+
+
+function readPricingInputs(){
+
+function num(id,fallback){
+
+const n=
+Number(document.getElementById(id).value);
+
+return Number.isFinite(n) && n>=0
+?
+n
+:
+fallback;
+
+}
+
+servicePrices={
+appointment:num(
+"priceAppointment",
+DEFAULT_PRICES.appointment
+),
+
+consultation:num(
+"priceConsultation",
+DEFAULT_PRICES.consultation
+),
+
+homeVisit:num(
+"priceHomeVisit",
+DEFAULT_PRICES.homeVisit
+),
+
+nursing:num(
+"priceNursing",
+DEFAULT_PRICES.nursing
+),
+
+oldAge:num(
+"priceOldAge",
+DEFAULT_PRICES.oldAge
+),
+
+physio:num(
+"pricePhysio",
+DEFAULT_PRICES.physio
+),
+
+blood:num(
+"priceBlood",
+DEFAULT_PRICES.blood
+),
+
+equipment:num(
+"priceEquipment",
+DEFAULT_PRICES.equipment
+)
+};
+
+}
+
+
+document
+.getElementById("openPricingBtn")
+.addEventListener("click",function(){
+
+loadPricingInputs();
+
+document
+.getElementById("adminPricingPanel")
+.classList.remove("hidden");
+
+document
+.getElementById("adminPrescriptionPanel")
+.classList.add("hidden");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+
+document
+.getElementById("closePricing")
+.addEventListener("click",function(){
+
+document
+.getElementById("adminPricingPanel")
+.classList.add("hidden");
+
+});
+
+
+document
+.getElementById("savePricingBtn")
+.addEventListener("click",async function(){
+
+readPricingInputs();
+
+saveLocalPrices();
+
+updateAllServiceCharges();
+
+const status=
+document.getElementById("pricingSaveStatus");
+
+status.innerText=
+currentLanguage==="bn"
+?
+"⏳ Service Charge save করা হচ্ছে..."
+:
+"⏳ Saving service charges...";
+
+const firebaseSaved=
+await saveServicePricesToFirebase();
+
+if(firebaseSaved){
+
+status.innerText=
+currentLanguage==="bn"
+?
+"✅ Service Charge সফলভাবে Save হয়েছে। নতুন Booking-এ এই দাম ব্যবহার হবে।"
+:
+"✅ Service charges saved successfully. New bookings will use these prices.";
+
+}else{
+
+status.innerText=
+currentLanguage==="bn"
+?
+"🟡 Device-এ Save হয়েছে। Firebase-এ Save করা যায়নি।"
+:
+"🟡 Saved on this device. Firebase could not be updated.";
+
+}
+
+});
+
+
+document
+.getElementById("resetPricingBtn")
+.addEventListener("click",function(){
+
+const confirmed=
+confirm(
+currentLanguage==="bn"
+?
+"Sample prices-এ ফিরে যেতে চান?"
+:
+"Do you want to reset to the sample prices?"
+);
+
+if(!confirmed){
+return;
+}
+
+servicePrices=
+Object.assign({},DEFAULT_PRICES);
+
+saveLocalPrices();
+
+loadPricingInputs();
+
+updateAllServiceCharges();
+
+document
+.getElementById("pricingSaveStatus")
+.innerText=
+currentLanguage==="bn"
+?
+"Sample prices restore করা হয়েছে।"
+:
+"Sample prices have been restored.";
+
 });
 
 
@@ -3693,6 +4697,140 @@ setText("contactWhatsApp",T.whatsapp);
 setText("contactMap",T.map);
 setText("footer",T.footer);
 
+setText(
+"appointmentChargeLabel",
+currentLanguage==="bn"?"💰 পরিষেবা চার্জ":"💰 Service Charge"
+);
+
+setText(
+"appointmentChargeNote",
+currentLanguage==="bn"
+?
+"Booking পাঠানোর আগে এই Charge দেখানো হচ্ছে।"
+:
+"This charge is shown before sending your booking request."
+);
+
+setText(
+"consultChargeLabel",
+currentLanguage==="bn"?"💰 পরিষেবা চার্জ":"💰 Service Charge"
+);
+
+setText(
+"consultChargeNote",
+currentLanguage==="bn"
+?
+"Consultation request পাঠানোর আগে এই Charge দেখানো হচ্ছে।"
+:
+"This charge is shown before sending your consultation request."
+);
+
+setText(
+"homeChargeLabel",
+currentLanguage==="bn"?"💰 পরিষেবা চার্জ":"💰 Service Charge"
+);
+
+setText(
+"homeChargeNote",
+currentLanguage==="bn"
+?
+"নির্বাচিত পরিষেবা অনুযায়ী Home Visit Charge দেখানো হচ্ছে।"
+:
+"Home visit charge depends on selected service."
+);
+
+setText(
+"physioChargeLabel",
+currentLanguage==="bn"?"💰 পরিষেবা চার্জ":"💰 Service Charge"
+);
+
+setText(
+"physioChargeNote",
+currentLanguage==="bn"
+?
+"বর্তমান Physiotherapy Service Charge।"
+:
+"Current physiotherapy service charge."
+);
+
+setText(
+"bloodChargeLabel",
+currentLanguage==="bn"?"💰 নমুনা সংগ্রহের চার্জ":"💰 Sample Collection Charge"
+);
+
+setText(
+"bloodChargeNote",
+currentLanguage==="bn"
+?
+"ল্যাবরেটরি পরীক্ষার দাম আলাদা হতে পারে। এটি Sample Collection Service Charge।"
+:
+"Laboratory test price may be separate. This is the service/sample collection charge."
+);
+
+setText(
+"equipmentChargeLabel",
+currentLanguage==="bn"?"💰 ভাড়ার সার্ভিস চার্জ":"💰 Rental Service Charge"
+);
+
+setText(
+"equipmentChargeNote",
+currentLanguage==="bn"
+?
+"কত দিনের জন্য নেবেন তার উপর মোট Charge হিসাব হবে।"
+:
+"Rental charge is calculated according to selected duration."
+);
+
+setText(
+"equipmentTotalLabel",
+currentLanguage==="bn"?"আনুমানিক মোট":"Estimated Total"
+);
+
+setText(
+"pricingTitle",
+currentLanguage==="bn"
+?
+"💰 পরিষেবা চার্জ / দাম সেটিংস"
+:
+"💰 Service Charge / Price Settings"
+);
+
+setText(
+"pricingInfo",
+currentLanguage==="bn"
+?
+"এখান থেকে Service Charge পরিবর্তন করুন। নতুন Customer Request-এ নতুন দাম ব্যবহার হবে।"
+:
+"Set or change the service charge here. New customer requests will use the updated prices."
+);
+
+setText(
+"openPricingBtn",
+currentLanguage==="bn"
+?
+"💰 Service Charge / Price Settings"
+:
+"💰 Service Charge / Price Settings"
+);
+
+setText(
+"savePricingBtn",
+currentLanguage==="bn"
+?
+"💾 Service Charge Save করুন"
+:
+"💾 Save Service Charges"
+);
+
+setText(
+"resetPricingBtn",
+currentLanguage==="bn"
+?
+"↩ Sample Price-এ Reset"
+:
+"↩ Reset Sample Prices"
+);
+
 document.getElementById("langBtn").innerText=
 currentLanguage==="en"?"বাংলা":"English";
 
@@ -3702,6 +4840,8 @@ currentLanguage==="bn"?"bn":"en";
 applyServiceLanguage();
 
 updateAdminLanguage();
+
+updateAllServiceCharges();
 
 }
 
@@ -4233,6 +5373,36 @@ extra+=
 `<div><b>Duration:</b> ${escapeHtml(item.duration)} days</div>`;
 }
 
+if(
+item.serviceCharge!==undefined &&
+item.serviceCharge!==null
+){
+
+extra+=
+`
+<div>
+<b>💰 Service Charge:</b>
+${escapeHtml(money(item.serviceCharge))}
+</div>
+`;
+
+}
+
+if(
+item.serviceChargePerDay!==undefined &&
+item.serviceChargePerDay!==null
+){
+
+extra+=
+`
+<div>
+<b>💰 Charge / Day:</b>
+${escapeHtml(money(item.serviceChargePerDay))}
+</div>
+`;
+
+}
+
 card.innerHTML=`
 
 <div class="admin-card-head">
@@ -4483,11 +5653,13 @@ error
 
 
 /* =========================
-   INITIAL LANGUAGE
+   INITIAL LOAD
 ========================= */
 
 applyLanguage();
 translateFAQ();
+
+loadServicePrices();
 
 </script>
 
